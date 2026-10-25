@@ -40,6 +40,14 @@ export function Footer() {
             <a href={`mailto:${site.email}`} className="mt-6 block text-sm text-ivory/75 hover:text-ivory">
               {site.email}
             </a>
+            <a
+              href={site.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 block text-sm text-ivory/75 hover:text-ivory"
+            >
+              WhatsApp · {site.whatsapp.display}
+            </a>
             <div className="mt-8 flex gap-3">
               <a
                 href={site.social.instagram}

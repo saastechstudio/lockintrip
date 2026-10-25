@@ -27,8 +27,8 @@ export default function Cgv() {
       <p>Les prix incluent les prestations listées sur la page Tarifs du site au jour de la réservation.</p>
       <h2>3. Réservation et paiement</h2>
       <p>
-        La réservation devient ferme après l&apos;échange préalable avec l&apos;équipe et le versement d&apos;un acompte de
-        [x] %. Le solde est exigible [x] jours avant le départ. Un paiement en 3 ou 4 fois sans frais peut être proposé.
+        Le prix total est réglé en ligne au moment de la réservation, par l&apos;intermédiaire du prestataire de paiement
+        sécurisé Stripe. La réservation est ferme dès la validation du paiement ; une facture est adressée par e-mail.
       </p>
       <h2>4. Annulation et report</h2>
       <p>[Barème d&apos;annulation par le participant selon la date, conditions de report, annulation par l&apos;organisateur.]</p>

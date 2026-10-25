@@ -13,12 +13,43 @@ npm run dev        # http://localhost:3000
 npm run build      # build de production (types + lint inclus)
 ```
 
-## Variables d'environnement
+## Paiement (Stripe via Supabase)
 
-| Variable | Rôle |
+Le paiement total se fait en ligne à la réservation. Aucune clé secrète n'est stockée dans le site :
+
+1. Le formulaire `/reserver` appelle l'Edge Function Supabase `create-checkout`, qui enregistre la réservation
+   (table `reservations`, statut `pending`) et ouvre une page de paiement Stripe Checkout.
+2. Stripe appelle l'Edge Function `stripe-webhook`, qui passe la réservation en `paid`.
+3. Le client revient sur `/reserver/confirmation`, qui lit le statut via `checkout-status`.
+4. Stripe génère la facture et l'envoie par e-mail au client.
+
+Le compteur de places du site lit les réservations payées (rafraîchi toutes les 60 s).
+Code des fonctions : `supabase/functions/`. Les prix et dates y sont dupliqués dans `_shared/shared.ts` :
+à mettre à jour avec `src/content/` en cas de changement, puis redéployer.
+
+### Mise en service
+
+Dans Supabase → Project Settings → Edge Functions → Secrets :
+
+| Secret | Valeur |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | URL publique (SEO, sitemap, Open Graph) |
-| `RESERVATION_WEBHOOK_URL` | Reçoit chaque demande de réservation en JSON (Zapier, Make, Slack, CRM). **Obligatoire en production** : sans elle, l'API répond 503 au lieu de perdre la demande. |
+| `STRIPE_SECRET_KEY` | Clé secrète Stripe (`sk_live_…`, ou `sk_test_…` pour tester) |
+| `STRIPE_WEBHOOK_SECRET` | Secret de signature du webhook (`whsec_…`, étape suivante) |
+| `SITE_URL` | URL publique du site, ex. `https://lockintrip.com` (retour après paiement) |
+| `RESERVATION_WEBHOOK_URL` | Facultatif : notification de l'équipe à chaque paiement (Zapier, Make, Slack…) |
+
+Dans Stripe → Développeurs → Webhooks → Ajouter un endpoint :
+- URL : `https://shewnuknybqjlypyzlii.supabase.co/functions/v1/stripe-webhook`
+- Événements : `checkout.session.completed`, `checkout.session.async_payment_succeeded`,
+  `checkout.session.async_payment_failed`, `checkout.session.expired`
+
+Dans Stripe → Paramètres :
+- **Factures** : renseigner raison sociale, adresse, SIRET, numéro de TVA et mentions légales.
+- **E-mails clients** : activer l'envoi des reçus et des factures pour les paiements réussis.
+
+## Variables d'environnement (site)
+
+Aucune n'est obligatoire. `NEXT_PUBLIC_SITE_URL` sert au SEO ; voir `.env.example`.
 
 ## Modifier le contenu
 
@@ -67,5 +98,5 @@ src/
 
 - Remplacer les témoignages fictifs (ou `showTestimonials = false`).
 - Compléter les pages légales (mentions entre crochets) et les faire valider ; vendre un forfait vol + hôtel suppose une immatriculation Atout France.
-- Configurer `RESERVATION_WEBHOOK_URL`.
+- Ajouter les secrets Stripe dans Supabase et créer le webhook Stripe (voir « Paiement »).
 - Ajouter les vraies photos et les noms des experts.

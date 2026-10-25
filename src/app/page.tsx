@@ -13,11 +13,16 @@ import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { StickyCta } from "@/components/booking/sticky-cta";
 import { JsonLd, eventsJsonLd, faqJsonLd, organizationJsonLd } from "@/lib/seo";
+import { getSessions } from "@/lib/seats";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const sessions = await getSessions();
+  const remaining = sessions.reduce((n, s) => n + Math.max(s.capacity - s.taken, 0), 0);
   return (
     <>
-      <JsonLd data={[organizationJsonLd(), ...eventsJsonLd(), faqJsonLd()]} />
+      <JsonLd data={[organizationJsonLd(), ...eventsJsonLd(sessions), faqJsonLd()]} />
       <Hero />
       <Problem />
       <Concept />
@@ -31,7 +36,7 @@ export default function HomePage() {
       <Testimonials />
       <Faq />
       <FinalCta />
-      <StickyCta />
+      <StickyCta remaining={remaining} />
     </>
   );
 }

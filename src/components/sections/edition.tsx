@@ -3,11 +3,15 @@ import { ArrowUpRight } from "lucide-react";
 import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
-import { editionYear, sessions, totalCapacity, totalTaken } from "@/content/sessions";
+import { editionYear } from "@/content/sessions";
+import { getSessions } from "@/lib/seats";
 import { cn, formatDay } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
 
-export function Edition() {
+export async function Edition() {
+  const sessions = await getSessions();
+  const totalCapacity = sessions.reduce((n, s) => n + s.capacity, 0);
+  const totalTaken = sessions.reduce((n, s) => n + Math.min(s.taken, s.capacity), 0);
   const remaining = totalCapacity - totalTaken;
 
   return (

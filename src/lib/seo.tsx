@@ -1,5 +1,5 @@
 import { offers } from "@/content/offers";
-import { sessions } from "@/content/sessions";
+import type { Session } from "@/content/sessions";
 import { site } from "@/content/site";
 import { faq } from "@/content/faq";
 
@@ -16,7 +16,7 @@ export function organizationJsonLd() {
   };
 }
 
-export function eventsJsonLd() {
+export function eventsJsonLd(sessions: Session[]) {
   return sessions.map((s) => ({
     "@context": "https://schema.org",
     "@type": "Event",

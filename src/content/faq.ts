@@ -51,16 +51,16 @@ export const faq: FaqGroup[] = [
     title: "Paiement et réservation",
     items: [
       {
-        q: "Puis-je payer en plusieurs fois ?",
-        a: "Oui, en 3 ou 4 fois sans frais. Ta place est bloquée dès le premier versement.",
+        q: "Comment se passe le paiement ?",
+        a: "Directement en ligne au moment de la réservation, par carte bancaire, Apple Pay ou Google Pay, sur la page sécurisée de Stripe. Ta place est confirmée dès le paiement validé et ta facture t'est envoyée automatiquement par e-mail.",
       },
       {
         q: "Comment se passe la réservation ?",
-        a: "Tu déposes ta demande en deux minutes. Nous t'appelons sous 48 h pour un échange de quinze minutes, puis ta place est confirmée par le premier paiement. Cette étape garantit un groupe engagé et complémentaire.",
+        a: "Tu choisis ta formule et ta session, tu remplis tes informations en deux minutes, puis tu règles ta place en ligne. Tu reçois immédiatement ta confirmation et ta facture, puis l'invitation au groupe privé avant le séjour.",
       },
       {
         q: "Mon entreprise peut-elle prendre en charge le séjour ?",
-        a: "Le programme ayant une forte dimension professionnelle, une facture au nom de ta société peut être émise. Rapproche-toi de ton expert-comptable pour son traitement.",
+        a: "Oui. Au moment du paiement, tu peux indiquer le nom et le numéro de TVA de ta société : la facture est établie à son nom. Rapproche-toi de ton expert-comptable pour son traitement.",
       },
       {
         q: "Et si je dois annuler ?",

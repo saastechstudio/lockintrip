@@ -6,11 +6,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { startingPrice } from "@/content/offers";
-import { totalCapacity, totalTaken } from "@/content/sessions";
 import { formatPrice } from "@/lib/utils";
 
 /** Barre de réservation flottante : visible après le hero, masquée sur le CTA final et le footer. */
-export function StickyCta() {
+export function StickyCta({ remaining }: { remaining: number }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -38,7 +37,6 @@ export function StickyCta() {
     };
   }, []);
 
-  const remaining = totalCapacity - totalTaken;
 
   return (
     <AnimatePresence>
@@ -56,7 +54,7 @@ export function StickyCta() {
                 <span className="size-1.5 shrink-0 rounded-full bg-bordeaux" />
                 {remaining} places · Phuket 2027
               </p>
-              <p className="truncate text-xs text-muted">Dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · en 3 ou 4 fois sans frais</span></p>
+              <p className="truncate text-xs text-muted">Dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · paiement sécurisé</span></p>
             </div>
             <Button asChild size="sm" className="shrink-0">
               <Link href="/reserver">

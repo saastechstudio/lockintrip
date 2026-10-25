@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Reveal } from "@/components/motion/reveal";
 import { faq } from "@/content/faq";
@@ -14,15 +13,15 @@ export function Faq() {
             <SectionHeading eyebrow="FAQ" title="Questions fréquentes." />
             <Reveal delay={0.15}>
               <p className="mt-8 max-w-sm text-[0.9375rem] leading-relaxed text-muted">
-                Une question qui n&apos;apparaît pas ici ? Écrivez-nous à{" "}
+                Une question qui n&apos;apparaît pas ici ? Écris-nous sur{" "}
+                <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer" className="text-ink underline decoration-bordeaux/40 underline-offset-4 hover:decoration-bordeaux">
+                  WhatsApp
+                </a>{" "}
+                ou à{" "}
                 <a href={`mailto:${site.email}`} className="text-ink underline decoration-bordeaux/40 underline-offset-4 hover:decoration-bordeaux">
                   {site.email}
-                </a>{" "}
-                ou{" "}
-                <Link href="/reserver" className="text-ink underline decoration-bordeaux/40 underline-offset-4 hover:decoration-bordeaux">
-                  déposez une demande
-                </Link>
-                , nous vous rappelons.
+                </a>
+                . On te répond rapidement.
               </p>
             </Reveal>
           </div>

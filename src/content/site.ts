@@ -7,6 +7,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lockintrip.com",
   locale: "fr_FR",
   email: "contact@lockintrip.com",
+  whatsapp: { display: "+33 6 52 57 76 96", href: "https://wa.me/33652577696" },
   edition: "Édition fondatrice · Phuket 2027",
   social: {
     instagram: "https://www.instagram.com/lockintrip",

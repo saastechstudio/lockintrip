@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Check, CreditCard, PhoneCall, Plane, ShieldCheck, X } from "lucide-react";
+import { ArrowUpRight, Check, FileText, Lock, MessageCircle, Plane, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { offers } from "@/content/offers";
@@ -54,7 +54,7 @@ export function Pricing() {
                   <span className={cn("text-sm", o.featured ? "text-ivory/55" : "text-muted")}>TTC / personne</span>
                 </div>
                 <p className={cn("relative mt-2 text-xs", o.featured ? "text-ivory/55" : "text-muted")}>
-                  Soit {formatPrice(Math.round(o.price / 7))} par jour · payable en 3 ou 4 fois sans frais
+                  Soit {formatPrice(Math.round(o.price / 7))} par jour, tout compris
                 </p>
 
                 <div className={cn("relative my-9 h-px", o.featured ? "bg-ivory/15" : "bg-ink/10")} />
@@ -96,9 +96,9 @@ export function Pricing() {
 
         <Reveal delay={0.2}>
           <ul className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-muted">
-            <li className="flex items-center gap-2.5"><CreditCard className="size-4 text-bordeaux" strokeWidth={1.5} />Paiement en 3 ou 4 fois sans frais</li>
-            <li className="flex items-center gap-2.5"><PhoneCall className="size-4 text-bordeaux" strokeWidth={1.5} />Réponse personnelle sous 48 h</li>
-            <li className="flex items-center gap-2.5"><ShieldCheck className="size-4 text-bordeaux" strokeWidth={1.5} />Aucun paiement pour déposer ta demande</li>
+            <li className="flex items-center gap-2.5"><Lock className="size-4 text-bordeaux" strokeWidth={1.5} />Paiement sécurisé par Stripe</li>
+            <li className="flex items-center gap-2.5"><FileText className="size-4 text-bordeaux" strokeWidth={1.5} />Facture envoyée par e-mail</li>
+            <li className="flex items-center gap-2.5"><MessageCircle className="size-4 text-bordeaux" strokeWidth={1.5} />Une question ? On répond sur WhatsApp</li>
           </ul>
         </Reveal>
       </div>

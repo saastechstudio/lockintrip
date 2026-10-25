@@ -5,33 +5,46 @@ import Link from "next/link";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { ArrowRight, Check, Loader2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input, Select, Textarea } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { offers, type OfferId } from "@/content/offers";
-import { sessions, type SessionId } from "@/content/sessions";
+import type { Session, SessionId } from "@/content/sessions";
+import { site } from "@/content/site";
+import { functionUrl, supabaseHeaders } from "@/lib/supabase-public";
 import { profiles, reservationSchema, type ReservationInput } from "@/lib/reservation-schema";
 import { cn, formatDay, formatPrice } from "@/lib/utils";
 
 type FormValues = Omit<ReservationInput, "consent" | "profile"> & { consent: boolean; profile: ReservationInput["profile"] | "" };
 
 const steps = [
-  "Tu déposes ta demande (2 minutes).",
-  "On t'appelle sous 48 h pour un échange de 15 minutes.",
-  "Ta place est confirmée dès le premier paiement.",
+  "Tu choisis ta formule et ta session.",
+  "Tu règles ta place sur la page sécurisée Stripe.",
+  "Tu reçois ta confirmation et ta facture par e-mail.",
 ];
 
+const errorMessages: Record<string, string> = {
+  session_full: "Cette session vient d'être complétée. Choisis une autre session.",
+  not_configured: `Le paiement en ligne ouvre très bientôt. Écris-nous sur WhatsApp (${site.whatsapp.display}) ou à ${site.email} pour réserver dès maintenant.`,
+  invalid_payload: "Certaines informations sont invalides. Vérifie le formulaire.",
+  default: `Le paiement n'a pas pu démarrer. Réessaie, ou écris-nous à ${site.email}.`,
+};
+
 export function BookingForm({
+  sessions,
+  cancelled,
   defaultOffer,
   defaultSession,
   defaultGoal,
 }: {
+  sessions: Session[];
+  cancelled?: boolean;
   defaultOffer?: OfferId;
   defaultSession?: SessionId;
   defaultGoal?: string;
 }) {
-  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
   const firstOpen = sessions.find((s) => s.taken < s.capacity)?.id ?? "s1";
 
   const {
@@ -64,45 +77,31 @@ export function BookingForm({
   const session = sessions.find((s) => s.id === sessionId) ?? sessions[0];
 
   async function onSubmit(values: FormValues) {
-    setStatus("idle");
+    setError(null);
     try {
-      const res = await fetch("/api/reservation", {
+      const res = await fetch(functionUrl("create-checkout"), {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: supabaseHeaders,
         body: JSON.stringify(values),
       });
-      if (!res.ok) throw new Error(String(res.status));
-      setStatus("sent");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string; error?: string };
+      if (res.ok && data.url) {
+        window.location.assign(data.url);
+        return;
+      }
+      setError(errorMessages[data.error ?? ""] ?? errorMessages.default);
     } catch {
-      setStatus("error");
+      setError(errorMessages.default);
     }
-  }
-
-  if (status === "sent") {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="card-lux mx-auto max-w-2xl p-10 text-center md:p-16"
-      >
-        <span className="mx-auto grid size-16 place-items-center rounded-full bg-bordeaux text-ivory">
-          <Check className="size-7" strokeWidth={1.5} />
-        </span>
-        <h2 className="font-display mt-8 text-4xl font-light text-ink md:text-5xl">Demande reçue.</h2>
-        <p className="mx-auto mt-5 max-w-md leading-relaxed text-muted">
-          Merci. On revient vers toi sous 48 h pour échanger sur ton objectif et confirmer ta place pour la{" "}
-          {session.label.toLowerCase()} ({formatDay(session.start)} → {formatDay(session.end)}).
-        </p>
-        <Button asChild variant="outline" className="mt-10">
-          <Link href="/">Retour à l&apos;accueil</Link>
-        </Button>
-      </motion.div>
-    );
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+      {cancelled && (
+        <p role="status" className="card-lux p-5 text-sm text-ink-soft lg:col-span-12">
+          Le paiement a été interrompu, rien n&apos;a été débité. Tu peux reprendre ta réservation ci-dessous.
+        </p>
+      )}
       <div className="space-y-12 lg:col-span-7">
         <fieldset>
           <legend className="font-display text-2xl font-light text-ink">1. Ta formule</legend>
@@ -220,7 +219,7 @@ export function BookingForm({
                   {session.label} · {formatDay(session.start)} → {formatDay(session.end)} · Phuket
                 </p>
                 <p className="font-display mt-8 text-6xl font-light tracking-[-0.03em]">{formatPrice(offer.price)}</p>
-                <p className="mt-1 text-xs text-ivory/55">TTC par personne · paiement en 3 ou 4 fois possible</p>
+                <p className="mt-1 text-xs text-ivory/55">TTC par personne · facture envoyée par e-mail</p>
               </motion.div>
             </AnimatePresence>
             <div className="my-8 h-px bg-ivory/15" />
@@ -234,13 +233,15 @@ export function BookingForm({
             </ol>
             <Button type="submit" size="lg" variant="light" disabled={isSubmitting} className="mt-10 w-full">
               {isSubmitting ? <Loader2 className="animate-spin" /> : null}
-              {isSubmitting ? "Envoi en cours" : "Réserver ma place"}
+              {isSubmitting ? "Redirection vers le paiement" : `Payer ${formatPrice(offer.price)}`}
               {!isSubmitting && <ArrowRight className="transition-transform duration-500 group-hover/btn:translate-x-0.5" />}
             </Button>
-            <p className="mt-4 text-center text-xs text-ivory/50">Aucun paiement à cette étape.</p>
-            {status === "error" && (
+            <p className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-ivory/55">
+              <Lock className="size-3" /> Paiement sécurisé par Stripe · carte, Apple Pay, Google Pay
+            </p>
+            {error && (
               <p role="alert" className="mt-4 rounded-xl bg-ivory/10 p-3 text-center text-sm text-ivory">
-                L&apos;envoi a échoué. Réessaie ou écris-nous directement par e-mail.
+                {error}
               </p>
             )}
           </div>
