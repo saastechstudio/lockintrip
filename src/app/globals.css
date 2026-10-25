@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/*
+ * LOCKIN TRIP — design tokens.
+ * Palette tirée de l'univers visuel de référence : enduit à la chaux, calcaire,
+ * lin écru, bois clair, eau vert sauge, palmes et lumière dorée de fin de journée.
+ */
+@theme {
+  --color-ivory: #f7f3ec;
+  --color-linen: #efe8dc;
+  --color-sand: #e4d8c4;
+  --color-limestone: #d3c5ae;
+  --color-stone: #a89c88;
+  --color-clay: #8a6f55;
+  --color-ink: #171612;
+  --color-ink-soft: #35322b;
+  --color-muted: #6e685d;
+  --color-sage: #8aa597;
+  --color-lagoon: #5f7f71;
+  --color-emerald: #2c5a4b;
+  --color-emerald-deep: #1c3a31;
+  --color-mist: #dde5e6;
+  --color-mist-deep: #b8c7ca;
+  --color-glow: #d8b783;
+
+  --font-display: var(--font-fraunces), "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-drift: drift 48s linear infinite;
+  --animate-drift-slow: drift-reverse 34s linear infinite;
+  --animate-sway: sway 11s ease-in-out infinite alternate;
+
+  /* Translation d'exactement une période de texture (--tile) : boucle sans couture. */
+  @keyframes drift {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(calc(var(--tile) * -1), calc(var(--tile) * -1), 0); }
+  }
+  @keyframes drift-reverse {
+    from { transform: translate3d(calc(var(--tile) * -1), 0, 0); }
+    to { transform: translate3d(0, calc(var(--tile) * -1), 0); }
+  }
+  @keyframes sway {
+    from { transform: rotate(-2.2deg) translateX(-1%); }
+    to { transform: rotate(2.4deg) translateX(1.5%); }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-emerald);
+    color: var(--color-ivory);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-emerald);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 30, "WONK" 0;
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .container-lux {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 84rem;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-lux { padding-inline: 2.5rem; }
+  }
+
+  /* Grain photographique très léger, posé au-dessus des visuels. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("/textures/grain.svg");
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+  }
+
+  .hairline {
+    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-ink) 18%, transparent), transparent);
+    height: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes acc-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+@keyframes acc-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
