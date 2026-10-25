@@ -5,6 +5,7 @@ import { Goals } from "@/components/sections/goals";
 import { Experts } from "@/components/sections/experts";
 import { Phuket } from "@/components/sections/phuket";
 import { Hotel } from "@/components/sections/hotel";
+import { Activities } from "@/components/sections/activities";
 import { Pricing } from "@/components/sections/pricing";
 import { Edition } from "@/components/sections/edition";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Experts />
       <Phuket />
       <Hotel />
+      <Activities />
       <Pricing />
       <Edition />
       <Testimonials />

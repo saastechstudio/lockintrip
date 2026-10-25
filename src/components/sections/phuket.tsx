@@ -7,7 +7,7 @@ import { SectionHeading } from "./section-heading";
 const reasons = [
   { icon: Sun, title: "Climat exceptionnel", body: "31 °C en mars, saison sèche, mer à 29 °C. Le corps se relâche, l'esprit se libère." },
   { icon: Globe2, title: "Énergie internationale", body: "Entrepreneurs, créateurs et nomades du monde entier y vivent et y construisent." },
-  { icon: Dumbbell, title: "Activités sportives", body: "Berceau du muay thaï, terrains de padel, salles de fitness de niveau international." },
+  { icon: Dumbbell, title: "Activités sportives", body: "Berceau du muay thaï, terrains de padel et de pickleball, golfs, sentiers de randonnée." },
   { icon: Leaf, title: "Qualité de vie", body: "Cuisine fraîche, massages, nature partout : récupérer devient naturel." },
   { icon: PowerOff, title: "Déconnexion du quotidien", body: "À 10 000 km des urgences et des habitudes, l'attention revient sur l'essentiel." },
   { icon: Mountain, title: "Environnement inspirant", body: "Falaises calcaires, lagons, levers de soleil. Un décor qui élargit la perspective." },

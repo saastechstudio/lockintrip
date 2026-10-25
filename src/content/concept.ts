@@ -27,7 +27,7 @@ export const pillars: Pillar[] = [
   {
     icon: "sport",
     title: "Des activités sportives",
-    body: "Muay thaï, padel, fitness et natation au lever du soleil. Le corps en mouvement nourrit la clarté mentale.",
+    body: "Chaque après-midi : padel, pickleball, muay thaï, yoga, golf, randonnée... Tous niveaux, même débutant.",
     outcome: "Une énergie que tu ramènes chez toi",
   },
   {
@@ -45,10 +45,10 @@ export const pillars: Pillar[] = [
 ];
 
 export const rhythm = [
-  { time: "06:30", label: "Mouvement", detail: "Sport au lever du soleil" },
   { time: "09:00", label: "Masterclass", detail: "Session expert" },
+  { time: "10:45", label: "Atelier", detail: "Travail sur ton projet" },
   { time: "12:30", label: "Déjeuner", detail: "Table partagée" },
-  { time: "14:30", label: "Atelier", detail: "Travail sur ton projet" },
+  { time: "14:30", label: "Activités", detail: "Sport au choix, tous niveaux" },
   { time: "17:30", label: "Échanges", detail: "Experts et participants" },
   { time: "20:00", label: "Soirée", detail: "Libre ou en groupe" },
 ];

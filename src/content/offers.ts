@@ -26,7 +26,7 @@ export const offers: Offer[] = [
       "Masterclass",
       "Ateliers collaboratifs",
       "Activités sportives",
-      "Excursion Phuket",
+      "Excursion de fin de séjour",
       "Entretien individuel d'entrée",
       "Entretien individuel de sortie",
       "Communauté privée",

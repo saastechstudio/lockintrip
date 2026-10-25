@@ -17,6 +17,10 @@ export const faq: FaqGroup[] = [
         a: "Aucun prérequis. Tu as besoin d'un objectif — même encore flou — et de l'envie de t'engager pendant une semaine. L'entretien d'entrée sert justement à clarifier ce que tu veux accomplir et à adapter ton parcours.",
       },
       {
+        q: "Faut-il être sportif ?",
+        a: "Non. Les activités de l'après-midi (football, pilates, yoga, padel, pickleball, golf, randonnée, muay thaï, fitness) sont ouvertes à tous les niveaux, même grand débutant. C'est l'occasion idéale de découvrir un sport, à ton rythme. Rien n'est obligatoire.",
+      },
+      {
         q: "À qui s'adresse l'expérience ?",
         a: "Aux personnes ambitieuses de 22 à 45 ans qui veulent accélérer : lancer, développer, gagner en revenus, en discipline ou en clarté. Les profils variés font la richesse du groupe.",
       },
