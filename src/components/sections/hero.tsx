@@ -46,13 +46,13 @@ export function Hero() {
             />
           )}
         </Scene>
-        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_45%,rgba(23,22,18,0.05),rgba(23,22,18,0.45))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_45%,rgba(29,20,18,0.05),rgba(29,20,18,0.45))]" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 to-transparent" />
       </motion.div>
 
       <motion.div style={{ opacity: fade }} className="container-lux relative z-10 flex h-full flex-col justify-end pb-10 pt-32 md:pb-14">
         <motion.p {...enter(0.2)} className="eyebrow flex items-center gap-3 text-ivory/80">
-          <span className="size-1.5 rounded-full bg-glow" />
+          <span className="size-1.5 rounded-full bg-pierre" />
           {site.edition}
         </motion.p>
 
@@ -93,7 +93,7 @@ export function Hero() {
         <motion.ul {...enter(1.15)} className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-ivory/15 pt-6 md:mt-12">
           {badges.map((b) => (
             <li key={b} className="flex items-center gap-2 text-[0.8125rem] text-ivory/80">
-              <Check className="size-3.5 text-glow" strokeWidth={2} />
+              <Check className="size-3.5 text-pierre" strokeWidth={2} />
               {b}
             </li>
           ))}

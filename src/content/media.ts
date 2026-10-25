@@ -2,9 +2,18 @@
  * Emplacements photo / vidéo du site.
  *
  * Tant qu'un `src` est vide, le site affiche un visuel d'ambiance généré
- * (eau sauge, enduit et ombres de palmes) dans la palette de la marque.
+ * (béton ciré, travertin, eau de bassin, ombres de palmes) dans la palette de la marque.
  * Déposez vos fichiers dans /public/images ou /public/videos et renseignez le chemin,
  * par exemple : src: "/images/hero.jpg". Formats conseillés : JPG/AVIF 2400 px de large.
+ *
+ * DIRECTION PHOTO — un club privé, pas un séminaire.
+ * À rechercher : villas contemporaines en béton et pierre, lumière rasante, piscines
+ * à débordement, coworking haut de gamme, conversations naturelles entre participants,
+ * muay thaï en salle épurée, padel, fitness au lever du jour, couchers de soleil,
+ * architecture béton moderne. Peu de personnes par image, cadrages larges, tons chauds
+ * et désaturés, grain léger.
+ * À éviter : poignées de main en costume, sourires posés face caméra, open spaces
+ * génériques, écrans d'ordinateur en gros plan, couleurs saturées, banques d'images.
  */
 export type MediaSlot = {
   src?: string;
@@ -14,14 +23,14 @@ export type MediaSlot = {
 export const media = {
   hero: {
     video: undefined as string | undefined, // ex. "/videos/hero.mp4" (muet, en boucle, < 8 Mo)
-    poster: { src: undefined, alt: "Piscine d'une villa à Phuket au lever du jour" } as MediaSlot,
+    poster: { src: undefined, alt: "Villa contemporaine en béton face à la mer, Phuket" } as MediaSlot,
   },
-  why: { src: undefined, alt: "Deux participants échangent au bord de la piscine" } as MediaSlot,
+  why: { src: undefined, alt: "Deux participants en discussion au bord d'un bassin en pierre" } as MediaSlot,
   phuket: [
-    { src: undefined, alt: "Plage de Phuket au coucher du soleil" },
-    { src: undefined, alt: "Patio de la villa entre murs de pierre et cocotiers" },
-    { src: undefined, alt: "Séance de sport au lever du soleil" },
-    { src: undefined, alt: "Dîner en terrasse face à la mer d'Andaman" },
+    { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman" },
+    { src: undefined, alt: "Patio de villa entre murs de pierre et palmiers" },
+    { src: undefined, alt: "Session de padel au lever du jour" },
+    { src: undefined, alt: "Coworking ouvert sur la végétation, architecture béton" },
   ] as MediaSlot[],
   final: { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman, Phuket" } as MediaSlot,
 };

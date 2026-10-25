@@ -14,14 +14,14 @@ const icons: Record<Goal["icon"], LucideIcon> = {
   direction: Compass,
 };
 
-/** Fonds en dégradés doux, tirés de la palette (eau, sable, brume) — un par carte. */
+/** Fonds minéraux doux (travertin, béton, pierre) — un par carte. */
 const tones = [
-  "from-[#dfe8e3] to-[#c4d6cc]",
-  "from-[#ede4d4] to-[#dccdb3]",
-  "from-[#e2e8ea] to-[#c9d5d8]",
-  "from-[#efe6d8] to-[#e2d2b8]",
-  "from-[#dde7e1] to-[#bfd1c6]",
-  "from-[#e6e9e8] to-[#cfd9da]",
+  "from-[#ece5dc] to-[#d6c8b8]",
+  "from-[#e6e3de] to-[#c4beb5]",
+  "from-[#efe8df] to-[#dccfbf]",
+  "from-[#e9e5df] to-[#cbc4ba]",
+  "from-[#eee6dc] to-[#d9cab8]",
+  "from-[#e7e4df] to-[#c7c1b8]",
 ];
 
 export function Goals() {
@@ -41,7 +41,7 @@ export function Goals() {
                 <Link
                   href={`/reserver?objectif=${g.id}`}
                   className={cn(
-                    "group relative flex aspect-[5/4] flex-col justify-between overflow-hidden rounded-[1.75rem] bg-gradient-to-br p-8 transition-all duration-700 ease-[var(--ease-lux)] hover:-translate-y-1 hover:shadow-[0_40px_70px_-40px_rgba(23,22,18,0.45)]",
+                    "group relative flex aspect-[5/4] flex-col justify-between overflow-hidden rounded-[20px] border border-concrete/30 bg-gradient-to-br p-8 transition-shadow duration-700 ease-[var(--ease-lux)] hover:shadow-[0_34px_60px_-38px_rgba(60,45,35,0.5)]",
                     tones[i % tones.length],
                   )}
                 >
@@ -51,7 +51,7 @@ export function Goals() {
                     strokeWidth={0.8}
                   />
                   <div className="relative flex items-center justify-between">
-                    <span className="grid size-14 place-items-center rounded-2xl bg-ivory/70 text-emerald shadow-[0_8px_20px_-12px_rgba(23,22,18,0.4)] backdrop-blur">
+                    <span className="grid size-14 place-items-center rounded-[14px] bg-ivory/80 text-bordeaux shadow-[0_6px_16px_-10px_rgba(60,45,35,0.45)]">
                       <Icon className="size-6" strokeWidth={1.4} />
                     </span>
                     <span className="grid size-10 place-items-center rounded-full border border-ink/10 bg-ivory/40 text-ink transition-all duration-500 group-hover:border-ink group-hover:bg-ink group-hover:text-ivory">

@@ -11,14 +11,14 @@ export function Testimonials() {
         <div className="mt-20 grid gap-5 md:grid-cols-2">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 0.1}>
-              <figure className="flex h-full flex-col justify-between rounded-[2rem] border border-ink/[0.07] bg-white/50 p-8 md:p-11">
+              <figure className="flex h-full flex-col justify-between card-lux p-8 md:p-11">
                 <blockquote className="font-display text-xl font-light leading-[1.45] text-ink md:text-[1.45rem]">
-                  <span aria-hidden className="mr-1 text-emerald">“</span>
+                  <span aria-hidden className="mr-1 text-bordeaux">“</span>
                   {t.quote}
-                  <span aria-hidden className="ml-1 text-emerald">”</span>
+                  <span aria-hidden className="ml-1 text-bordeaux">”</span>
                 </blockquote>
                 <figcaption className="mt-10 flex items-center gap-4">
-                  <span className="grid size-11 place-items-center rounded-full bg-mist font-display text-emerald">{t.name.charAt(0)}</span>
+                  <span className="grid size-11 place-items-center rounded-full bg-pierre/40 font-display text-bordeaux">{t.name.charAt(0)}</span>
                   <span>
                     <span className="block text-sm font-medium text-ink">{t.name}</span>
                     <span className="block text-xs text-muted">

@@ -50,15 +50,15 @@ export function StickyCta() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-x-3 bottom-3 z-40 md:inset-x-auto md:left-1/2 md:bottom-6 md:-translate-x-1/2"
         >
-          <div className="flex items-center justify-between gap-4 rounded-full border border-ink/[0.06] bg-ivory/85 py-2 pl-5 pr-2 shadow-[0_20px_50px_-20px_rgba(23,22,18,0.45)] backdrop-blur-xl backdrop-saturate-150 md:gap-8 md:pl-7">
+          <div className="flex items-center justify-between gap-4 rounded-[18px] border border-concrete/40 bg-ivory/90 py-2 pl-5 pr-2 shadow-[0_20px_50px_-24px_rgba(60,45,35,0.45)] backdrop-blur-xl backdrop-saturate-150 md:gap-8 md:pl-7">
             <div className="min-w-0 leading-tight">
               <p className="flex items-center gap-2 truncate text-[0.8125rem] font-medium text-ink">
-                <span className="size-1.5 shrink-0 animate-pulse rounded-full bg-emerald" />
+                <span className="size-1.5 shrink-0 rounded-full bg-bordeaux" />
                 {remaining} places · Phuket 2027
               </p>
               <p className="truncate text-xs text-muted">Dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · en 3 ou 4 fois sans frais</span></p>
             </div>
-            <Button asChild size="sm" variant="emerald" className="shrink-0">
+            <Button asChild size="sm" className="shrink-0">
               <Link href="/reserver">
                 Réserver ma place
                 <ArrowUpRight />

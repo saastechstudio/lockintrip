@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Mentions légales", alternates: { ca
 export default function MentionsLegales() {
   return (
     <>
-      <p className="eyebrow text-emerald">Informations légales</p>
+      <p className="eyebrow text-bordeaux">Informations légales</p>
       <h1 className="mt-6">Mentions légales</h1>
       <DraftNotice />
       <h2>Éditeur du site</h2>

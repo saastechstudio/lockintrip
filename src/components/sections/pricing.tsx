@@ -8,7 +8,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Pricing() {
   return (
-    <section id="tarifs" className="relative py-28 md:py-40">
+    <section id="tarifs" className="tex-concrete relative bg-[#ece8e2] py-28 md:py-40">
       <div className="container-lux">
         <SectionHeading
           align="center"
@@ -22,26 +22,26 @@ export function Pricing() {
             <Reveal key={o.id} delay={i * 0.12} className="h-full min-w-0">
               <article
                 className={cn(
-                  "relative flex h-full flex-col overflow-hidden rounded-[2rem] p-8 md:p-11",
+                  "relative flex h-full flex-col overflow-hidden rounded-[20px] p-8 md:p-11",
                   o.featured
-                    ? "bg-emerald-deep text-ivory shadow-[0_50px_100px_-40px_rgba(28,58,49,0.75)]"
-                    : "border border-ink/[0.08] bg-white/60 text-ink",
+                    ? "bg-bordeaux text-ivory shadow-[0_40px_80px_-40px_rgba(82,22,32,0.7)]"
+                    : "card-lux text-ink",
                 )}
               >
                 {o.featured && (
                   <div
                     aria-hidden
                     className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full opacity-40 blur-3xl"
-                    style={{ background: "radial-gradient(circle, #d8b783, transparent 70%)" }}
+                    style={{ background: "radial-gradient(circle, #d6c8b8, transparent 70%)" }}
                   />
                 )}
                 <div className="relative flex items-start justify-between gap-4">
                   <div>
-                    <p className={cn("eyebrow", o.featured ? "text-glow" : "text-emerald")}>Offre</p>
+                    <p className={cn("eyebrow", o.featured ? "text-pierre" : "text-bordeaux")}>Offre</p>
                     <h3 className="font-display mt-3 text-4xl font-light">{o.name}</h3>
                   </div>
                   {o.badge && (
-                    <span className="rounded-full bg-glow px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink">
+                    <span className="rounded-full bg-pierre px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink">
                       {o.badge}
                     </span>
                   )}
@@ -63,9 +63,9 @@ export function Pricing() {
                   {o.includes.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[0.9375rem]">
                       {item.startsWith("Vol") ? (
-                        <Plane className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-glow" : "text-emerald")} strokeWidth={1.5} />
+                        <Plane className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-pierre" : "text-bordeaux")} strokeWidth={1.5} />
                       ) : (
-                        <Check className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-glow" : "text-emerald")} strokeWidth={1.8} />
+                        <Check className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-pierre" : "text-bordeaux")} strokeWidth={1.8} />
                       )}
                       <span className={o.featured ? "text-ivory/90" : "text-ink-soft"}>{item}</span>
                     </li>
@@ -75,7 +75,7 @@ export function Pricing() {
                 {o.excludes && (
                   <ul className="relative mt-3.5 grid gap-3.5">
                     {o.excludes.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-[0.9375rem] text-stone">
+                      <li key={item} className="flex items-start gap-3 text-[0.9375rem] text-concrete">
                         <X className="mt-0.5 size-4 shrink-0" strokeWidth={1.8} />
                         {item}
                       </li>
@@ -96,9 +96,9 @@ export function Pricing() {
 
         <Reveal delay={0.2}>
           <ul className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-muted">
-            <li className="flex items-center gap-2.5"><CreditCard className="size-4 text-emerald" strokeWidth={1.5} />Paiement en 3 ou 4 fois sans frais</li>
-            <li className="flex items-center gap-2.5"><PhoneCall className="size-4 text-emerald" strokeWidth={1.5} />Réponse personnelle sous 48 h</li>
-            <li className="flex items-center gap-2.5"><ShieldCheck className="size-4 text-emerald" strokeWidth={1.5} />Aucun paiement pour déposer ta demande</li>
+            <li className="flex items-center gap-2.5"><CreditCard className="size-4 text-bordeaux" strokeWidth={1.5} />Paiement en 3 ou 4 fois sans frais</li>
+            <li className="flex items-center gap-2.5"><PhoneCall className="size-4 text-bordeaux" strokeWidth={1.5} />Réponse personnelle sous 48 h</li>
+            <li className="flex items-center gap-2.5"><ShieldCheck className="size-4 text-bordeaux" strokeWidth={1.5} />Aucun paiement pour déposer ta demande</li>
           </ul>
         </Reveal>
       </div>

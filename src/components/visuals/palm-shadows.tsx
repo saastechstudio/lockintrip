@@ -78,7 +78,7 @@ function buildCrown(seed: number, origin: Pt, fronds: number, spread: [number, n
 export function PalmShadows({
   className,
   seed = 7,
-  tone = "#2a2116",
+  tone = "#2b1d18",
   opacity = 0.22,
   blur = 5,
   animated = true,

@@ -1,6 +1,9 @@
 import { cn } from "@/lib/utils";
 
-/** Surface d'eau vert sauge avec reflets lumineux en mouvement (CSS + textures SVG statiques). */
+/**
+ * Eau d'un bassin en pierre au crépuscule : tons minéraux chauds et reflets
+ * lumineux en mouvement (CSS + textures SVG statiques, boucle sans couture).
+ */
 export function WaterSurface({ className, intensity = 1 }: { className?: string; intensity?: number }) {
   return (
     <div aria-hidden className={cn("absolute inset-0 overflow-hidden", className)}>
@@ -8,7 +11,7 @@ export function WaterSurface({ className, intensity = 1 }: { className?: string;
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 30% 20%, #9db5a8 0%, #6f8f80 38%, #4d6c5f 72%, #33503f 100%)",
+            "radial-gradient(120% 90% at 30% 15%, #a39b90 0%, #7d756c 35%, #554e48 68%, #2e2a28 100%)",
         }}
       />
       <div
@@ -18,7 +21,7 @@ export function WaterSurface({ className, intensity = 1 }: { className?: string;
             "--tile": "900px",
             backgroundImage: "url(/textures/caustics.svg)",
             backgroundSize: "900px 900px",
-            opacity: 0.9 * intensity,
+            opacity: 0.85 * intensity,
           } as React.CSSProperties
         }
       />
@@ -29,13 +32,13 @@ export function WaterSurface({ className, intensity = 1 }: { className?: string;
             "--tile": "700px",
             backgroundImage: "url(/textures/caustics-fine.svg)",
             backgroundSize: "700px 700px",
-            opacity: 0.55 * intensity,
+            opacity: 0.45 * intensity,
           } as React.CSSProperties
         }
       />
       <div
         className="absolute inset-0"
-        style={{ background: "linear-gradient(180deg, rgba(247,243,236,0.10) 0%, rgba(23,22,18,0) 40%, rgba(23,22,18,0.35) 100%)" }}
+        style={{ background: "linear-gradient(180deg, rgba(107,31,43,0.10) 0%, rgba(29,29,29,0) 45%, rgba(29,29,29,0.4) 100%)" }}
       />
     </div>
   );

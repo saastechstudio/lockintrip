@@ -11,11 +11,11 @@ export function Edition() {
   const remaining = totalCapacity - totalTaken;
 
   return (
-    <section id="edition" className="relative overflow-hidden bg-ink py-28 text-ivory md:py-40">
+    <section id="edition" className="relative overflow-hidden bg-bordeaux-deep py-28 text-ivory md:py-40">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-40 left-1/2 size-[40rem] -translate-x-1/2 rounded-full opacity-[0.18] blur-3xl"
-        style={{ background: "radial-gradient(circle, #5f7f71, transparent 65%)" }}
+        style={{ background: "radial-gradient(circle, #8b3a3a, transparent 65%)" }}
       />
       <div className="container-lux relative">
         <div className="grid gap-16 lg:grid-cols-12 lg:items-end">
@@ -29,7 +29,7 @@ export function Edition() {
           </div>
 
           <Reveal delay={0.15} className="lg:col-span-5">
-            <div className="rounded-[2rem] border border-ivory/10 bg-ivory/[0.04] p-8 backdrop-blur">
+            <div className="rounded-[20px] border border-ivory/12 bg-ivory/[0.05] p-8">
               <div className="flex items-end justify-between gap-6">
                 <div>
                   <p className="eyebrow text-ivory/50">Places restantes</p>
@@ -47,7 +47,7 @@ export function Edition() {
                 {sessions.map((s) => (
                   <div key={s.id} className="grid grid-cols-10 gap-[3px]">
                     {Array.from({ length: s.capacity }).map((_, k) => (
-                      <span key={k} className={cn("h-4 rounded-[2px]", k < s.taken ? "bg-glow" : "bg-ivory/15")} />
+                      <span key={k} className={cn("h-4 rounded-[2px]", k < s.taken ? "bg-pierre" : "bg-ivory/15")} />
                     ))}
                   </div>
                 ))}
@@ -68,22 +68,22 @@ export function Edition() {
             const pct = Math.round((s.taken / s.capacity) * 100);
             return (
               <Reveal key={s.id} delay={i * 0.1}>
-                <article className="group flex h-full flex-col rounded-[1.75rem] bg-ivory p-8 text-ink">
+                <article className="card-lux group flex h-full flex-col p-8 text-ink">
                   <div className="flex items-center justify-between">
-                    <p className="eyebrow text-emerald">{s.label}</p>
+                    <p className="eyebrow text-bordeaux">{s.label}</p>
                     <span
                       className={cn(
                         "flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] font-medium",
-                        full ? "bg-clay/15 text-clay" : "bg-emerald/10 text-emerald",
+                        full ? "bg-terracotta/15 text-terracotta" : "bg-bordeaux/10 text-bordeaux",
                       )}
                     >
-                      {!full && <span className="size-1.5 animate-pulse rounded-full bg-emerald" />}
+                      {!full && <span className="size-1.5 rounded-full bg-bordeaux" />}
                       {full ? "Complet" : "Ouverte"}
                     </span>
                   </div>
                   <p className="font-display mt-8 text-[2rem] font-light leading-tight">
                     {formatDay(s.start)}
-                    <span className="mx-3 text-stone">→</span>
+                    <span className="mx-3 text-concrete">→</span>
                     {formatDay(s.end)}
                   </p>
                   <p className="mt-1 text-sm text-muted">{editionYear} · 7 nuits · Phuket</p>
@@ -94,7 +94,7 @@ export function Edition() {
                       <span className="font-medium">{full ? "0 restante" : `${left} restantes`}</span>
                     </div>
                     <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-ink/[0.07]">
-                      <div className="h-full rounded-full bg-emerald" style={{ width: `${Math.max(pct, 2)}%` }} />
+                      <div className="h-full rounded-full bg-bordeaux" style={{ width: `${Math.max(pct, 2)}%` }} />
                     </div>
                   </div>
 

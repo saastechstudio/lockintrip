@@ -84,9 +84,9 @@ export function BookingForm({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mx-auto max-w-2xl rounded-[2rem] bg-white/70 p-10 text-center md:p-16"
+        className="card-lux mx-auto max-w-2xl p-10 text-center md:p-16"
       >
-        <span className="mx-auto grid size-16 place-items-center rounded-full bg-emerald text-ivory">
+        <span className="mx-auto grid size-16 place-items-center rounded-full bg-bordeaux text-ivory">
           <Check className="size-7" strokeWidth={1.5} />
         </span>
         <h2 className="font-display mt-8 text-4xl font-light text-ink md:text-5xl">Demande reçue.</h2>
@@ -111,7 +111,7 @@ export function BookingForm({
               <ChoiceCard key={o.id} checked={offerId === o.id} onSelect={() => setValue("offer", o.id, { shouldValidate: true })}>
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-display text-xl text-ink">{o.name}</span>
-                  {o.badge && <span className="rounded-full bg-glow/80 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-ink">{o.badge}</span>}
+                  {o.badge && <span className="rounded-full bg-pierre/80 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-ink">{o.badge}</span>}
                 </div>
                 <span className="font-display mt-2 block text-3xl font-light text-ink">{formatPrice(o.price)}</span>
                 <span className="mt-1 block text-xs text-muted">{o.excludes?.[0] ?? "Vol et transferts inclus"}</span>
@@ -134,7 +134,7 @@ export function BookingForm({
                   disabled={left <= 0}
                   onSelect={() => setValue("session", s.id, { shouldValidate: true })}
                 >
-                  <span className="eyebrow text-emerald">{s.label}</span>
+                  <span className="eyebrow text-bordeaux">{s.label}</span>
                   <span className="font-display mt-2 block text-lg leading-tight text-ink">
                     {formatDay(s.start)} → {formatDay(s.end)}
                   </span>
@@ -196,7 +196,7 @@ export function BookingForm({
           </div>
 
           <label className="mt-7 flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-muted">
-            <input type="checkbox" className="mt-1 size-4 accent-[var(--color-emerald)]" {...register("consent")} />
+            <input type="checkbox" className="mt-1 size-4 accent-[var(--color-bordeaux)]" {...register("consent")} />
             <span>
               J&apos;accepte que mes informations soient utilisées pour traiter ma demande, conformément à la{" "}
               <Link href="/confidentialite" className="text-ink underline underline-offset-4" target="_blank">
@@ -211,8 +211,8 @@ export function BookingForm({
 
       <aside className="lg:col-span-5">
         <div className="lg:sticky lg:top-28">
-          <div className="overflow-hidden rounded-[2rem] bg-emerald-deep p-8 text-ivory md:p-10">
-            <p className="eyebrow text-glow">Ta sélection</p>
+          <div className="overflow-hidden rounded-[20px] bg-bordeaux p-8 text-ivory md:p-10">
+            <p className="eyebrow text-pierre">Ta sélection</p>
             <AnimatePresence mode="wait">
               <motion.div key={`${offer.id}-${session.id}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35 }}>
                 <p className="font-display mt-5 text-3xl font-light">{offer.name}</p>
@@ -227,7 +227,7 @@ export function BookingForm({
             <ol className="space-y-4">
               {steps.map((s, i) => (
                 <li key={s} className="flex gap-4 text-sm text-ivory/80">
-                  <span className="font-display text-glow">{i + 1}</span>
+                  <span className="font-display text-pierre">{i + 1}</span>
                   {s}
                 </li>
               ))}
@@ -271,14 +271,14 @@ function ChoiceCard({
       className={cn(
         "relative rounded-2xl border p-5 text-left transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-40",
         checked
-          ? "border-emerald bg-white shadow-[0_20px_40px_-25px_rgba(28,58,49,0.5)] ring-4 ring-emerald/10"
+          ? "border-bordeaux bg-white shadow-[0_20px_40px_-25px_rgba(107,31,43,0.35)] ring-4 ring-bordeaux/10"
           : "border-ink/10 bg-white/50 hover:border-ink/25",
       )}
     >
       <span
         className={cn(
           "absolute right-4 top-4 grid size-5 place-items-center rounded-full border transition-colors",
-          checked ? "border-emerald bg-emerald text-ivory" : "border-ink/20",
+          checked ? "border-bordeaux bg-bordeaux text-ivory" : "border-ink/20",
         )}
       >
         {checked && <Check className="size-3" strokeWidth={2.5} />}

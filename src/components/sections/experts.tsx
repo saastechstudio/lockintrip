@@ -14,14 +14,15 @@ const icons: Record<Expert["emoji"], LucideIcon> = {
   business: Rocket,
 };
 
-const portraitTones: SceneVariant[] = ["plaster", "water", "stone", "courtyard", "plaster", "water"];
+const portraitTones: SceneVariant[] = ["architecture", "water", "plaster", "stone", "courtyard", "architecture"];
 
 export function Experts() {
   return (
-    <section id="experts" className="relative bg-linen py-28 md:py-40">
+    <section id="experts" className="relative bg-bordeaux py-28 text-ivory md:py-40">
       <div className="container-lux">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
+            tone="ivory"
             eyebrow="Les experts"
             title="Apprendre de ceux qui sont déjà passés par là."
             intro="Des praticiens qui ont construit, vendu, échoué et recommencé. Ce qui compte n'est pas leur CV, c'est ce que tu sais faire en repartant."
@@ -33,7 +34,7 @@ export function Experts() {
             const Icon = icons[e.emoji];
             return (
               <Reveal key={e.domain} delay={(i % 3) * 0.08}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-ivory transition-shadow duration-700 hover:shadow-[0_40px_70px_-40px_rgba(23,22,18,0.45)]">
+                <article className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-ivory text-ink shadow-[0_24px_50px_-30px_rgba(20,6,9,0.6)]">
                   <div className="relative aspect-[5/4] overflow-hidden">
                     {e.photo ? (
                       <Image
@@ -48,7 +49,7 @@ export function Experts() {
                     )}
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/55 to-transparent" />
                     <span className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-ivory/85 px-3.5 py-2 text-xs font-medium text-ink backdrop-blur-md">
-                      <Icon className="size-3.5 text-emerald" strokeWidth={1.6} />
+                      <Icon className="size-3.5 text-bordeaux" strokeWidth={1.6} />
                       {e.domain}
                     </span>
                     <div className="absolute bottom-5 left-5 right-5 text-ivory">
@@ -61,7 +62,7 @@ export function Experts() {
                     <ul className="mt-6 space-y-2.5">
                       {e.outcomes.map((t) => (
                         <li key={t} className="flex items-start gap-3 text-sm text-ink-soft">
-                          <span className="mt-2 h-px w-4 shrink-0 bg-emerald/70" />
+                          <span className="mt-2 h-px w-4 shrink-0 bg-bordeaux/70" />
                           {t}
                         </li>
                       ))}

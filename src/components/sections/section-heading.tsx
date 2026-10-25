@@ -26,7 +26,7 @@ export function SectionHeading({
             className={cn(
               "eyebrow flex items-center gap-3",
               align === "center" && "justify-center",
-              tone === "ivory" ? "text-ivory/70" : "text-emerald",
+              tone === "ivory" ? "text-ivory/70" : "text-bordeaux",
             )}
           >
             <span className="h-px w-8 bg-current opacity-60" />

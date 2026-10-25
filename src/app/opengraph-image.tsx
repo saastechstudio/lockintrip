@@ -16,8 +16,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          color: "#f7f3ec",
-          background: "linear-gradient(160deg, #8aa597 0%, #4d6c5f 45%, #1c3a31 100%)",
+          color: "#f7f4ef",
+          background: "linear-gradient(160deg, #8b3a3a 0%, #6b1f2b 45%, #3a1017 100%)",
         }}
       >
         <div style={{ display: "flex", fontSize: 22, letterSpacing: 8, opacity: 0.8 }}>ÉDITION FONDATRICE · PHUKET 2027</div>

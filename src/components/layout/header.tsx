@@ -30,10 +30,10 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
       <div
         className={cn(
-          "mx-auto flex h-16 max-w-[84rem] items-center justify-between rounded-full px-4 transition-all duration-700 ease-[var(--ease-lux)] md:h-[4.25rem] md:px-6",
+          "mx-auto flex h-16 max-w-[84rem] items-center justify-between rounded-[18px] px-4 transition-all duration-700 ease-[var(--ease-lux)] md:h-[4.25rem] md:px-6",
           light
             ? "bg-transparent"
-            : "border border-ink/[0.06] bg-ivory/75 shadow-[0_12px_40px_-24px_rgba(23,22,18,0.35)] backdrop-blur-xl backdrop-saturate-150",
+            : "border border-concrete/30 bg-ivory/80 shadow-[0_12px_40px_-26px_rgba(60,45,35,0.35)] backdrop-blur-xl backdrop-saturate-150",
         )}
       >
         <Logo tone={light ? "ivory" : "ink"} />
@@ -89,7 +89,7 @@ export function Header() {
                   </Dialog.Overlay>
                   <Dialog.Content asChild forceMount>
                     <motion.div
-                      className="fixed inset-x-3 top-3 z-50 rounded-[2rem] bg-ivory p-6 shadow-2xl"
+                      className="fixed inset-x-3 top-3 z-50 rounded-[20px] bg-ivory p-6 shadow-2xl"
                       initial={{ opacity: 0, y: -16, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -12, scale: 0.98 }}

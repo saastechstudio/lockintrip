@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Conditions générales de vente", al
 export default function Cgv() {
   return (
     <>
-      <p className="eyebrow text-emerald">Informations légales</p>
+      <p className="eyebrow text-bordeaux">Informations légales</p>
       <h1 className="mt-6">Conditions générales de vente</h1>
       <DraftNotice />
       <h2>1. Objet</h2>

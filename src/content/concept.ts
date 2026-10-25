@@ -27,7 +27,7 @@ export const pillars: Pillar[] = [
   {
     icon: "sport",
     title: "Des activités sportives",
-    body: "Muay thaï, natation, yoga au lever du soleil. L'énergie physique nourrit la clarté mentale.",
+    body: "Muay thaï, padel, fitness et natation au lever du soleil. Le corps en mouvement nourrit la clarté mentale.",
     outcome: "Une énergie que tu ramènes chez toi",
   },
   {

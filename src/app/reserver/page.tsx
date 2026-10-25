@@ -26,7 +26,7 @@ export default async function ReserverPage({
   const defaultSession = sessionIds.find((s) => s === session);
 
   return (
-    <section className="relative bg-linen pb-28 pt-36 md:pb-36 md:pt-44">
+    <section className="relative bg-pierre/45 tex-travertine pb-28 pt-36 md:pb-36 md:pt-44">
       <div className="container-lux">
         <SectionHeading
           as="h1"
