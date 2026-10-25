@@ -4,6 +4,7 @@ import { Concept } from "@/components/sections/concept";
 import { Goals } from "@/components/sections/goals";
 import { Experts } from "@/components/sections/experts";
 import { Phuket } from "@/components/sections/phuket";
+import { Hotel } from "@/components/sections/hotel";
 import { Pricing } from "@/components/sections/pricing";
 import { Edition } from "@/components/sections/edition";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Goals />
       <Experts />
       <Phuket />
+      <Hotel />
       <Pricing />
       <Edition />
       <Testimonials />

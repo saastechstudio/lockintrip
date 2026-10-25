@@ -25,7 +25,7 @@ export const media = {
     video: undefined as string | undefined, // ex. "/videos/hero.mp4" (muet, en boucle, < 8 Mo)
     poster: { src: undefined, alt: "Villa contemporaine en béton face à la mer, Phuket" } as MediaSlot,
   },
-  why: { src: undefined, alt: "Deux participants en discussion au bord d'un bassin en pierre" } as MediaSlot,
+  why: { src: "/images/hotel/piscine-jardin.jpg", alt: "Piscine de l'hôtel longeant un jardin tropical" } as MediaSlot,
   phuket: [
     { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman" },
     { src: undefined, alt: "Patio de villa entre murs de pierre et palmiers" },

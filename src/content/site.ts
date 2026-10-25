@@ -16,7 +16,7 @@ export const site = {
     { label: "Concept", href: "/#concept" },
     { label: "Objectifs", href: "/#objectifs" },
     { label: "Experts", href: "/#experts" },
-    { label: "Phuket", href: "/#phuket" },
+    { label: "L'hôtel", href: "/#hotel" },
     { label: "Tarifs", href: "/#tarifs" },
     { label: "FAQ", href: "/#faq" },
   ],
