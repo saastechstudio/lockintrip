@@ -34,6 +34,7 @@ export function Activities() {
         <div className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {activityPhotos.map((p, i) => (
             <Reveal key={p.src} delay={i * 0.08} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
+              {p.src ? (
               <figure className="group relative aspect-[4/5] overflow-hidden rounded-[18px]">
                 <Image
                   src={p.src}
@@ -45,6 +46,17 @@ export function Activities() {
                 <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
                 <figcaption className="font-display absolute bottom-5 left-5 text-xl font-light text-ivory md:text-2xl">{p.caption}</figcaption>
               </figure>
+              ) : (
+                <div className="tex-concrete flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[18px] bg-bordeaux p-7 text-ivory max-md:aspect-[16/10] md:p-8">
+                  <p className="eyebrow text-pierre">{p.caption}</p>
+                  <ul className="font-display space-y-1 text-[1.65rem] font-light leading-tight md:text-[2rem]">
+                    {["Muay thaï", "Yoga & pilates", "Golf", "Randonnée", "Football"].map((a) => (
+                      <li key={a}>{a}</li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-ivory/70">Débutant ou confirmé, chacun à son rythme.</p>
+                </div>
+              )}
             </Reveal>
           ))}
         </div>
