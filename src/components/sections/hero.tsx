@@ -6,6 +6,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Scene } from "@/components/visuals/scene";
+import { HeroScene } from "@/components/visuals/hero-scene";
 import { media } from "@/content/media";
 import { site } from "@/content/site";
 
@@ -32,22 +33,25 @@ export function Hero() {
   return (
     <section ref={ref} className="relative h-[100svh] min-h-[44rem] overflow-hidden bg-ink text-ivory">
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <Scene variant="water" src={media.hero.poster.src} alt={media.hero.poster.alt} priority className="h-full w-full" seed={3}>
-          {media.hero.video && (
-            <video
-              className="absolute inset-0 h-full w-full object-cover"
-              src={media.hero.video}
-              poster={media.hero.poster.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-hidden
-            />
-          )}
-        </Scene>
-        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_45%,rgba(29,20,18,0.05),rgba(29,20,18,0.45))]" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 to-transparent" />
+        {media.hero.poster.src || media.hero.video ? (
+          <Scene src={media.hero.poster.src} alt={media.hero.poster.alt} priority className="h-full w-full">
+            {media.hero.video && (
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                src={media.hero.video}
+                poster={media.hero.poster.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden
+              />
+            )}
+          </Scene>
+        ) : (
+          <HeroScene />
+        )}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/40 to-transparent" />
       </motion.div>
 
       <motion.div style={{ opacity: fade }} className="container-lux relative z-10 flex h-full flex-col justify-end pb-10 pt-32 md:pb-14">

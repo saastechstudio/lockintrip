@@ -26,6 +26,8 @@
   --animate-drift: drift 48s linear infinite;
   --animate-drift-slow: drift-reverse 34s linear infinite;
   --animate-sway: sway 11s ease-in-out infinite alternate;
+  --animate-kenburns: kenburns 32s ease-in-out infinite alternate;
+  --animate-shimmer: shimmer 2.8s linear infinite;
 
   /* Translation d'exactement une période de texture (--tile) : boucle sans couture. */
   @keyframes drift {
@@ -35,6 +37,15 @@
   @keyframes drift-reverse {
     from { transform: translate3d(calc(var(--tile) * -1), 0, 0); }
     to { transform: translate3d(0, calc(var(--tile) * -1), 0); }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.02) translate3d(0, 0, 0); }
+    to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+  }
+  @keyframes shimmer {
+    from { background-position: 0 0; opacity: 0.85; }
+    50% { opacity: 1; }
+    to { background-position: 0 26px; opacity: 0.85; }
   }
   @keyframes sway {
     from { transform: rotate(-2.2deg) translateX(-1%); }
