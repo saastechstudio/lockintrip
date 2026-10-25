@@ -30,10 +30,18 @@ Tout le texte est dans `src/content/` — aucun composant à toucher :
 | `offers.ts` | Formules et prix |
 | `sessions.ts` | Dates et places (`taken` alimente le compteur) |
 | `experts.ts` | Experts (nom, rôle, photo à renseigner) |
-| `concept.ts` | Les 8 piliers et la journée type |
+| `concept.ts` | Les 6 piliers, la journée type et les freins de la section « constat » |
+| `goals.ts` | Les 6 objectifs (chaque carte pré-remplit le formulaire de réservation) |
 | `faq.ts` | Questions fréquentes |
 | `testimonials.ts` | Témoignages — **fictifs, à remplacer avant la mise en ligne** |
 | `media.ts` | Photos et vidéo du hero |
+
+## Parcours de conversion
+
+- Appels à réserver dans le hero, le constat, chaque carte objectif, les tarifs, chaque session et le CTA final.
+- Barre de réservation persistante (places restantes, prix d'appel) visible après le hero, masquée au CTA final.
+- Liens profonds vers `/reserver` : `?offre=explorer|all-inclusive`, `?session=s1|s2|s3`, `?objectif=lancer|developper|revenus|discipline|reseau|direction`.
+- Réassurance sous les tarifs : paiement en plusieurs fois, réponse sous 48 h, aucun paiement à la demande.
 
 ## Photos
 

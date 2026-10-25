@@ -17,12 +17,20 @@ import { cn, formatDay, formatPrice } from "@/lib/utils";
 type FormValues = Omit<ReservationInput, "consent" | "profile"> & { consent: boolean; profile: ReservationInput["profile"] | "" };
 
 const steps = [
-  "Vous déposez votre demande (2 minutes).",
-  "Nous vous appelons sous 48 h pour un échange de 15 minutes.",
-  "Votre place est confirmée par le règlement d'un acompte.",
+  "Tu déposes ta demande (2 minutes).",
+  "On t'appelle sous 48 h pour un échange de 15 minutes.",
+  "Ta place est confirmée dès le premier paiement.",
 ];
 
-export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: OfferId; defaultSession?: SessionId }) {
+export function BookingForm({
+  defaultOffer,
+  defaultSession,
+  defaultGoal,
+}: {
+  defaultOffer?: OfferId;
+  defaultSession?: SessionId;
+  defaultGoal?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
   const firstOpen = sessions.find((s) => s.taken < s.capacity)?.id ?? "s1";
 
@@ -44,7 +52,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
       phone: "",
       city: "",
       profile: "",
-      goal: "",
+      goal: defaultGoal ?? "",
       consent: false,
       website: "",
     },
@@ -83,7 +91,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
         </span>
         <h2 className="font-display mt-8 text-4xl font-light text-ink md:text-5xl">Demande reçue.</h2>
         <p className="mx-auto mt-5 max-w-md leading-relaxed text-muted">
-          Merci. Nous revenons vers vous sous 48 h pour échanger sur votre objectif et confirmer votre place pour la{" "}
+          Merci. On revient vers toi sous 48 h pour échanger sur ton objectif et confirmer ta place pour la{" "}
           {session.label.toLowerCase()} ({formatDay(session.start)} → {formatDay(session.end)}).
         </p>
         <Button asChild variant="outline" className="mt-10">
@@ -97,7 +105,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-10 lg:grid-cols-12 lg:gap-14">
       <div className="space-y-12 lg:col-span-7">
         <fieldset>
-          <legend className="font-display text-2xl font-light text-ink">1. Votre formule</legend>
+          <legend className="font-display text-2xl font-light text-ink">1. Ta formule</legend>
           <div className="mt-6 grid gap-3 sm:grid-cols-2" role="radiogroup">
             {offers.map((o) => (
               <ChoiceCard key={o.id} checked={offerId === o.id} onSelect={() => setValue("offer", o.id, { shouldValidate: true })}>
@@ -106,7 +114,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
                   {o.badge && <span className="rounded-full bg-glow/80 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-ink">{o.badge}</span>}
                 </div>
                 <span className="font-display mt-2 block text-3xl font-light text-ink">{formatPrice(o.price)}</span>
-                <span className="mt-1 block text-xs text-muted">{o.note ?? "Vol et transferts inclus"}</span>
+                <span className="mt-1 block text-xs text-muted">{o.excludes?.[0] ?? "Vol et transferts inclus"}</span>
               </ChoiceCard>
             ))}
           </div>
@@ -115,7 +123,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
         </fieldset>
 
         <fieldset>
-          <legend className="font-display text-2xl font-light text-ink">2. Votre session</legend>
+          <legend className="font-display text-2xl font-light text-ink">2. Ta session</legend>
           <div className="mt-6 grid gap-3 sm:grid-cols-3" role="radiogroup">
             {sessions.map((s) => {
               const left = s.capacity - s.taken;
@@ -140,7 +148,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
         </fieldset>
 
         <fieldset>
-          <legend className="font-display text-2xl font-light text-ink">3. Vous</legend>
+          <legend className="font-display text-2xl font-light text-ink">3. Toi</legend>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <Field id="firstName" label="Prénom" error={errors.firstName?.message}>
               <Input id="firstName" autoComplete="given-name" aria-invalid={!!errors.firstName} {...register("firstName")} />
@@ -172,10 +180,10 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
                 <span aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-xs text-muted">▾</span>
               </div>
             </Field>
-            <Field id="goal" label="L'objectif que vous voulez faire avancer" error={errors.goal?.message} className="sm:col-span-2">
+            <Field id="goal" label="L'objectif que tu veux accélérer" error={errors.goal?.message} className="sm:col-span-2">
               <Textarea
                 id="goal"
-                placeholder="Où en êtes-vous aujourd'hui, et à quoi ressemblerait une semaine réussie pour vous ?"
+                placeholder="Où en es-tu aujourd'hui, et à quoi ressemblerait une semaine réussie pour toi ?"
                 aria-invalid={!!errors.goal}
                 {...register("goal")}
               />
@@ -204,7 +212,7 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
       <aside className="lg:col-span-5">
         <div className="lg:sticky lg:top-28">
           <div className="overflow-hidden rounded-[2rem] bg-emerald-deep p-8 text-ivory md:p-10">
-            <p className="eyebrow text-glow">Votre sélection</p>
+            <p className="eyebrow text-glow">Ta sélection</p>
             <AnimatePresence mode="wait">
               <motion.div key={`${offer.id}-${session.id}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35 }}>
                 <p className="font-display mt-5 text-3xl font-light">{offer.name}</p>
@@ -226,13 +234,13 @@ export function BookingForm({ defaultOffer, defaultSession }: { defaultOffer?: O
             </ol>
             <Button type="submit" size="lg" variant="light" disabled={isSubmitting} className="mt-10 w-full">
               {isSubmitting ? <Loader2 className="animate-spin" /> : null}
-              {isSubmitting ? "Envoi en cours" : "Envoyer ma demande"}
+              {isSubmitting ? "Envoi en cours" : "Réserver ma place"}
               {!isSubmitting && <ArrowRight className="transition-transform duration-500 group-hover/btn:translate-x-0.5" />}
             </Button>
             <p className="mt-4 text-center text-xs text-ivory/50">Aucun paiement à cette étape.</p>
             {status === "error" && (
               <p role="alert" className="mt-4 rounded-xl bg-ivory/10 p-3 text-center text-sm text-ivory">
-                L&apos;envoi a échoué. Réessayez ou écrivez-nous directement par e-mail.
+                L&apos;envoi a échoué. Réessaie ou écris-nous directement par e-mail.
               </p>
             )}
           </div>

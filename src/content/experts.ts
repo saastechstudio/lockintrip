@@ -1,12 +1,14 @@
 /**
  * Intervenants. Renseignez `name`, `role` et `photo` (ex. "/images/experts/claire.jpg")
- * au fur et à mesure des confirmations. Un expert sans nom s'affiche comme
- * « Annonce prochainement » — la carte reste élégante en attendant.
+ * au fur et à mesure des confirmations. Sans photo, un portrait d'attente élégant s'affiche.
+ *
+ * `outcomes` décrit ce que les participants repartent avec — pas les diplômes de l'expert.
  */
 export type Expert = {
+  emoji: "ai" | "marketing" | "ecommerce" | "legal" | "mind" | "business";
   domain: string;
-  focus: string;
-  takeaways: string[];
+  promise: string;
+  outcomes: string[];
   name?: string;
   role?: string;
   photo?: string;
@@ -14,33 +16,39 @@ export type Expert = {
 
 export const experts: Expert[] = [
   {
+    emoji: "ai",
     domain: "Intelligence artificielle",
-    focus: "Intégrer l'IA dans votre quotidien de travail et dans votre offre.",
-    takeaways: ["Vos workflows automatisés", "Un assistant sur mesure", "Une veille qui tient en 20 min"],
+    promise: "Tu repars avec des heures gagnées chaque semaine.",
+    outcomes: ["Tes tâches répétitives automatisées", "Un assistant IA configuré pour ton métier", "Une veille qui tient en 20 minutes"],
   },
   {
+    emoji: "marketing",
     domain: "Marketing",
-    focus: "Construire une acquisition qui fonctionne sans dépendre d'un seul canal.",
-    takeaways: ["Positionnement clarifié", "Plan de contenu à 90 jours", "Tunnel d'acquisition chiffré"],
+    promise: "Tu repars avec un plan d'acquisition chiffré.",
+    outcomes: ["Un positionnement que l'on retient", "90 jours de contenu planifiés", "Un tunnel de vente mesurable"],
   },
   {
+    emoji: "ecommerce",
     domain: "E-commerce",
-    focus: "Lancer, structurer ou faire passer un cap à une marque en ligne.",
-    takeaways: ["Choix produit et marges", "Logistique et fournisseurs", "Leviers de conversion"],
+    promise: "Tu repars avec une boutique prête à vendre, ou à vendre plus.",
+    outcomes: ["Produit et marges validés", "Fournisseurs et logistique cadrés", "Les leviers de conversion prioritaires"],
   },
   {
+    emoji: "legal",
     domain: "Juridique",
-    focus: "Sécuriser votre activité avant qu'elle ne grandisse.",
-    takeaways: ["Statut et fiscalité adaptés", "Contrats et CGV", "Protection de la marque"],
+    promise: "Tu repars avec une activité sécurisée avant de grandir.",
+    outcomes: ["Le bon statut et la bonne fiscalité", "Contrats et CGV prêts", "Ta marque protégée"],
   },
   {
+    emoji: "mind",
     domain: "Performance mentale",
-    focus: "Tenir le rythme sans s'épuiser : focus, énergie, discipline.",
-    takeaways: ["Routine de concentration", "Gestion de l'énergie", "Décider sous pression"],
+    promise: "Tu repars avec une routine qui tient le rythme.",
+    outcomes: ["Une méthode de concentration", "Une gestion de l'énergie durable", "Décider vite et sereinement"],
   },
   {
+    emoji: "business",
     domain: "Entrepreneuriat",
-    focus: "Passer de l'idée au premier chiffre d'affaires, ou du chiffre à l'échelle.",
-    takeaways: ["Offre et pricing", "Premières ventes", "Organisation et délégation"],
+    promise: "Tu repars avec une offre, un prix et un premier plan de vente.",
+    outcomes: ["Une offre irrésistible", "Tes premières ventes planifiées", "Une organisation qui libère du temps"],
   },
 ];

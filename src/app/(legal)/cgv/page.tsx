@@ -20,7 +20,7 @@ export default function Cgv() {
       <ul>
         {offers.map((o) => (
           <li key={o.id}>
-            {o.name} : {formatPrice(o.price)} TTC par personne. {o.note ?? ""}
+            {o.name} : {formatPrice(o.price)} TTC par personne. {o.excludes?.join(", ") ?? ""}
           </li>
         ))}
       </ul>

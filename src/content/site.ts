@@ -3,7 +3,7 @@ export const site = {
   shortName: "Lockin Trip",
   tagline: "L'accélérateur d'objectifs de vie.",
   description:
-    "Une expérience immersive à Phuket qui réunit experts, entrepreneurs, créateurs et personnes ambitieuses dans un environnement conçu pour accélérer les projets qui comptent réellement.",
+    "Une expérience immersive à Phuket réunissant experts, entrepreneurs et personnes ambitieuses dans un environnement conçu pour accélérer les projets qui comptent vraiment.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lockintrip.com",
   locale: "fr_FR",
   email: "contact@lockintrip.com",
@@ -14,8 +14,9 @@ export const site = {
   },
   nav: [
     { label: "Concept", href: "/#concept" },
+    { label: "Objectifs", href: "/#objectifs" },
     { label: "Experts", href: "/#experts" },
-    { label: "Expérience", href: "/#experience" },
+    { label: "Phuket", href: "/#phuket" },
     { label: "Tarifs", href: "/#tarifs" },
     { label: "FAQ", href: "/#faq" },
   ],

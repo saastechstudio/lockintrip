@@ -9,7 +9,7 @@ import { Scene } from "@/components/visuals/scene";
 import { media } from "@/content/media";
 import { site } from "@/content/site";
 
-const badges = ["Hôtel inclus", "Déjeuner inclus", "Activités incluses", "Excursion incluse", "Communauté privée"];
+const badges = ["Hôtel inclus", "Déjeuners inclus", "Activités incluses", "Excursion incluse", "Communauté privée"];
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {

@@ -1,27 +1,15 @@
-import {
-  CalendarCheck2,
-  Compass,
-  GraduationCap,
-  type LucideIcon,
-  MessagesSquare,
-  Presentation,
-  Sailboat,
-  Users,
-  Waves,
-} from "lucide-react";
+import { Compass, GraduationCap, type LucideIcon, MessagesSquare, Users, Waves, Infinity as InfinityIcon } from "lucide-react";
 import { Reveal, RevealItem } from "@/components/motion/reveal";
 import { pillars, rhythm, type Pillar } from "@/content/concept";
 import { SectionHeading } from "./section-heading";
 
 const icons: Record<Pillar["icon"], LucideIcon> = {
-  masterclass: Presentation,
-  workshop: Compass,
   experts: GraduationCap,
-  network: Users,
-  sport: Waves,
+  workshop: Compass,
   "one-on-one": MessagesSquare,
-  excursion: Sailboat,
-  community: CalendarCheck2,
+  sport: Waves,
+  network: Users,
+  community: InfinityIcon,
 };
 
 export function Concept() {
@@ -32,36 +20,43 @@ export function Concept() {
           <SectionHeading
             eyebrow="Le concept"
             title="Une expérience conçue pour avancer."
-            intro="Huit leviers, une seule semaine. Chaque moment du programme a une fonction précise : apprendre, décider, rencontrer, ou récupérer pour mieux repartir."
+            intro="Une semaine où chaque moment a une fonction : apprendre, décider, rencontrer, récupérer. Six leviers réunis au même endroit, au même moment."
           />
-          <Reveal delay={0.2} className="lg:max-w-xs">
-            <p className="text-sm leading-relaxed text-muted">
-              <span className="font-display text-5xl font-light text-ink">7</span>
-              <span className="ml-2 align-top">jours</span>
-              <br />
-              <span className="font-display text-5xl font-light text-ink">20</span>
-              <span className="ml-2 align-top">participants par session</span>
-            </p>
+          <Reveal delay={0.2} className="flex gap-10 lg:max-w-sm">
+            {[
+              ["7", "jours"],
+              ["20", "personnes par session"],
+              ["6", "domaines d'expertise"],
+            ].map(([n, l]) => (
+              <div key={l}>
+                <p className="font-display text-5xl font-light text-ink">{n}</p>
+                <p className="mt-1 text-xs leading-snug text-muted">{l}</p>
+              </div>
+            ))}
           </Reveal>
         </div>
 
-        <ul className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {pillars.map((p, i) => {
             const Icon = icons[p.icon];
             return (
               <RevealItem
                 key={p.title}
-                delay={(i % 4) * 0.08}
-                className="group relative flex h-full flex-col rounded-[1.75rem] border border-ink/[0.06] bg-ivory p-7 transition-all duration-700 ease-[var(--ease-lux)] hover:-translate-y-1 hover:border-emerald/20 hover:shadow-[0_30px_60px_-30px_rgba(28,58,49,0.35)]"
+                delay={(i % 3) * 0.08}
+                className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-ink/[0.06] bg-ivory p-8 transition-all duration-700 ease-[var(--ease-lux)] hover:-translate-y-1 hover:border-emerald/20 hover:shadow-[0_30px_60px_-30px_rgba(28,58,49,0.35)] md:p-9"
               >
-                  <div className="flex items-center justify-between">
-                    <span className="grid size-12 place-items-center rounded-full bg-mist/70 text-emerald transition-colors duration-700 group-hover:bg-emerald group-hover:text-ivory">
-                      <Icon className="size-5" strokeWidth={1.3} />
-                    </span>
-                    <span className="font-display text-xs text-stone">{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <h3 className="font-display mt-10 text-[1.6rem] font-light leading-tight text-ink">{p.title}</h3>
-                  <p className="mt-3 text-[0.9rem] leading-relaxed text-muted">{p.body}</p>
+                <div className="flex items-center justify-between">
+                  <span className="grid size-12 place-items-center rounded-full bg-mist/70 text-emerald transition-colors duration-700 group-hover:bg-emerald group-hover:text-ivory">
+                    <Icon className="size-5" strokeWidth={1.3} />
+                  </span>
+                  <span className="font-display text-xs text-stone">{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="font-display mt-10 text-[1.75rem] font-light leading-tight text-ink">{p.title}</h3>
+                <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-muted">{p.body}</p>
+                <p className="mt-8 flex items-center gap-3 border-t border-ink/[0.08] pt-5 text-sm text-ink">
+                  <span className="h-px w-5 bg-emerald transition-all duration-700 group-hover:w-9" />
+                  {p.outcome}
+                </p>
               </RevealItem>
             );
           })}

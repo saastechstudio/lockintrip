@@ -1,15 +1,16 @@
-import { Dumbbell, Globe2, Sparkles, Sun, Leaf } from "lucide-react";
+import { Dumbbell, Globe2, Leaf, Mountain, PowerOff, Sun } from "lucide-react";
 import { Reveal, RevealItem } from "@/components/motion/reveal";
 import { Scene, type SceneVariant } from "@/components/visuals/scene";
 import { media } from "@/content/media";
 import { SectionHeading } from "./section-heading";
 
 const reasons = [
-  { icon: Sun, title: "Climat", body: "31 °C en mars, saison sèche, mer d'Andaman à 29 °C. Le corps se détend, l'esprit suit." },
-  { icon: Leaf, title: "Qualité de vie", body: "Cuisine fraîche, massages, nature omniprésente : récupérer devient facile." },
-  { icon: Sparkles, title: "Inspiration", body: "Falaises calcaires, lagons, levers de soleil. Un décor qui élargit la perspective." },
-  { icon: Dumbbell, title: "Sport", body: "Berceau du muay thaï, spots de natation et de randonnée, salles de niveau international." },
-  { icon: Globe2, title: "Énergie internationale", body: "Entrepreneurs, nomades et créateurs du monde entier y vivent et y construisent." },
+  { icon: Sun, title: "Climat exceptionnel", body: "31 °C en mars, saison sèche, mer à 29 °C. Le corps se relâche, l'esprit se libère." },
+  { icon: Globe2, title: "Énergie internationale", body: "Entrepreneurs, créateurs et nomades du monde entier y vivent et y construisent." },
+  { icon: Dumbbell, title: "Activités sportives", body: "Berceau du muay thaï, natation, randonnée, salles de niveau international." },
+  { icon: Leaf, title: "Qualité de vie", body: "Cuisine fraîche, massages, nature partout : récupérer devient naturel." },
+  { icon: PowerOff, title: "Déconnexion du quotidien", body: "À 10 000 km des urgences et des habitudes, l'attention revient sur l'essentiel." },
+  { icon: Mountain, title: "Environnement inspirant", body: "Falaises calcaires, lagons, levers de soleil. Un décor qui élargit la perspective." },
 ];
 
 const mosaic: { variant: SceneVariant; className: string; seed: number }[] = [
@@ -21,7 +22,7 @@ const mosaic: { variant: SceneVariant; className: string; seed: number }[] = [
 
 export function Phuket() {
   return (
-    <section id="experience" className="relative overflow-hidden bg-emerald-deep text-ivory">
+    <section id="phuket" className="relative overflow-hidden bg-emerald-deep text-ivory">
       <Scene variant="dusk" seed={9} src={media.final.src} alt="" className="absolute inset-0 opacity-25" />
       <div className="absolute inset-0 bg-gradient-to-b from-emerald-deep via-emerald-deep/90 to-emerald-deep" />
 
@@ -30,9 +31,9 @@ export function Phuket() {
           <div className="lg:col-span-5">
             <SectionHeading
               tone="ivory"
-              eyebrow="L'expérience · Phuket"
-              title="Un cadre qui change la façon de penser."
-              intro="Phuket réunit ce qu'il faut pour une semaine d'exception : la lumière, la mer, le calme et une scène internationale d'entrepreneurs. Assez loin pour couper, assez vivant pour inspirer."
+              eyebrow="Le cadre"
+              title="Pourquoi Phuket ?"
+              intro="Pas pour la carte postale. Parce que tout y est réuni pour penser plus loin : la lumière, le calme, l'énergie et une scène internationale qui avance."
             />
             <ul className="mt-14 space-y-7">
               {reasons.map((r, i) => (
@@ -70,6 +71,13 @@ export function Phuket() {
             ))}
           </div>
         </div>
+
+        <Reveal className="mx-auto mt-24 max-w-4xl text-center md:mt-32">
+          <blockquote className="font-display text-3xl font-light italic leading-snug text-ivory md:text-5xl">
+            «&nbsp;Parfois, changer d&apos;environnement est la première étape pour changer de trajectoire.&nbsp;»
+          </blockquote>
+          <div className="mx-auto mt-8 h-px w-16 bg-glow/70" />
+        </Reveal>
       </div>
     </section>
   );

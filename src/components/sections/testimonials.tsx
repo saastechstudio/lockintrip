@@ -7,7 +7,7 @@ export function Testimonials() {
   return (
     <section className="relative py-28 md:py-40">
       <div className="container-lux">
-        <SectionHeading eyebrow="Ils en parlent" title="Une semaine, puis une autre trajectoire." />
+        <SectionHeading eyebrow="Ils en parlent" title="Une semaine, puis une autre trajectoire." intro="Des profils différents, un même déclic : le bon environnement change la vitesse à laquelle on avance." />
         <div className="mt-20 grid gap-5 md:grid-cols-2">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={(i % 2) * 0.1}>

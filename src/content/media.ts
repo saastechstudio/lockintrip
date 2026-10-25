@@ -23,5 +23,5 @@ export const media = {
     { src: undefined, alt: "Séance de sport au lever du soleil" },
     { src: undefined, alt: "Dîner en terrasse face à la mer d'Andaman" },
   ] as MediaSlot[],
-  final: { src: undefined, alt: "Baie de Phang Nga au crépuscule" } as MediaSlot,
+  final: { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman, Phuket" } as MediaSlot,
 };

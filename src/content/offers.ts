@@ -6,46 +6,53 @@ export type Offer = {
   price: number;
   pitch: string;
   includes: string[];
-  note?: string;
+  excludes?: string[];
+  cta: string;
   featured?: boolean;
   badge?: string;
 };
-
-const core = [
-  "Hôtel 7 nuits",
-  "Chambre partagée",
-  "Petit-déjeuner",
-  "Déjeuner",
-  "Masterclass quotidiennes",
-  "Activités sportives",
-  "Excursion en mer",
-  "Entretiens individuels",
-  "Accès à vie à la communauté",
-];
 
 export const offers: Offer[] = [
   {
     id: "explorer",
     name: "Explorer",
     price: 1990,
-    pitch: "Le programme complet, sur place. Vous organisez votre vol.",
-    includes: core,
-    note: "Vol non inclus",
+    pitch: "Le programme complet sur place. Tu organises ton vol.",
+    includes: [
+      "Hôtel 7 nuits",
+      "Chambre partagée",
+      "Petit-déjeuner quotidien",
+      "Déjeuner quotidien",
+      "Masterclass",
+      "Ateliers collaboratifs",
+      "Activités sportives",
+      "Excursion Phuket",
+      "Entretien individuel d'entrée",
+      "Entretien individuel de sortie",
+      "Communauté privée",
+      "Plan d'action personnalisé",
+    ],
+    excludes: ["Vol non inclus"],
+    cta: "Réserver",
   },
   {
     id: "all-inclusive",
     name: "All Inclusive",
     price: 2590,
-    pitch: "Tout est pris en charge, de Paris à Phuket et retour.",
+    pitch: "Tu n'as qu'à faire ta valise. On s'occupe de tout, de Paris à Phuket.",
     includes: [
-      "Tout le programme Explorer",
+      "Tout Explorer",
       "Vol aller-retour France → Phuket",
-      "Transferts aéroport ↔ hôtel",
-      "Assistance voyage 24/7",
+      "Transferts aéroport",
+      "Assistance voyage",
+      "Accompagnement avant départ",
+      "Groupe privé avant séjour",
     ],
+    cta: "Réserver ma place",
     featured: true,
-    badge: "Plus populaire",
+    badge: "Le plus populaire",
   },
 ];
 
+export const startingPrice = Math.min(...offers.map((o) => o.price));
 export const getOffer = (id: OfferId) => offers.find((o) => o.id === id)!;
