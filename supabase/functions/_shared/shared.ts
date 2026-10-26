@@ -46,6 +46,7 @@ export function allowedOrigin(req: Request): string | null {
   ];
   if (list.includes(origin)) return origin;
   if (/^https:\/\/lockintrip[a-z0-9-]*\.vercel\.app$/.test(origin)) return origin;
+  if (/^https:\/\/lockintrip[a-z0-9-]*\.onrender\.com$/.test(origin)) return origin;
   return null;
 }
 
