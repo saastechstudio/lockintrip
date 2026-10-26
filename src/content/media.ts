@@ -25,7 +25,7 @@ export const media = {
     video: undefined as string | undefined, // ex. "/videos/hero.mp4" (muet, en boucle, < 8 Mo)
     poster: { src: "/images/hero-lagoon.jpg", alt: "Bateau longtail dans une lagune aux eaux turquoise, entre des falaises couvertes de végétation" } as MediaSlot,
   },
-  why: { src: "/images/hotel/chambre-portrait.jpg", alt: "Chambre lumineuse aux murs de béton ciré, ouverte sur la végétation" } as MediaSlot,
+  why: { src: "/images/lagon-phi-phi.jpg", alt: "Lagon turquoise entre des falaises karstiques couvertes de jungle" } as MediaSlot,
   phuket: [
     { src: "/images/phuket-coucher-soleil.jpg", alt: "Bateaux longtail ancrés au coucher du soleil" },
     { src: undefined, alt: "Patio de villa entre murs de pierre et palmiers" },

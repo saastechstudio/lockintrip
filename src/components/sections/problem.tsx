@@ -71,7 +71,7 @@ export function Problem() {
             alt={media.why.alt}
             seed={21}
             sizes="(min-width: 1024px) 40vw, 100vw"
-            className="aspect-[4/5] w-full rounded-[20px] lg:sticky lg:top-28"
+            className="aspect-[4/5] w-full rounded-[20px] lg:aspect-square lg:sticky lg:top-28"
           >
             <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-ivory/85 p-6 backdrop-blur-md">
               <p className="eyebrow text-bordeaux">Avec Lockin Trip</p>
