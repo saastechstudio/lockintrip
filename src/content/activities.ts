@@ -36,3 +36,13 @@ export const excursion = {
   body: "Le dernier jour, on prend la mer. Bateau traditionnel, falaises calcaires, eaux turquoise : une journée pour souffler, célébrer le chemin parcouru et graver la semaine dans les mémoires, ensemble.",
   points: ["Incluse dans les deux formules", "Avec tout le groupe", "Le souvenir qui scelle les liens"],
 };
+
+export const soiree = {
+  src: "/images/activites/catamaran.jpg",
+  alt: "Catamaran blanc vu du ciel sur une mer bleu profond, avec une plateforme de baignade flottante",
+  width: 1088,
+  height: 765,
+  eyebrow: "Soirée de fin de séjour",
+  title: "La dernière soirée se passe à bord d'un magnifique catamaran.",
+  body: "Pour clore la semaine, tout le groupe se retrouve sur l'eau. Un cadre à part pour partager le chemin parcouru et se dire au revoir ensemble.",
+};

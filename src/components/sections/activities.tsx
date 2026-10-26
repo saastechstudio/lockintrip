@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
-import { activities, activityPhotos, excursion } from "@/content/activities";
+import { activities, activityPhotos, excursion, soiree } from "@/content/activities";
 import { SectionHeading } from "./section-heading";
 
 export function Activities() {
@@ -78,6 +78,19 @@ export function Activities() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </article>
+        </Reveal>
+
+        <Reveal className="mt-4 md:mt-6">
+          <article className="card-lux grid overflow-hidden md:grid-cols-2">
+            <div className="flex flex-col justify-center p-8 md:p-12">
+              <p className="eyebrow text-bordeaux">{soiree.eyebrow}</p>
+              <h3 className="font-display mt-5 text-3xl font-light leading-tight text-ink md:text-[2.6rem]">{soiree.title}</h3>
+              <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted">{soiree.body}</p>
+            </div>
+            <div className="relative aspect-[3/2] overflow-hidden md:aspect-auto md:min-h-[24rem]">
+              <Image src={soiree.src} alt={soiree.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={88} className="object-cover" />
             </div>
           </article>
         </Reveal>
