@@ -65,9 +65,9 @@ export function Concept() {
         <Reveal className="card-lux mt-20 p-8 md:p-12">
           <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
             <h3 className="font-display text-2xl font-light text-ink md:text-3xl">Une journée type</h3>
-            <p className="text-sm text-muted">Rythme indicatif, ajusté selon les sessions.</p>
+            <p className="text-sm text-muted">Le programme d&apos;une journée de séjour.</p>
           </div>
-          <ol className="mt-10 grid grid-cols-2 gap-y-8 md:grid-cols-6">
+          <ol className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-5">
             {rhythm.map((r) => (
               <li key={r.time} className="relative border-t border-ink/10 pr-4 pt-5">
                 <span className="absolute -top-[5px] left-0 size-[9px] rounded-full border border-bordeaux bg-ivory" />
@@ -77,6 +77,10 @@ export function Concept() {
               </li>
             ))}
           </ol>
+          <p className="mt-10 border-t border-ink/10 pt-6 text-sm text-muted">
+            Le transport depuis l&apos;aéroport et pour tous les déplacements est compris. Une excursion pendant la semaine,
+            une soirée de clôture à bord d&apos;un catamaran, et d&apos;autres surprises sont incluses.
+          </p>
         </Reveal>
       </div>
     </section>

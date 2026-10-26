@@ -7,16 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Expand, X } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { hotelHighlights, hotelPhotos } from "@/content/hotel";
-import { cn } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
-
-const layout = [
-  "md:col-span-7 md:row-span-2 aspect-[4/3] md:aspect-auto",
-  "md:col-span-5 aspect-[3/2]",
-  "md:col-span-5 aspect-[3/2]",
-  "md:col-span-6 aspect-[16/10]",
-  "md:col-span-6 aspect-[16/10]",
-];
 
 export function Hotel() {
   const [index, setIndex] = useState<number | null>(null);
@@ -58,9 +49,9 @@ export function Hotel() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-3 md:grid-cols-12 md:gap-4">
+        <div className="mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-3">
           {hotelPhotos.map((p, i) => (
-            <Reveal key={p.src} delay={(i % 3) * 0.08} className={cn("relative", layout[i])}>
+            <Reveal key={p.src} delay={(i % 3) * 0.08} className="relative aspect-[4/3]">
               <button
                 type="button"
                 onClick={() => setIndex(i)}
@@ -71,14 +62,13 @@ export function Hotel() {
                   src={p.src}
                   alt={p.alt}
                   fill
-                  sizes={i === 0 ? "(min-width: 768px) 58vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+                  sizes="(min-width: 768px) 340px, 50vw"
                   quality={88}
                   className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.045]"
-                  priority={i === 0}
-                />
+                                  />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-80 transition-opacity duration-700 group-hover:opacity-100" />
-                <span className="absolute bottom-5 left-5 flex items-center gap-3">
-                  <span className="font-display text-xl font-light text-ivory md:text-2xl">{p.caption}</span>
+                <span className="absolute bottom-3 left-3 right-3 flex items-center gap-3">
+                  <span className="font-display text-base font-light leading-tight text-ivory md:text-lg">{p.caption}</span>
                 </span>
                 <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-[12px] bg-ivory/15 text-ivory opacity-0 backdrop-blur-md transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <Expand className="size-4" strokeWidth={1.5} />
@@ -110,7 +100,7 @@ export function Hotel() {
                     <motion.div
                       key={index}
                       className="relative w-full max-w-6xl"
-                      style={{ aspectRatio: `${hotelPhotos[index].width} / ${hotelPhotos[index].height}`, maxHeight: "78vh" }}
+                      style={{ aspectRatio: `${hotelPhotos[index].width} / ${hotelPhotos[index].height}`, maxHeight: "78vh", maxWidth: `${hotelPhotos[index].maxWidth ?? 1206}px` }}
                       initial={{ opacity: 0, scale: 0.985 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.985 }}

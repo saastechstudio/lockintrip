@@ -6,7 +6,7 @@ export const faq: FaqGroup[] = [
     items: [
       {
         q: "Puis-je venir seul ?",
-        a: "Oui, et c'est le cas de la grande majorité des participants. Le groupe privé avant séjour, le premier dîner et les ateliers en petits groupes sont pensés pour que personne ne reste seul plus de quelques heures. Tu arrives seul, et tu rencontres le groupe dès le premier jour.",
+        a: "Oui. Les masterclass, le travail en groupe et les activités de l'après-midi permettent de faire connaissance avec le groupe dès les premiers jours.",
       },
       {
         q: "Faut-il être entrepreneur ?",
@@ -18,7 +18,7 @@ export const faq: FaqGroup[] = [
       },
       {
         q: "Faut-il être sportif ?",
-        a: "Non. Les activités de l'après-midi (football, pilates, yoga, padel, pickleball, golf, randonnée, muay thaï, fitness) sont ouvertes à tous les niveaux, même grand débutant. C'est l'occasion idéale de découvrir un sport, à ton rythme. Rien n'est obligatoire.",
+        a: "Non. Chaque après-midi, de 15 h à 17 h, tu choisis ton activité (football, pilates, yoga, padel, pickleball, golf, randonnée, muay thaï, fitness). Elles sont ouvertes à tous les niveaux, même grand débutant : c'est l'occasion de découvrir un sport.",
       },
       {
         q: "À qui s'adresse l'expérience ?",
@@ -30,20 +30,32 @@ export const faq: FaqGroup[] = [
     title: "Ce qui est inclus",
     items: [
       {
+        q: "Comment se déroule une journée ?",
+        a: "Petit-déjeuner à l'hôtel de 7 h à 9 h. Masterclass et travail en groupe de 10 h à 12 h. Déjeuner au restaurant à midi. Activité au choix de 15 h à 17 h. À partir de 17 h, le temps est libre pour tous.",
+      },
+      {
+        q: "Les transports sont-ils compris ?",
+        a: "Oui. Le transport de l'aéroport à l'hôtel et tous les déplacements du séjour sont compris, y compris pour l'excursion.",
+      },
+      {
+        q: "Que se passe-t-il à la fin du séjour ?",
+        a: "Une excursion est prévue pendant la semaine, et la soirée de clôture a lieu à bord d'un catamaran. D'autres surprises sont incluses.",
+      },
+      {
         q: "Les repas sont-ils inclus ?",
-        a: "Le petit-déjeuner et le déjeuner sont inclus chaque jour, dans les deux formules. Les dîners sont libres pour découvrir Phuket à ton rythme, avec plusieurs dîners de groupe organisés dans la semaine.",
+        a: "Le petit-déjeuner (de 7 h à 9 h, à l'hôtel) et le déjeuner (à midi, au restaurant) sont inclus. À partir de 17 h, le temps est libre pour tous : les dîners ne sont pas compris.",
       },
       {
         q: "Les vols sont-ils inclus ?",
-        a: "Dans la formule All Inclusive, oui : vol aller-retour depuis la France, transferts aéroport et assistance voyage. Dans la formule Explorer, tu réserves ton vol toi-même — idéal si tu pars d'ailleurs, utilises des miles ou prolonges ton séjour en Asie.",
+        a: "Le vol aller-retour depuis la France est inclus dans la formule All Inclusive. Avec la formule Explorer, tu réserves ton vol toi-même. Dans les deux formules, le transport de l'aéroport à l'hôtel et pour tous les déplacements du séjour est compris.",
       },
       {
         q: "Comment se déroule l'hébergement ?",
-        a: "Tous les participants d'une session logent dans le même hôtel de standing, à quelques minutes de la plage, avec piscine et espaces de travail. Les chambres sont partagées par deux, entre participants du même genre. Une chambre individuelle peut être proposée en option, selon disponibilités.",
+        a: "Les participants d'une session logent dans le même hôtel, en chambre partagée, pendant 7 nuits. Le petit-déjeuner est servi à l'hôtel.",
       },
       {
         q: "Que contient le plan d'action personnalisé ?",
-        a: "Construit lors de l'entretien de sortie, il reprend ton objectif, les décisions prises pendant la semaine et les étapes concrètes des 90 jours suivants. La communauté privée t'aide ensuite à t'y tenir.",
+        a: "Construit lors de l'entretien de sortie, il reprend ton objectif, les décisions prises pendant la semaine et les prochaines étapes. La communauté privée t'accompagne ensuite.",
       },
     ],
   },

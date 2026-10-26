@@ -26,7 +26,7 @@ export function Phuket() {
 
       <div className="container-lux relative py-28 md:py-40">
         <div className="grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <SectionHeading
               eyebrow="Le cadre"
               title="Pourquoi Phuket ?"
@@ -47,7 +47,7 @@ export function Phuket() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 md:gap-4 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-3 md:gap-4 lg:col-span-6">
             {mosaic.map((m, i) => (
               <Reveal key={i} delay={i * 0.1} className={m.className}>
                 <Scene
@@ -55,7 +55,7 @@ export function Phuket() {
                   seed={m.seed}
                   src={media.phuket[i]?.src}
                   alt={media.phuket[i]?.alt}
-                  sizes={i === 0 ? "(min-width: 1024px) 58vw, 100vw" : "(min-width: 1024px) 28vw, 50vw"}
+                  sizes={i === 0 ? "(min-width: 1024px) 45vw, 100vw" : "(min-width: 1024px) 22vw, 50vw"}
                   className="h-full min-h-48 w-full rounded-[18px]"
                 >
                   {media.phuket[i]?.src && (

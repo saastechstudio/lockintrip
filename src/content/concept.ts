@@ -45,12 +45,11 @@ export const pillars: Pillar[] = [
 ];
 
 export const rhythm = [
-  { time: "09:00", label: "Masterclass", detail: "Session expert" },
-  { time: "10:45", label: "Atelier", detail: "Travail sur ton projet" },
-  { time: "12:30", label: "Déjeuner", detail: "Table partagée" },
-  { time: "14:30", label: "Activités", detail: "Sport au choix, tous niveaux" },
-  { time: "17:30", label: "Échanges", detail: "Experts et participants" },
-  { time: "20:00", label: "Soirée", detail: "Libre ou en groupe" },
+  { time: "7 h – 9 h", label: "Petit-déjeuner", detail: "À l'hôtel" },
+  { time: "10 h – 12 h", label: "Masterclass", detail: "Et travail en groupe" },
+  { time: "12 h", label: "Déjeuner", detail: "Au restaurant" },
+  { time: "15 h – 17 h", label: "Activité au choix", detail: "Tous niveaux, même débutant" },
+  { time: "À partir de 17 h", label: "Temps libre", detail: "Pour tous" },
 ];
 
 export const problems = ["Distractions", "Solitude", "Manque de réseau", "Manque de clarté", "Manque de méthode"];
