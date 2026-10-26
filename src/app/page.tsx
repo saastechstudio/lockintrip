@@ -8,7 +8,6 @@ import { Hotel } from "@/components/sections/hotel";
 import { Activities } from "@/components/sections/activities";
 import { Pricing } from "@/components/sections/pricing";
 import { Edition } from "@/components/sections/edition";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { StickyCta } from "@/components/booking/sticky-cta";
@@ -33,7 +32,6 @@ export default async function HomePage() {
       <Activities />
       <Pricing />
       <Edition />
-      <Testimonials />
       <Faq />
       <FinalCta />
       <StickyCta remaining={remaining} />

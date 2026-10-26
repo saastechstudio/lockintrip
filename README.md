@@ -64,7 +64,6 @@ Tout le texte est dans `src/content/` — aucun composant à toucher :
 | `concept.ts` | Les 6 piliers, la journée type et les freins de la section « constat » |
 | `goals.ts` | Les 6 objectifs (chaque carte pré-remplit le formulaire de réservation) |
 | `faq.ts` | Questions fréquentes |
-| `testimonials.ts` | Témoignages — **fictifs, à remplacer avant la mise en ligne** |
 | `media.ts` | Photos et vidéo du hero |
 
 ## Parcours de conversion
@@ -96,7 +95,6 @@ src/
 
 ## Avant la mise en ligne
 
-- Remplacer les témoignages fictifs (ou `showTestimonials = false`).
 - Compléter les pages légales (mentions entre crochets) et les faire valider ; vendre un forfait vol + hôtel suppose une immatriculation Atout France.
 - Ajouter les secrets Stripe dans Supabase et créer le webhook Stripe (voir « Paiement »).
 - Ajouter les vraies photos et les noms des experts.
