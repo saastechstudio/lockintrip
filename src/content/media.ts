@@ -27,7 +27,7 @@ export const media = {
   },
   why: { src: "/images/hotel/chambre-portrait.jpg", alt: "Chambre lumineuse aux murs de béton ciré, ouverte sur la végétation" } as MediaSlot,
   phuket: [
-    { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman" },
+    { src: "/images/phuket-coucher-soleil.jpg", alt: "Bateaux longtail ancrés au coucher du soleil" },
     { src: undefined, alt: "Patio de villa entre murs de pierre et palmiers" },
     { src: undefined, alt: "Session de padel au lever du jour" },
     { src: undefined, alt: "Coworking ouvert sur la végétation, architecture béton" },

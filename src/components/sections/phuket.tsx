@@ -55,7 +55,7 @@ export function Phuket() {
                   seed={m.seed}
                   src={media.phuket[i]?.src}
                   alt={media.phuket[i]?.alt}
-                  sizes="(min-width: 1024px) 30vw, 50vw"
+                  sizes={i === 0 ? "(min-width: 1024px) 58vw, 100vw" : "(min-width: 1024px) 28vw, 50vw"}
                   className="h-full min-h-48 w-full rounded-[18px]"
                 >
                   {media.phuket[i]?.src && (
