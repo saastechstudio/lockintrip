@@ -23,9 +23,9 @@ export type MediaSlot = {
 export const media = {
   hero: {
     video: undefined as string | undefined, // ex. "/videos/hero.mp4" (muet, en boucle, < 8 Mo)
-    poster: { src: undefined, alt: "Villa contemporaine en béton face à la mer, Phuket" } as MediaSlot,
+    poster: { src: "/images/hero-lagoon.jpg", alt: "Bateau longtail dans une lagune aux eaux turquoise, entre des falaises couvertes de végétation" } as MediaSlot,
   },
-  why: { src: "/images/hotel/piscine-jardin.jpg", alt: "Piscine de l'hôtel longeant un jardin tropical" } as MediaSlot,
+  why: { src: "/images/hotel/chambre-portrait.jpg", alt: "Chambre lumineuse aux murs de béton ciré, ouverte sur la végétation" } as MediaSlot,
   phuket: [
     { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman" },
     { src: undefined, alt: "Patio de villa entre murs de pierre et palmiers" },

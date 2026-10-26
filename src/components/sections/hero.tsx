@@ -34,6 +34,7 @@ export function Hero() {
     <section ref={ref} className="relative h-[100svh] min-h-[44rem] overflow-hidden bg-ink text-ivory">
       <motion.div style={{ y, scale }} className="absolute inset-0">
         {media.hero.poster.src || media.hero.video ? (
+          <div className="absolute inset-0 animate-kenburns">
           <Scene src={media.hero.poster.src} alt={media.hero.poster.alt} priority className="h-full w-full">
             {media.hero.video && (
               <video
@@ -48,10 +49,13 @@ export function Hero() {
               />
             )}
           </Scene>
+          </div>
         ) : (
           <HeroScene />
         )}
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(24,12,14,0.68)_0%,rgba(24,12,14,0.32)_48%,rgba(24,12,14,0.08)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#180c0e]/80 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#180c0e]/45 to-transparent" />
       </motion.div>
 
       <motion.div style={{ opacity: fade }} className="container-lux relative z-10 flex h-full flex-col justify-end pb-10 pt-32 md:pb-14">

@@ -25,7 +25,7 @@ export function Experts() {
             tone="ivory"
             eyebrow="Les experts"
             title="Apprendre de ceux qui sont déjà passés par là."
-            intro="Des praticiens qui ont construit, vendu, échoué et recommencé. Ce qui compte n'est pas leur CV, c'est ce que tu sais faire en repartant."
+            intro="Chaque intervenant exerce dans son domaine et transmet ce qu'il pratique. Tu travailles avec eux en masterclass, en atelier et en entretien individuel."
           />
         </div>
 

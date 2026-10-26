@@ -31,26 +31,26 @@ export function Activities() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+        <div className="mt-16 grid gap-3 sm:grid-cols-3 md:gap-4">
           {activityPhotos.map((p, i) => (
-            <Reveal key={p.src} delay={i * 0.08} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
+            <Reveal key={p.caption} delay={i * 0.08} className={p.src ? "" : "h-full sm:col-span-2"}>
               {p.src ? (
               <figure className="group relative aspect-[4/5] overflow-hidden rounded-[18px]">
                 <Image
                   src={p.src}
                   alt={p.alt}
                   fill
-                  sizes="(min-width: 768px) 30vw, 50vw"
+                  sizes="(min-width: 640px) 33vw, 100vw"
                   className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.04]"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
                 <figcaption className="font-display absolute bottom-5 left-5 text-xl font-light text-ivory md:text-2xl">{p.caption}</figcaption>
               </figure>
               ) : (
-                <div className="tex-concrete flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[18px] bg-bordeaux p-7 text-ivory max-md:aspect-[16/10] md:p-8">
+                <div className="tex-concrete flex h-full min-h-[18rem] flex-col justify-between overflow-hidden rounded-[18px] bg-bordeaux p-7 text-ivory md:p-10">
                   <p className="eyebrow text-pierre">{p.caption}</p>
-                  <ul className="font-display space-y-1 text-[1.65rem] font-light leading-tight md:text-[2rem]">
-                    {["Muay thaï", "Yoga & pilates", "Golf", "Randonnée", "Football"].map((a) => (
+                  <ul className="font-display my-8 grid gap-x-8 gap-y-1 text-[1.5rem] font-light leading-tight sm:grid-cols-2 md:text-[2rem]">
+                    {["Padel & pickleball", "Muay thaï", "Yoga & pilates", "Golf", "Randonnée", "Football"].map((a) => (
                       <li key={a}>{a}</li>
                     ))}
                   </ul>
@@ -63,8 +63,8 @@ export function Activities() {
 
         <Reveal className="mt-4 md:mt-6">
           <article className="grid overflow-hidden rounded-[20px] bg-bordeaux text-ivory md:grid-cols-2">
-            <div className="relative aspect-[3/2] md:aspect-auto md:min-h-[26rem]">
-              <Image src={excursion.src} alt={excursion.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={90} className="object-cover" />
+            <div className="relative aspect-[3/2] overflow-hidden md:aspect-auto md:min-h-[26rem]">
+              <Image src={excursion.src} alt={excursion.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={90} className="object-cover object-[78%_60%] scale-125" />
             </div>
             <div className="flex flex-col justify-center p-8 md:p-12">
               <p className="eyebrow text-pierre">{excursion.eyebrow}</p>

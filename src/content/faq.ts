@@ -6,7 +6,7 @@ export const faq: FaqGroup[] = [
     items: [
       {
         q: "Puis-je venir seul ?",
-        a: "Oui, et c'est le cas de la grande majorité des participants. Le groupe privé avant séjour, le premier dîner et les ateliers en petits groupes sont pensés pour que personne ne reste seul plus de quelques heures. Tu arrives seul, tu repars avec un réseau.",
+        a: "Oui, et c'est le cas de la grande majorité des participants. Le groupe privé avant séjour, le premier dîner et les ateliers en petits groupes sont pensés pour que personne ne reste seul plus de quelques heures. Tu arrives seul, et tu rencontres le groupe dès le premier jour.",
       },
       {
         q: "Faut-il être entrepreneur ?",

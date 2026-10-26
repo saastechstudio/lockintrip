@@ -22,10 +22,8 @@ export type ActivityPhoto = { src?: string; alt: string; caption: string; width:
 
 export const activityPhotos: ActivityPhoto[] = [
   { src: "/images/activites/fitness.jpg", alt: "Salle de fitness équipée de racks et d'haltères", caption: "Fitness", width: 474, height: 632 },
-  { src: "/images/activites/pickleball.jpg", alt: "Terrains de pickleball au milieu de la végétation, à la tombée du jour", caption: "Padel & pickleball", width: 675, height: 900 },
-  // Ajouter ici une vraie photo de randonnée à Phuket (ex. point de vue de Karon ou du Big Buddha) :
-  // src: "/images/activites/randonnee.jpg"
-  { alt: "Muay thaï, yoga, pilates, golf, randonnée et football", caption: "Et aussi", width: 4, height: 5 },
+  // Ajouter ici des photos de padel, muay thaï, yoga... (une entrée avec `src`) ; sans `src`, la carte liste les activités.
+  { alt: "Liste des activités proposées", caption: "Et aussi", width: 4, height: 5 },
 ];
 
 export const excursion = {

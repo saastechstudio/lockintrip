@@ -2,7 +2,8 @@
  * Intervenants. Renseignez `name`, `role` et `photo` (ex. "/images/experts/claire.jpg")
  * au fur et à mesure des confirmations. Sans photo, un portrait d'attente élégant s'affiche.
  *
- * `outcomes` décrit ce que les participants repartent avec — pas les diplômes de l'expert.
+ * `outcomes` décrit les sujets travaillés avec l'expert. Ne rien y promettre :
+ * ni résultat, ni gain, ni chiffre. On décrit ce qui est étudié, pas ce qui sera obtenu.
  */
 export type Expert = {
   emoji: "ai" | "marketing" | "ecommerce" | "legal" | "mind" | "business";
@@ -18,37 +19,37 @@ export const experts: Expert[] = [
   {
     emoji: "ai",
     domain: "Intelligence artificielle",
-    promise: "Tu repars avec des heures gagnées chaque semaine.",
-    outcomes: ["Tes tâches répétitives automatisées", "Un assistant IA configuré pour ton métier", "Une veille qui tient en 20 minutes"],
+    promise: "Tu acquiers de nouvelles compétences pour utiliser l'IA dans ton travail.",
+    outcomes: ["Automatiser des tâches répétitives", "Prendre en main des assistants IA", "Suivre l'évolution des outils"],
   },
   {
     emoji: "marketing",
     domain: "Marketing",
-    promise: "Tu repars avec un plan d'acquisition chiffré.",
-    outcomes: ["Un positionnement que l'on retient", "90 jours de contenu planifiés", "Un tunnel de vente mesurable"],
+    promise: "Tu acquiers de nouvelles compétences en marketing et en acquisition.",
+    outcomes: ["Clarifier son positionnement", "Construire un plan de contenu", "Comprendre les canaux d'acquisition"],
   },
   {
     emoji: "ecommerce",
     domain: "E-commerce",
-    promise: "Tu repars avec une boutique prête à vendre, ou à vendre plus.",
-    outcomes: ["Produit et marges validés", "Fournisseurs et logistique cadrés", "Les leviers de conversion prioritaires"],
+    promise: "Tu acquiers de nouvelles compétences pour lancer ou structurer une boutique en ligne.",
+    outcomes: ["Choisir et évaluer un produit", "Fournisseurs et logistique", "Leviers de conversion"],
   },
   {
     emoji: "legal",
     domain: "Juridique",
-    promise: "Tu repars avec une activité sécurisée avant de grandir.",
-    outcomes: ["Le bon statut et la bonne fiscalité", "Contrats et CGV prêts", "Ta marque protégée"],
+    promise: "Tu acquiers de nouvelles compétences sur le cadre juridique d'une activité.",
+    outcomes: ["Statuts et fiscalité", "Contrats et conditions de vente", "Protection de la marque"],
   },
   {
     emoji: "mind",
     domain: "Performance mentale",
-    promise: "Tu repars avec une routine qui tient le rythme.",
-    outcomes: ["Une méthode de concentration", "Une gestion de l'énergie durable", "Décider vite et sereinement"],
+    promise: "Tu acquiers de nouvelles compétences pour gérer ta concentration et ton énergie.",
+    outcomes: ["Méthodes de concentration", "Gestion de l'énergie", "Décider sous pression"],
   },
   {
     emoji: "business",
     domain: "Entrepreneuriat",
-    promise: "Tu repars avec une offre, un prix et un premier plan de vente.",
-    outcomes: ["Une offre irrésistible", "Tes premières ventes planifiées", "Une organisation qui libère du temps"],
+    promise: "Tu acquiers de nouvelles compétences pour construire et développer une activité.",
+    outcomes: ["Définir une offre et un prix", "Premières étapes de vente", "S'organiser et déléguer"],
   },
 ];
