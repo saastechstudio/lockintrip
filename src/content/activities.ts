@@ -5,27 +5,6 @@
  * (photos prises par l'équipe ou licence achetée). Remplacer les fichiers de
  * /public/images/activites/ par des versions haute définition (2 000 px et plus).
  */
-export const activities = [
-  "Football",
-  "Pilates",
-  "Yoga",
-  "Padel",
-  "Pickleball",
-  "Golf",
-  "Randonnée",
-  "Muay thaï",
-  "Fitness",
-];
-
-/** Sans `src`, la carte s'affiche en version typographique (fond bordeaux). */
-export type ActivityPhoto = { src?: string; alt: string; caption: string; width: number; height: number };
-
-export const activityPhotos: ActivityPhoto[] = [
-  { src: "/images/activites/fitness.jpg", alt: "Salle de fitness équipée de racks et d'haltères", caption: "Fitness", width: 474, height: 632 },
-  // Ajouter ici des photos de padel, muay thaï, yoga... (une entrée avec `src`) ; sans `src`, la carte liste les activités.
-  { alt: "Liste des activités proposées", caption: "Et aussi", width: 4, height: 5 },
-];
-
 export const excursion = {
   src: "/images/activites/excursion.jpg",
   alt: "Bateau longtail glissant entre des falaises calcaires sur une eau turquoise",

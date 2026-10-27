@@ -16,19 +16,19 @@ export function FinalCta() {
             <p className="eyebrow text-ivory/75">Édition fondatrice · Phuket 2027</p>
           </Reveal>
           <h2 className="font-display mt-8 max-w-5xl text-[2.6rem] font-light leading-[1.02] tracking-[-0.025em] text-balance md:text-7xl lg:text-[5.5rem]">
-            <RevealText text="Tes objectifs ne vont pas s'atteindre tout seuls." />
+            <RevealText text="Dans un an, tu repenseras à cette semaine." />
           </h2>
           <Reveal delay={0.3}>
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ivory/85 md:text-xl">
-              Rejoins l&apos;édition fondatrice de Lockin Trip et entoure-toi de personnes qui avancent dans la même
-              direction que toi.
+              Soit comme celle où tout a commencé, soit comme celle que tu as laissé passer. Rejoins les membres
+              fondateurs et entoure-toi de personnes qui avancent dans la même direction que toi.
             </p>
             <p className="eyebrow mt-6 text-pierre">{totalCapacity} places seulement</p>
           </Reveal>
           <Reveal delay={0.45}>
             <Button asChild size="lg" variant="light" className="mt-10">
               <Link href="/reserver">
-                Réserver ma place
+                Rejoindre l&apos;édition fondatrice
                 <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
               </Link>
             </Button>

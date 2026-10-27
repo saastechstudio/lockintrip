@@ -1,11 +1,11 @@
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
-import { Concept } from "@/components/sections/concept";
+import { Transformation } from "@/components/sections/transformation";
 import { Goals } from "@/components/sections/goals";
 import { Experts } from "@/components/sections/experts";
-import { Phuket } from "@/components/sections/phuket";
+import { DayStory } from "@/components/sections/day-story";
 import { Hotel } from "@/components/sections/hotel";
-import { Activities } from "@/components/sections/activities";
+import { Sports } from "@/components/sections/sports";
 import { Pricing } from "@/components/sections/pricing";
 import { Edition } from "@/components/sections/edition";
 import { Faq } from "@/components/sections/faq";
@@ -19,19 +19,20 @@ export const revalidate = 60;
 export default async function HomePage() {
   const sessions = await getSessions();
   const remaining = sessions.reduce((n, s) => n + Math.max(s.capacity - s.taken, 0), 0);
+  const capacity = sessions.reduce((n, s) => n + s.capacity, 0);
   return (
     <>
       <JsonLd data={[organizationJsonLd(), ...eventsJsonLd(sessions), faqJsonLd()]} />
-      <Hero />
+      <Hero taken={capacity - remaining} capacity={capacity} />
       <Problem />
-      <Concept />
+      <Transformation />
+      <DayStory />
       <Goals />
       <Experts />
-      <Phuket />
+      <Sports />
       <Hotel />
-      <Activities />
-      <Pricing />
-      <Edition />
+      <Edition sessions={sessions} />
+      <Pricing remaining={remaining} />
       <Faq />
       <FinalCta />
       <StickyCta remaining={remaining} />

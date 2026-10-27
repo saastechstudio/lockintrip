@@ -18,12 +18,11 @@ export function Problem() {
     <section id="probleme" className="relative py-28 md:py-40">
       <div className="container-lux grid gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
-          <SectionHeading eyebrow="Le constat" title="Ton environnement influence tes résultats." />
+          <SectionHeading eyebrow="Le constat" title="Tu sais où tu veux aller. Ton environnement, lui, te retient." />
           <Reveal delay={0.1}>
             <p className="mt-10 max-w-xl text-[1.0625rem] leading-relaxed text-muted md:text-lg">
-              Beaucoup de personnes ont des ambitions.
-              <br />
-              Mais peu évoluent dans un environnement qui favorise réellement leur progression.
+              Les ambitions ne manquent pas. Ce qui manque, c&apos;est l&apos;entourage, le recul et le cadre pour passer à
+              l&apos;action. Seul, on tourne en rond. Bien entouré, on avance.
             </p>
           </Reveal>
 
@@ -56,8 +55,8 @@ export function Problem() {
               Lockin Trip a été créé pour changer cela.
             </p>
             <Button asChild size="lg" className="mt-10">
-              <Link href="#concept">
-                Voir comment
+              <Link href="#transformation">
+                Voir ce qui change
                 <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
               </Link>
             </Button>

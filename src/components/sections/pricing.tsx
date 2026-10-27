@@ -3,21 +3,29 @@ import { ArrowUpRight, Check, FileText, Lock, MessageCircle, Plane, X } from "lu
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { offers } from "@/content/offers";
+import { founderPricing } from "@/content/story";
 import { cn, formatPrice } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
 
-export function Pricing() {
+export function Pricing({ remaining }: { remaining: number }) {
   return (
     <section id="tarifs" className="tex-concrete relative bg-[#ece8e2] py-28 md:py-40">
       <div className="container-lux">
         <SectionHeading
           align="center"
-          eyebrow="Investir en toi"
-          title="Une semaine. Tout est prévu."
-          intro="Deux formules, le même programme intensif. Tu choisis simplement si l'on s'occupe aussi du voyage."
+          eyebrow="Prix fondateur"
+          title="Investis dans la personne que tu veux devenir."
+          intro="Deux formules, le même programme. Tu choisis simplement si l'on s'occupe aussi de ton vol. Le tarif fondateur est réservé à cette première édition."
         />
 
-        <div className="mx-auto mt-20 grid max-w-5xl gap-5 lg:grid-cols-2">
+        <Reveal delay={0.1} className="mt-10 flex justify-center">
+          <p className="flex items-center gap-2.5 rounded-full border border-bordeaux/20 bg-ivory/80 px-5 py-2.5 text-sm text-ink">
+            <span className="size-1.5 animate-pulse rounded-full bg-bordeaux" />
+            <strong className="font-semibold text-bordeaux">{remaining} places</strong> disponibles au prix fondateur
+          </p>
+        </Reveal>
+
+        <div className="mx-auto mt-14 grid max-w-5xl gap-5 lg:grid-cols-2">
           {offers.map((o, i) => (
             <Reveal key={o.id} delay={i * 0.12} className="h-full min-w-0">
               <article
@@ -54,7 +62,7 @@ export function Pricing() {
                   <span className={cn("text-sm", o.featured ? "text-ivory/55" : "text-muted")}>TTC / personne</span>
                 </div>
                 <p className={cn("relative mt-2 text-xs", o.featured ? "text-ivory/55" : "text-muted")}>
-                  Soit {formatPrice(Math.round(o.price / 7))} par jour, tout compris
+                  Soit {formatPrice(Math.round(o.price / 7))} par jour · {founderPricing.label.toLowerCase()}
                 </p>
 
                 <div className={cn("relative my-9 h-px", o.featured ? "bg-ivory/15" : "bg-ink/10")} />

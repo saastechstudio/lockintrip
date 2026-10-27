@@ -14,10 +14,11 @@ export const site = {
     linkedin: "https://www.linkedin.com/company/lockintrip",
   },
   nav: [
-    { label: "Concept", href: "/#concept" },
-    { label: "Objectifs", href: "/#objectifs" },
+    { label: "L'expérience", href: "/#transformation" },
+    { label: "Une journée", href: "/#journee" },
     { label: "Experts", href: "/#experts" },
     { label: "L'hôtel", href: "/#hotel" },
+    { label: "Places", href: "/#edition" },
     { label: "Tarifs", href: "/#tarifs" },
     { label: "FAQ", href: "/#faq" },
   ],

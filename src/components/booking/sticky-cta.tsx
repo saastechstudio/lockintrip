@@ -19,7 +19,7 @@ export function StickyCta({ remaining }: { remaining: number }) {
     const update = () => setVisible(pastHero && !nearEnd);
 
     const onScroll = () => {
-      pastHero = window.scrollY > window.innerHeight * 0.85;
+      pastHero = window.scrollY > window.innerHeight * 0.6;
       update();
     };
     const io = end
@@ -52,13 +52,14 @@ export function StickyCta({ remaining }: { remaining: number }) {
             <div className="min-w-0 leading-tight">
               <p className="flex items-center gap-2 truncate text-[0.8125rem] font-medium text-ink">
                 <span className="size-1.5 shrink-0 rounded-full bg-bordeaux" />
-                {remaining} places · Phuket 2027
+                {remaining} places restantes · Phuket 2027
               </p>
-              <p className="truncate text-xs text-muted">Dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · paiement sécurisé</span></p>
+              <p className="truncate text-xs text-muted">Prix fondateur dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · paiement sécurisé</span></p>
             </div>
             <Button asChild size="sm" className="shrink-0">
               <Link href="/reserver">
-                Réserver ma place
+                <span className="sm:hidden">Réserver</span>
+                <span className="hidden sm:inline">Je participe à Phuket 2027</span>
                 <ArrowUpRight />
               </Link>
             </Button>
