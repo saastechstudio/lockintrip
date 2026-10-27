@@ -1,29 +1,29 @@
-// Télécharge des photos Unsplash identifiées (licence Unsplash gratuite), via l'URL de téléchargement publique.
+// Télécharge des photos Unsplash identifiées via l'API officielle (clé gratuite : secret UNSPLASH_ACCESS_KEY).
+// Respecte les règles de l'API : déclenchement de download_location et crédit du photographe dans unsplash/credits.json.
 import fs from "node:fs";
+const key = process.env.UNSPLASH_ACCESS_KEY;
 const ids = JSON.parse(fs.readFileSync("unsplash.json", "utf8"));
-const ua = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36", Accept: "image/avif,image/webp,image/*,*/*" };
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const log = [];
 const L = (...a) => { console.log(...a); log.push(a.join(" ")); };
+const credits = [];
 fs.mkdirSync("unsplash", { recursive: true });
-for (const [cat, list] of Object.entries(ids)) {
+if (!key) L("Clé UNSPLASH_ACCESS_KEY absente : rien à faire.");
+else for (const [cat, list] of Object.entries(ids)) {
   for (const id of list) {
-    await sleep(1500);
     try {
-      const r = await fetch(`https://unsplash.com/photos/${id}/download?force=true`, { headers: ua, redirect: "manual", signal: AbortSignal.timeout(20000) });
-      const loc = r.headers.get("location");
-      L(cat, id, "download", r.status, loc ? loc.slice(0, 120) : "");
-      if (!loc || !loc.includes("images.unsplash.com")) continue;
-      const u = new URL(loc);
-      u.searchParams.set("w", "2400");
-      u.searchParams.set("q", "85");
-      u.searchParams.set("fm", "jpg");
-      u.searchParams.set("fit", "max");
-      u.searchParams.delete("force");
-      const img = await fetch(u, { headers: ua, signal: AbortSignal.timeout(60000) });
-      L(cat, id, "image", img.status, u.pathname);
-      if (img.ok) fs.writeFileSync(`unsplash/${cat}--${id}.jpg`, Buffer.from(await img.arrayBuffer()));
+      const r = await fetch(`https://api.unsplash.com/photos/${id}`, { headers: { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" }, signal: AbortSignal.timeout(20000) });
+      L(cat, id, "api", r.status);
+      if (!r.ok) continue;
+      const p = await r.json();
+      if (p.premium || p.plus) { L(cat, id, "Unsplash+ ignorée"); continue; }
+      await fetch(`${p.links.download_location}`, { headers: { Authorization: `Client-ID ${key}` } });
+      const img = await fetch(`${p.urls.raw}&w=2400&q=85&fm=jpg&fit=max`, { signal: AbortSignal.timeout(60000) });
+      L(cat, id, "image", img.status);
+      if (!img.ok) continue;
+      fs.writeFileSync(`unsplash/${cat}--${id}.jpg`, Buffer.from(await img.arrayBuffer()));
+      credits.push({ file: `${cat}--${id}.jpg`, id, alt: p.alt_description, author: p.user?.name, authorUrl: `${p.user?.links?.html}?utm_source=lockintrip&utm_medium=referral`, page: `${p.links.html}?utm_source=lockintrip&utm_medium=referral` });
     } catch (e) { L(cat, id, "ERR", e.message); }
   }
 }
+fs.writeFileSync("unsplash/credits.json", JSON.stringify(credits, null, 1));
 fs.writeFileSync("unsplash/log.txt", log.join("\n"));
