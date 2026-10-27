@@ -32,15 +32,19 @@ const sources = {
   },
 };
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const only = process.env.SOURCES?.split(",");
 const out = [];
 for (const q of JSON.parse(fs.readFileSync("queries.json", "utf8"))) {
   const dir = `candidates/${q.slug}`;
   fs.mkdirSync(dir, { recursive: true });
   let n = 0;
   for (const [name, fn] of Object.entries(sources)) {
+    if (only && !only.includes(name)) continue;
+    await sleep(12000);
     let list = [];
     try { list = await fn(q.q); } catch (e) { L(name, "ERR", e.message); }
-    for (const p of list.slice(0, 6)) {
+    for (const p of list.slice(0, q.n ?? 8)) {
       try {
         const img = await fetch(p.thumb, { headers: ua, signal: T() });
         if (!img.ok) { L("img", img.status, p.thumb); continue; }
