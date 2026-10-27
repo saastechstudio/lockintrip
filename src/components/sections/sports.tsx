@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Photo } from "@/components/ui/photo";
 import { Reveal } from "@/components/motion/reveal";
 import { otherSports, sports } from "@/content/story";
 import { SectionHeading } from "./section-heading";
@@ -26,7 +26,7 @@ export function Sports() {
               <article className="group relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-[22px] border border-ivory/10 bg-gradient-to-br from-bordeaux/60 via-[#2a1216] to-[#160a0c] p-8 transition-[transform,border-color] duration-700 ease-[var(--ease-lux)] hover:-translate-y-1 hover:border-ivory/25 md:min-h-[26rem] md:p-10">
                 {s.src ? (
                   <>
-                    <Image
+                    <Photo
                       src={s.src}
                       alt={s.alt ?? ""}
                       fill

@@ -1,8 +1,8 @@
 /**
- * Crédits des photos tierces (Wikimedia Commons). Les licences CC BY et CC BY-SA imposent
+ * Crédits des photos tierces (Wikimedia Commons et Unsplash). Les licences CC BY et CC BY-SA imposent
  * de citer l'auteur, la licence et la source : cette liste alimente la page /credits-photos.
  */
-export type PhotoCredit = { file: string; title: string; author: string; license: string; licenseUrl: string | null; source: string };
+export type PhotoCredit = { file: string; title: string; author: string; authorUrl?: string; license: string; licenseUrl: string | null; source: string };
 
 export const photoCredits: PhotoCredit[] = [
   { file: "/images/phuket/rawai-plage.jpg", title: "Phuket - Rawai Beach 11", author: "ADwarf", license: "Public domain", licenseUrl: null, source: "https://commons.wikimedia.org/wiki/File:Phuket_-_Rawai_Beach_11.jpg" },
@@ -16,4 +16,6 @@ export const photoCredits: PhotoCredit[] = [
   { file: "/images/phuket/phang-nga-longtail.jpg", title: "Karst landscape of Phang Nga Bay, Thailand", author: "Vyacheslav Argenberg", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/deed.fr", source: "https://commons.wikimedia.org/wiki/File:Karst_landscape_of_Phang_Nga_Bay,_Thailand.jpg" },
   { file: "/images/phuket/phang-nga-rocher.jpg", title: "Emerald lagoon in Phang Nga Bay, Thailand", author: "Vyacheslav Argenberg", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/deed.fr", source: "https://commons.wikimedia.org/wiki/File:Emerald_lagoon_in_Phang_Nga_Bay,_Thailand.jpg" },
   { file: "/images/phuket/phang-nga-james-bond.jpg", title: "Ko Tapu (James Bond) Island in Phang Nga Bay, Thailand", author: "Vyacheslav Argenberg", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/deed.fr", source: "https://commons.wikimedia.org/wiki/File:Ko_Tapu_(James_Bond)_Island_in_Phang_Nga_Bay,_Thailand.jpg" },
+  { file: "https://images.unsplash.com/photo-1729673517102-68967c4e96b5?ixid=M3wxMTE1NTMwfDB8MXxhbGx8fHx8fHx8fHwxNzkzMTQwMjg2fA", title: "Muay thaï au camp SINBI, Rawai", author: "Antonio Araujo", authorUrl: "https://unsplash.com/@antonioaaaraujo?utm_source=lockintrip&utm_medium=referral", license: "Licence Unsplash", licenseUrl: "https://unsplash.com/license", source: "https://unsplash.com/photos/a-shirtless-man-kicking-a-kick-in-a-boxing-ring-hGMqmZuH_tA?utm_source=lockintrip&utm_medium=referral" },
+  { file: "https://images.unsplash.com/photo-1729673517080-44353fa68fe0?ixid=M3wxMTE1NTMwfDB8MXxhbGx8fHx8fHx8fHwxNzkzMTQwMjg2fA", title: "Entraînement de muay thaï, Rawai", author: "Antonio Araujo", authorUrl: "https://unsplash.com/@antonioaaaraujo?utm_source=lockintrip&utm_medium=referral", license: "Licence Unsplash", licenseUrl: "https://unsplash.com/license", source: "https://unsplash.com/photos/a-couple-of-men-standing-next-to-each-other-in-a-gym-j_7Rd7uFl_g?utm_source=lockintrip&utm_medium=referral" },
 ];

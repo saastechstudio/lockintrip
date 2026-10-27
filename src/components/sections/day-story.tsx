@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import { Photo } from "@/components/ui/photo";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Bus, Sparkles } from "lucide-react";
@@ -26,7 +27,7 @@ function Moment({ m, index }: { m: DayMoment; index: number }) {
       <Reveal className={cn("md:col-span-6", flip && "md:order-2")}>
         <motion.div style={{ clipPath: clip }} className="group relative mx-auto aspect-[4/3] max-w-lg overflow-hidden rounded-[22px]">
           <motion.div style={{ y }} className="absolute -inset-y-[8%] inset-x-0">
-            <Image
+            <Photo
               src={m.src}
               alt={m.alt}
               fill

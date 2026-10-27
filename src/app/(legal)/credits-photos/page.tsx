@@ -9,13 +9,19 @@ export default function CreditsPhotos() {
       <p className="eyebrow text-bordeaux">Informations légales</p>
       <h1 className="mt-6">Crédits photos</h1>
       <p>
-        Certaines photos de Phuket proviennent de Wikimedia Commons et sont utilisées selon leur licence. Elles ont été
-        redimensionnées pour le site.
+        Certaines photos de Phuket proviennent de Wikimedia Commons et d&apos;Unsplash, et sont utilisées selon leur licence. Les
+        photos Wikimedia ont été redimensionnées pour le site.
       </p>
       <ul>
         {photoCredits.map((c) => (
           <li key={c.file}>
-            <a href={c.source} target="_blank" rel="noopener noreferrer">{c.title}</a>, par {c.author || "auteur inconnu"} ·{" "}
+            <a href={c.source} target="_blank" rel="noopener noreferrer">{c.title}</a>, par{" "}
+            {c.authorUrl ? (
+              <a href={c.authorUrl} target="_blank" rel="noopener noreferrer">{c.author}</a>
+            ) : (
+              c.author || "auteur inconnu"
+            )}{" "}
+            ·{" "}
             {c.licenseUrl ? (
               <a href={c.licenseUrl} target="_blank" rel="noopener noreferrer">{c.license}</a>
             ) : (

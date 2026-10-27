@@ -92,8 +92,8 @@ export const day: DayMoment[] = [
     time: "15 h – 17 h",
     title: "Tu bouges, tu te dépasses.",
     body: "Muay thaï, padel, golf, fitness, yoga... Une activité au choix, tous niveaux. Le sport fait ce que les réunions ne font jamais : il rapproche.",
-    src: "/images/activites/fitness.jpg",
-    alt: "Salle de fitness équipée",
+    src: "https://images.unsplash.com/photo-1729673517080-44353fa68fe0?ixid=M3wxMTE1NTMwfDB8MXxhbGx8fHx8fHx8fHwxNzkzMTQwMjg2fA",
+    alt: "Deux combattants à l'entraînement de muay thaï dans un camp de Rawai",
   },
   {
     moment: "Le soir",
@@ -112,6 +112,8 @@ export const sports: Sport[] = [
     name: "Muay thaï",
     promise: "Sortir de ta zone de confort",
     body: "Dans le pays qui l'a vu naître. Un entraînement qui remet les idées en place, même pour un grand débutant.",
+    src: "https://images.unsplash.com/photo-1729673517102-68967c4e96b5?ixid=M3wxMTE1NTMwfDB8MXxhbGx8fHx8fHx8fHwxNzkzMTQwMjg2fA",
+    alt: "Coup de pied de muay thaï sur le ring d'un camp de Rawai",
   },
   {
     name: "Padel",
