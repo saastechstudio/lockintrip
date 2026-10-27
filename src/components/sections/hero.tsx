@@ -140,7 +140,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
                   <Image src={media.hero.poster.src!} alt={media.hero.poster.alt} fill priority sizes="(min-width: 1024px) 30vw, 70vw" className="object-cover" />
                 </div>
                 <figcaption className="absolute bottom-3 left-3 rounded-full bg-ink/30 px-3 py-1 text-[0.7rem] text-ivory/90 backdrop-blur-md">
-                  L&apos;excursion
+                  Ya Nui · sud de Phuket
                 </figcaption>
               </motion.figure>
               <motion.figure
@@ -157,7 +157,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
                 {...fade(0.7)}
                 className="absolute right-[6%] top-[6%] hidden h-[30%] w-[26%] overflow-hidden rounded-[16px] border border-ivory/15 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] sm:block"
               >
-                <Image src="/images/phuket-coucher-soleil.jpg" alt="Coucher de soleil à Phuket" fill sizes="15vw" className="object-cover" />
+                <Image src="/images/phuket/nai-harn-coucher.jpg" alt="Coucher de soleil sur Nai Harn" fill sizes="15vw" className="object-cover" />
               </motion.figure>
             </div>
           )}

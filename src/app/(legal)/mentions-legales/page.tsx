@@ -27,7 +27,7 @@ export default function MentionsLegales() {
       <h2>Propriété intellectuelle</h2>
       <p>
         L&apos;ensemble des contenus de ce site (textes, visuels, logo, marque) est la propriété exclusive de {site.name} ou
-        de ses partenaires. Toute reproduction sans autorisation préalable est interdite.
+        de ses partenaires, à l&apos;exception des photos tierces publiées sous leur propre licence (voir les crédits photos). Toute reproduction sans autorisation préalable est interdite.
       </p>
     </>
   );

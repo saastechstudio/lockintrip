@@ -6,10 +6,10 @@
  * /public/images/activites/ par des versions haute définition (2 000 px et plus).
  */
 export const excursion = {
-  src: "/images/activites/excursion.jpg",
-  alt: "Bateau longtail glissant entre des falaises calcaires sur une eau turquoise",
-  width: 880,
-  height: 587,
+  src: "/images/phuket/phang-nga-longtail.jpg",
+  alt: "Proue d'un bateau longtail face aux pitons calcaires de la baie de Phang Nga",
+  width: 2400,
+  height: 1600,
   eyebrow: "Pendant la semaine",
   title: "Une excursion magique au cœur de la semaine.",
   body: "Au cours du séjour, tout le groupe part en excursion pour découvrir la région et faire une vraie pause, ensemble.",

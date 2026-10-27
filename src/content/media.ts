@@ -23,14 +23,8 @@ export type MediaSlot = {
 export const media = {
   hero: {
     video: undefined as string | undefined, // ex. "/videos/hero.mp4" (muet, en boucle, < 8 Mo)
-    poster: { src: "/images/hero-lagoon.jpg", alt: "Bateau longtail dans une lagune aux eaux turquoise, entre des falaises couvertes de végétation" } as MediaSlot,
+    poster: { src: "/images/phuket/ya-nui.jpg", alt: "Crique de Ya Nui, au sud de Phuket, vue depuis la colline" } as MediaSlot,
   },
   why: { src: "/images/lagon-phi-phi.jpg", alt: "Lagon turquoise entre des falaises karstiques couvertes de jungle" } as MediaSlot,
-  phuket: [
-    { src: "/images/phuket-coucher-soleil.jpg", alt: "Bateaux longtail ancrés au coucher du soleil" },
-    { src: undefined, alt: "Patio de villa entre murs de pierre et palmiers" },
-    { src: undefined, alt: "Session de padel au lever du jour" },
-    { src: undefined, alt: "Coworking ouvert sur la végétation, architecture béton" },
-  ] as MediaSlot[],
-  final: { src: undefined, alt: "Coucher de soleil sur la mer d'Andaman, Phuket" } as MediaSlot,
+  final: { src: "/images/phuket/nai-harn-coucher.jpg", alt: "Coucher de soleil sur la plage de Nai Harn, Phuket" } as MediaSlot,
 };

@@ -26,5 +26,6 @@ export const site = {
     { label: "Mentions légales", href: "/mentions-legales" },
     { label: "CGV", href: "/cgv" },
     { label: "Politique de confidentialité", href: "/confidentialite" },
+    { label: "Crédits photos", href: "/credits-photos" },
   ],
 } as const;

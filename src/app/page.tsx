@@ -5,6 +5,7 @@ import { Transformation } from "@/components/sections/transformation";
 import { Goals } from "@/components/sections/goals";
 import { Experts } from "@/components/sections/experts";
 import { DayStory } from "@/components/sections/day-story";
+import { SouthPhuket } from "@/components/sections/south-phuket";
 import { Hotel } from "@/components/sections/hotel";
 import { Sports } from "@/components/sections/sports";
 import { Pricing } from "@/components/sections/pricing";
@@ -29,6 +30,7 @@ export default async function HomePage() {
       <Problem />
       <Transformation />
       <DayStory />
+      <SouthPhuket />
       <Goals />
       <Experts />
       <Sports />

@@ -72,7 +72,7 @@ export function DayStory() {
           <Reveal>
             <article className="group grid overflow-hidden rounded-[22px] bg-bordeaux text-ivory md:grid-cols-2">
               <div className="relative aspect-[3/2] overflow-hidden md:aspect-auto md:min-h-[26rem]">
-                <Image src={excursion.src} alt={excursion.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={90} className="scale-125 object-cover object-[78%_60%] transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.3]" />
+                <Image src={excursion.src} alt={excursion.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={90} className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.04]" />
               </div>
               <div className="flex flex-col justify-center p-8 md:p-12">
                 <p className="eyebrow text-pierre">{excursion.eyebrow}</p>

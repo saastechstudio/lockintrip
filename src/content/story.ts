@@ -84,8 +84,8 @@ export const day: DayMoment[] = [
     time: "12 h",
     title: "Les meilleures idées arrivent à table.",
     body: "Déjeuner au restaurant avec le groupe. Les conversations du matin continuent, les liens se créent.",
-    src: "/images/hotel/piscine-jardin.jpg",
-    alt: "Piscine de l'hôtel entourée de jardins tropicaux",
+    src: "/images/phuket/rawai-plage.jpg",
+    alt: "Plage de Rawai bordée de bateaux longtail",
   },
   {
     moment: "L'après-midi",
@@ -100,8 +100,8 @@ export const day: DayMoment[] = [
     time: "À partir de 17 h",
     title: "Le soleil se couche, les discussions continuent.",
     body: "Temps libre pour tous. Un coucher de soleil sur la mer d'Andaman, un dîner improvisé, une idée qui prend forme.",
-    src: "/images/phuket-coucher-soleil.jpg",
-    alt: "Bateaux longtail ancrés au coucher du soleil",
+    src: "/images/phuket/nai-harn-soir.jpg",
+    alt: "Coucher de soleil sur la plage de Nai Harn",
   },
 ];
 
