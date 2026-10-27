@@ -55,7 +55,7 @@ export function BookIntro() {
           />
 
           <motion.div
-            className="relative aspect-[3/2] w-[min(88vw,52rem)] [perspective:2400px]"
+            className="relative aspect-[3/2] w-[min(96vw,52rem)] [perspective:2400px]"
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={
               stage === 2
