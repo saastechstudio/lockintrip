@@ -149,3 +149,28 @@ export const founderPricing = {
   note: "Tarif réservé à l'édition fondatrice.",
   nextIncrease: undefined as { date: string; label: string } | undefined,
 };
+
+/** Qualification : aide le bon visiteur à se reconnaître, et le mauvais à passer son chemin. */
+export const forWho = {
+  yes: [
+    "Tu as un projet, une activité ou une ambition, et tu veux accélérer.",
+    "Tu sens que ton entourage actuel ne te tire pas assez vers le haut.",
+    "Tu es prêt à travailler le matin et à te dépasser l'après-midi.",
+    "Tu veux repartir avec un plan, pas seulement des souvenirs.",
+    "Tu aimes rencontrer des gens qui ne pensent pas comme toi.",
+  ],
+  no: [
+    "Tu cherches des vacances au bord de la piscine, sans rien faire.",
+    "Tu attends une formule magique sans passer à l'action.",
+    "Tu n'as pas envie de partager ton projet avec le groupe.",
+    "Tu préfères rester dans ta zone de confort.",
+  ],
+};
+
+/** Avant / après, sans promesse chiffrée : ce que change l'environnement. */
+export const comparison = [
+  { topic: "Tes décisions", alone: "Tu tournes en rond pendant des semaines.", with: "Tu les confrontes aux experts et au groupe." },
+  { topic: "Ton entourage", alone: "Peu de gens comprennent ce que tu construis.", with: "Vingt personnes qui avancent, comme toi." },
+  { topic: "Ton énergie", alone: "Écrans, fatigue, routine.", with: "Soleil, sport, rythme sain." },
+  { topic: "Ton plan", alone: "Des idées éparpillées dans des notes.", with: "Des prochaines étapes écrites et datées." },
+];

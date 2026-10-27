@@ -7,7 +7,9 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { ArrowDown, ArrowUpRight, BadgeCheck, Flame, Palmtree, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { media } from "@/content/media";
+import { startingPrice } from "@/content/offers";
 import { hero } from "@/content/story";
+import { formatPrice } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const badgeIcons = { flame: Flame, star: Star, palm: Palmtree, check: BadgeCheck };
@@ -97,7 +99,11 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
             </Button>
           </motion.div>
 
-          <motion.div {...enter(0.9)} className="mt-10 max-w-md">
+          <motion.p {...enter(0.85)} className="mt-5 text-sm text-ivory/70">
+            <span className="font-medium text-ivory">Dès {formatPrice(startingPrice)}</span> · hôtel, petits-déjeuners, déjeuners, activités et transports compris
+          </motion.p>
+
+          <motion.div {...enter(0.9)} className="mt-8 max-w-md">
             <div className="flex items-baseline justify-between text-sm">
               <span className="text-ivory/85">
                 <span className="font-display text-2xl text-ivory">{remaining}</span> places restantes sur {capacity}

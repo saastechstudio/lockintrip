@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { startingPrice } from "@/content/offers";
+import { site } from "@/content/site";
 import { formatPrice } from "@/lib/utils";
 
 /** Barre de réservation flottante : visible après le hero, masquée sur le CTA final et le footer. */
@@ -52,10 +53,20 @@ export function StickyCta({ remaining }: { remaining: number }) {
             <div className="min-w-0 leading-tight">
               <p className="flex items-center gap-2 truncate text-[0.8125rem] font-medium text-ink">
                 <span className="size-1.5 shrink-0 rounded-full bg-bordeaux" />
-                {remaining} places restantes · Phuket 2027
+                {remaining} places restantes<span className="hidden sm:inline"> · Phuket 2027</span>
               </p>
-              <p className="truncate text-xs text-muted">Prix fondateur dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · paiement sécurisé</span></p>
+              <p className="truncate text-xs text-muted"><span className="hidden sm:inline">Prix fondateur </span>dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · paiement sécurisé</span></p>
             </div>
+            <div className="flex shrink-0 items-center gap-2">
+            <a
+              href={site.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Poser une question sur WhatsApp"
+              className="grid size-10 place-items-center rounded-[12px] border border-concrete/45 text-bordeaux transition-colors hover:border-bordeaux hover:bg-bordeaux hover:text-ivory"
+            >
+              <MessageCircle className="size-[18px]" strokeWidth={1.6} />
+            </a>
             <Button asChild size="sm" className="shrink-0">
               <Link href="/reserver">
                 <span className="sm:hidden">Réserver</span>
@@ -63,6 +74,7 @@ export function StickyCta({ remaining }: { remaining: number }) {
                 <ArrowUpRight />
               </Link>
             </Button>
+            </div>
           </div>
         </motion.div>
       )}

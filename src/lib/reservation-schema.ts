@@ -30,7 +30,7 @@ export const reservationSchema = z.object({
   goal: z
     .string()
     .trim()
-    .min(30, "Décris ton objectif en quelques phrases (30 caractères minimum).")
+    .min(10, "Dis-nous en quelques mots ce que tu veux accélérer.")
     .max(1200, "1 200 caractères maximum."),
   consent: z.literal(true, { message: "Ton accord est nécessaire pour traiter la demande." }),
   // Champ piège anti-spam : doit rester vide.

@@ -5,6 +5,7 @@ import { Transformation } from "@/components/sections/transformation";
 import { Goals } from "@/components/sections/goals";
 import { Experts } from "@/components/sections/experts";
 import { DayStory } from "@/components/sections/day-story";
+import { ForWho } from "@/components/sections/for-who";
 import { SouthPhuket } from "@/components/sections/south-phuket";
 import { Hotel } from "@/components/sections/hotel";
 import { Sports } from "@/components/sections/sports";
@@ -29,6 +30,7 @@ export default async function HomePage() {
       <Hero taken={capacity - remaining} capacity={capacity} />
       <Problem />
       <Transformation />
+      <ForWho />
       <DayStory />
       <SouthPhuket />
       <Goals />

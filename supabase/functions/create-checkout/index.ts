@@ -21,7 +21,7 @@ function validate(b: Record<string, unknown>): Input | string {
   if (!(typeof b.offer === "string" && b.offer in OFFERS)) return "offer";
   if (!(typeof b.session === "string" && b.session in SESSIONS)) return "session";
   const firstName = s("firstName", 2, 60), lastName = s("lastName", 2, 60), city = s("city", 2, 80);
-  const email = s("email", 5, 120), phone = s("phone", 8, 24), goal = s("goal", 30, 1200);
+  const email = s("email", 5, 120), phone = s("phone", 8, 24), goal = s("goal", 10, 1200);
   if (!firstName || !lastName || !city || !goal) return "fields";
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "email";
   if (!phone || !/^[+\d][\d\s().-]+$/.test(phone)) return "phone";
