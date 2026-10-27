@@ -49,7 +49,6 @@ export const offers: Offer[] = [
     includes: [
       "Tout Explorer",
       "Vol aller-retour France → Phuket",
-      "Assistance voyage",
       "Accompagnement avant départ",
       "Groupe privé avant séjour",
     ],
