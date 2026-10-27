@@ -43,9 +43,9 @@ export const offers: Offer[] = [
   },
   {
     id: "all-inclusive",
-    name: "All Inclusive",
+    name: "Explorer + vol",
     price: 2590,
-    pitch: "Tu n'as qu'à faire ta valise. On s'occupe de tout, de Paris à Phuket.",
+    pitch: "Le programme complet, avec ton vol aller-retour depuis la France.",
     includes: [
       "Tout Explorer",
       "Vol aller-retour France → Phuket",
@@ -54,7 +54,7 @@ export const offers: Offer[] = [
     ],
     cta: "Réserver ma place",
     featured: true,
-    badge: "Le plus populaire",
+    badge: "Vol inclus",
   },
 ];
 

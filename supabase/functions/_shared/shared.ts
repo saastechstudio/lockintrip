@@ -6,7 +6,7 @@ import { createClient } from "npm:@supabase/supabase-js@2.49.4";
 
 export const OFFERS = {
   explorer: { name: "Explorer", price: 1990 },
-  "all-inclusive": { name: "All Inclusive", price: 2590 },
+  "all-inclusive": { name: "Explorer + vol", price: 2590 },
 } as const;
 
 export const SESSIONS = {

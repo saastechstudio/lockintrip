@@ -55,7 +55,7 @@ export const faq: FaqGroup[] = [
       },
       {
         q: "Les vols sont-ils inclus ?",
-        a: "Le vol aller-retour depuis la France est inclus dans la formule All Inclusive. Avec la formule Explorer, tu réserves ton vol toi-même. Dans les deux formules, le transport de l'aéroport à l'hôtel et pour tous les déplacements du séjour est compris.",
+        a: "Le vol aller-retour depuis la France est inclus dans la formule Explorer + vol. Avec la formule Explorer, tu réserves ton vol toi-même. Dans les deux formules, le transport de l'aéroport à l'hôtel et pour tous les déplacements du séjour est compris.",
       },
       {
         q: "Comment se déroule l'hébergement ?",
