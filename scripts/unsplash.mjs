@@ -6,6 +6,7 @@ const ids = JSON.parse(fs.readFileSync("unsplash.json", "utf8"));
 const log = [];
 const L = (...a) => { console.log(...a); log.push(a.join(" ")); };
 const credits = [];
+const done = JSON.parse(fs.existsSync("done.json") ? fs.readFileSync("done.json", "utf8") : "[]");
 fs.mkdirSync("unsplash", { recursive: true });
 if (!key) L("Clé UNSPLASH_ACCESS_KEY absente : rien à faire.");
 else {
@@ -22,12 +23,13 @@ if (key) for (const [cat, list] of Object.entries(ids)) {
       if (!r.ok) continue;
       const p = await r.json();
       if (p.premium || p.plus) { L(cat, id, "Unsplash+ ignorée"); continue; }
-      await fetch(`${p.links.download_location}`, { headers: { Authorization: `Client-ID ${key.trim()}` } });
-      const img = await fetch(`${p.urls.raw}&w=2400&q=85&fm=jpg&fit=max`, { signal: AbortSignal.timeout(60000) });
-      L(cat, id, "image", img.status);
-      if (!img.ok) continue;
-      fs.writeFileSync(`unsplash/${cat}--${id}.jpg`, Buffer.from(await img.arrayBuffer()));
-      credits.push({ file: `${cat}--${id}.jpg`, id, alt: p.alt_description, author: p.user?.name, authorUrl: `${p.user?.links?.html}?utm_source=lockintrip&utm_medium=referral`, page: `${p.links.html}?utm_source=lockintrip&utm_medium=referral` });
+      L(cat, id, "reste", r.headers.get("x-ratelimit-remaining"));
+      if (!done.includes(id)) {
+        await fetch(`${p.links.download_location}`, { headers: { Authorization: `Client-ID ${key.trim()}` } });
+        const img = await fetch(`${p.urls.raw}&w=1200&q=70&fm=jpg&fit=max`, { signal: AbortSignal.timeout(60000) });
+        if (img.ok) fs.writeFileSync(`unsplash/${cat}--${id}.jpg`, Buffer.from(await img.arrayBuffer()));
+      }
+      credits.push({ cat, file: `${cat}--${id}.jpg`, id, raw: p.urls.raw.split("?")[0] + "?" + new URLSearchParams([...new URL(p.urls.raw).searchParams].filter(([k]) => k === "ixid" || k === "ixlib")), w: p.width, h: p.height, color: p.color, blur: p.blur_hash, alt: p.alt_description, author: p.user?.name, authorUrl: `${p.user?.links?.html}?utm_source=lockintrip&utm_medium=referral`, page: `${p.links.html}?utm_source=lockintrip&utm_medium=referral` });
     } catch (e) { L(cat, id, "ERR", e.message); }
   }
 }
