@@ -43,7 +43,7 @@ const sources = {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const only = process.env.SOURCES?.split(",");
 const out = [];
-for (const q of JSON.parse(fs.readFileSync("queries.json", "utf8"))) {
+for (const q of process.env.SKIP_SEARCH ? [] : JSON.parse(fs.readFileSync("queries.json", "utf8"))) {
   const dir = `candidates/${q.slug}`;
   fs.mkdirSync(dir, { recursive: true });
   let n = 0;
@@ -64,13 +64,17 @@ for (const q of JSON.parse(fs.readFileSync("queries.json", "utf8"))) {
   }
   L(q.slug, "saved", n);
 }
-fs.writeFileSync("candidates/manifest.json", JSON.stringify(out, null, 1));
+if (!process.env.SKIP_SEARCH) fs.writeFileSync("candidates/manifest.json", JSON.stringify(out, null, 1));
 if (fs.existsSync("final.json")) {
   fs.mkdirSync("final", { recursive: true });
   for (const f of JSON.parse(fs.readFileSync("final.json", "utf8"))) {
-    const r = await fetch(f.url, { headers: ua, signal: AbortSignal.timeout(60000) });
+    await sleep(3000);
+    const meta = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(f.title)}&prop=imageinfo&iiprop=url&iiurlwidth=2200&format=json`, { headers: ua, signal: T() });
+    const info = Object.values((await meta.json()).query.pages)[0].imageinfo[0];
+    const r = await fetch(info.thumburl, { headers: ua, signal: AbortSignal.timeout(60000) });
     L("final", f.name, r.status);
     if (r.ok) fs.writeFileSync(`final/${f.name}.jpg`, Buffer.from(await r.arrayBuffer()));
   }
 }
-fs.writeFileSync("candidates/log.txt", log.join("\n"));
+fs.mkdirSync("final", { recursive: true });
+fs.writeFileSync("final/log.txt", log.join("\n"));
