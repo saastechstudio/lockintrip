@@ -30,10 +30,10 @@ const sources = {
     return ids.map((p) => ({ id: p, raw: `https://burst.shopifycdn.com/photos/${p}.jpg`, thumb: `https://burst.shopifycdn.com/photos/${p}_480x.jpg`, license: "Burst" }));
   },
   async wikimedia(q) {
-    const r = await get("wikimedia", `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(q + " filetype:bitmap")}&gsrlimit=12&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=480&format=json`);
+    const r = await get("wikimedia", `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(q + " filetype:bitmap")}&gsrlimit=20&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=480&format=json`);
     if (!r) return [];
     const pages = Object.values((await r.json()).query?.pages ?? {});
-    return pages.filter((p) => p.imageinfo?.[0]?.width >= 1600).map((p) => {
+    return pages.filter((p) => p.imageinfo?.[0]?.width >= 2000).map((p) => {
       const i = p.imageinfo[0];
       return { id: p.title, raw: i.url, thumb: i.thumburl, w: i.width, author: i.extmetadata?.Artist?.value?.replace(/<[^>]+>/g, ""), license: i.extmetadata?.LicenseShortName?.value, page: i.descriptionurl };
     });
@@ -49,7 +49,7 @@ for (const q of JSON.parse(fs.readFileSync("queries.json", "utf8"))) {
   let n = 0;
   for (const [name, fn] of Object.entries(sources)) {
     if (only && !only.includes(name)) continue;
-    await sleep(12000);
+    await sleep(6000);
     let list = [];
     try { list = await fn(q.q); } catch (e) { L(name, "ERR", e.message); }
     for (const p of list.slice(0, q.n ?? 8)) {
