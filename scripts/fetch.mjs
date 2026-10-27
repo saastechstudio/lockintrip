@@ -68,12 +68,20 @@ if (!process.env.SKIP_SEARCH) fs.writeFileSync("candidates/manifest.json", JSON.
 if (fs.existsSync("final.json")) {
   fs.mkdirSync("final", { recursive: true });
   for (const f of JSON.parse(fs.readFileSync("final.json", "utf8"))) {
-    await sleep(3000);
-    const meta = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(f.title)}&prop=imageinfo&iiprop=url&iiurlwidth=2200&format=json`, { headers: ua, signal: T() });
-    const info = Object.values((await meta.json()).query.pages)[0].imageinfo[0];
-    const r = await fetch(info.thumburl, { headers: ua, signal: AbortSignal.timeout(60000) });
-    L("final", f.name, r.status);
-    if (r.ok) fs.writeFileSync(`final/${f.name}.jpg`, Buffer.from(await r.arrayBuffer()));
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        await sleep(4000 + attempt * 15000);
+        const meta = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(f.title)}&prop=imageinfo&iiprop=url&iiurlwidth=2200&format=json`, { headers: ua, signal: T() });
+        L("meta", f.name, meta.status);
+        if (!meta.ok) continue;
+        const info = Object.values((await meta.json()).query.pages)[0].imageinfo[0];
+        const r = await fetch(info.thumburl, { headers: ua, signal: AbortSignal.timeout(60000) });
+        L("final", f.name, r.status, info.thumburl);
+        if (!r.ok) continue;
+        fs.writeFileSync(`final/${f.name}.jpg`, Buffer.from(await r.arrayBuffer()));
+        break;
+      } catch (e) { L("final ERR", f.name, e.message); }
+    }
   }
 }
 fs.mkdirSync("final", { recursive: true });
