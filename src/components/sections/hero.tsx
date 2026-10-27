@@ -100,7 +100,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
           </motion.div>
 
           <motion.p {...enter(0.85)} className="mt-5 text-sm text-ivory/70">
-            <span className="font-medium text-ivory">Dès {formatPrice(startingPrice)}</span> · hôtel, petits-déjeuners, déjeuners, activités et transports compris · payable en 4 fois
+            <span className="font-medium text-ivory">Dès {formatPrice(startingPrice)}</span> · hôtel, petits-déjeuners, déjeuners, activités, transports et assurance voyage compris · payable en 4 fois
           </motion.p>
 
           <motion.div {...enter(0.9)} className="mt-8 max-w-md">
@@ -118,7 +118,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
                 transition={{ duration: 1.6, ease, delay: base + 1.1 }}
               />
             </div>
-            <p className="mt-3 text-xs text-ivory/55">3 sessions de 20 personnes · mars – avril 2027 · paiement sécurisé</p>
+            <p className="mt-3 text-xs text-ivory/55">3 sessions de 20 personnes · suivi personnalisé · mars – avril 2027</p>
           </motion.div>
         </div>
 

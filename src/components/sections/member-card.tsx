@@ -109,7 +109,7 @@ export function MemberCard({ taken, capacity }: { taken: number; capacity: numbe
                   className="font-display text-[clamp(1.8rem,5vw,3rem)] font-light leading-none text-transparent [-webkit-background-clip:text] [background-clip:text]"
                   style={foil}
                 >
-                  {name.trim() || "Ton prénom"}
+                  {name.trim() || "\u00a0"}
                 </p>
 
                 <div className="flex items-end justify-between text-pierre/85">

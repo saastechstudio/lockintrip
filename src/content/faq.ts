@@ -34,6 +34,14 @@ export const faq: FaqGroup[] = [
         a: "Petit-déjeuner à l'hôtel de 7 h à 9 h. Masterclass et travail en groupe de 10 h à 12 h. Déjeuner au restaurant à midi. Activité au choix de 15 h à 17 h. À partir de 17 h, le temps est libre pour tous.",
       },
       {
+        q: "Suis-je accompagné pendant le séjour ?",
+        a: "Oui. Chaque session réunit 20 personnes, ce qui permet un vrai suivi personnalisé de chaque participant. Tu es encadré et accompagné à chaque étape du séjour, en dehors des temps libres.",
+      },
+      {
+        q: "L'assurance voyage est-elle incluse ?",
+        a: "Oui. L'assurance voyage est incluse dans le tarif, quelle que soit la formule choisie.",
+      },
+      {
         q: "Les transports sont-ils compris ?",
         a: "Oui. Le transport de l'aéroport à l'hôtel et tous les déplacements du séjour sont compris, y compris pour l'excursion.",
       },

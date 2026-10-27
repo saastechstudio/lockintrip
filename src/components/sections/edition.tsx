@@ -35,7 +35,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
               tone="ivory"
               eyebrow={`Édition fondatrice ${editionYear}`}
               title="60 places. Pas une de plus."
-              intro="Trois sessions de vingt personnes. Assez pour rencontrer des profils variés, assez peu pour que chacun connaisse vraiment les autres. Les membres fondateurs forment le premier cercle Lockin Trip."
+              intro="Trois sessions de 20 personnes, pas plus. Ce format permet un vrai suivi personnalisé de chaque participant qui veut passer au niveau supérieur dans sa vie. Tu es encadré et accompagné à chaque étape du séjour, en dehors des temps libres. Les membres fondateurs forment le premier cercle Lockin Trip."
             />
             <Reveal delay={0.2} className="mt-10 flex flex-wrap gap-3">
               <span className="rounded-full bg-pierre px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, CalendarClock, Check, FileText, Lock, MessageCircle, Plane, X } from "lucide-react";
+import { ArrowUpRight, CalendarClock, Check, FileText, Lock, MessageCircle, Plane, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { offers } from "@/content/offers";
@@ -105,6 +105,7 @@ export function Pricing({ remaining }: { remaining: number }) {
           <ul className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-muted">
             <li className="flex items-center gap-2.5"><Lock className="size-4 text-bordeaux" strokeWidth={1.5} />Paiement sécurisé par Stripe</li>
             <li className="flex items-center gap-2.5"><CalendarClock className="size-4 text-bordeaux" strokeWidth={1.5} />En 3 ou 4 fois avec Klarna</li>
+            <li className="flex items-center gap-2.5"><ShieldCheck className="size-4 text-bordeaux" strokeWidth={1.5} />Assurance voyage incluse</li>
             <li className="flex items-center gap-2.5"><FileText className="size-4 text-bordeaux" strokeWidth={1.5} />Facture envoyée par e-mail</li>
             <li className="flex items-center gap-2.5"><MessageCircle className="size-4 text-bordeaux" strokeWidth={1.5} />Une question ? On répond sur WhatsApp</li>
           </ul>
