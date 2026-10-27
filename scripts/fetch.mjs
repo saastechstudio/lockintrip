@@ -7,6 +7,14 @@ const ua = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKi
 const get = async (name, url) => { const r = await fetch(url, { headers: ua, signal: T() }); L(name, r.status, url.slice(0, 90)); return r.ok ? r : null; };
 
 const sources = {
+  // API officielle Pexels (clé gratuite, secret GitHub PEXELS_API_KEY). Licence Pexels : usage commercial libre.
+  async pexelsApi(q) {
+    if (!process.env.PEXELS_API_KEY) { L("pexelsApi", "pas de clé"); return []; }
+    const r = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&per_page=15&orientation=${q.includes("portrait") ? "portrait" : "landscape"}`, { headers: { Authorization: process.env.PEXELS_API_KEY }, signal: T() });
+    L("pexelsApi", r.status, q);
+    if (!r.ok) return [];
+    return (await r.json()).photos.map((p) => ({ id: String(p.id), raw: p.src.original, thumb: `${p.src.original}?auto=compress&w=480`, w: p.width, h: p.height, alt: p.alt, author: p.photographer, page: p.url, license: "Pexels" }));
+  },
   async pexels(q) {
     const r = await get("pexels", `https://www.pexels.com/search/${encodeURIComponent(q)}/`);
     if (!r) return [];
