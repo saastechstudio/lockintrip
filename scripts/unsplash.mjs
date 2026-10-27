@@ -1,37 +1,46 @@
-// Télécharge des photos Unsplash identifiées via l'API officielle (clé gratuite : secret UNSPLASH_ACCESS_KEY).
-// Respecte les règles de l'API : déclenchement de download_location et crédit du photographe dans unsplash/credits.json.
+// Photos Unsplash via l'API officielle (secret UNSPLASH_ACCESS_KEY).
+// Mode recherche (unsplash-queries.json) : vignettes + métadonnées pour revue, sans déclencher de téléchargement.
+// Mode sélection (unsplash.json) : métadonnées (lien direct, auteur) et déclenchement de download_location.
 import fs from "node:fs";
-const key = process.env.UNSPLASH_ACCESS_KEY;
-const ids = JSON.parse(fs.readFileSync("unsplash.json", "utf8"));
+const key = process.env.UNSPLASH_ACCESS_KEY?.trim();
+const H = { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" };
 const log = [];
 const L = (...a) => { console.log(...a); log.push(a.join(" ")); };
-const credits = [];
-const done = JSON.parse(fs.existsSync("done.json") ? fs.readFileSync("done.json", "utf8") : "[]");
-fs.mkdirSync("unsplash", { recursive: true });
-if (!key) L("Clé UNSPLASH_ACCESS_KEY absente : rien à faire.");
+const api = async (path) => {
+  const r = await fetch(`https://api.unsplash.com${path}`, { headers: H, signal: AbortSignal.timeout(20000) });
+  L(path.slice(0, 70), r.status, "reste", r.headers.get("x-ratelimit-remaining"));
+  return r.ok ? r.json() : null;
+};
+const meta = (p, extra) => ({ ...extra, id: p.id, raw: `${p.urls.raw.split("?")[0]}?ixid=${new URL(p.urls.raw).searchParams.get("ixid") ?? ""}`, w: p.width, h: p.height, alt: p.alt_description, location: p.location?.title ?? null, author: p.user?.name, authorUrl: `${p.user?.links?.html}?utm_source=lockintrip&utm_medium=referral`, page: `${p.links.html}?utm_source=lockintrip&utm_medium=referral`, download: p.links.download_location });
+fs.mkdirSync("unsplash/candidates", { recursive: true });
+if (!key) L("Clé absente");
 else {
-  const k = key.trim();
-  L("clé : longueur", k.length, "espaces en trop", k.length !== key.length, "guillemets", /["']/.test(k));
-  const t = await fetch("https://api.unsplash.com/photos/random", { headers: { Authorization: `Client-ID ${k}`, "Accept-Version": "v1" } });
-  L("test api", t.status, (await t.text()).slice(0, 200));
-}
-if (key) for (const [cat, list] of Object.entries(ids)) {
-  for (const id of list) {
-    try {
-      const r = await fetch(`https://api.unsplash.com/photos/${id}`, { headers: { Authorization: `Client-ID ${key.trim()}`, "Accept-Version": "v1" }, signal: AbortSignal.timeout(20000) });
-      L(cat, id, "api", r.status);
-      if (!r.ok) continue;
-      const p = await r.json();
-      if (p.premium || p.plus) { L(cat, id, "Unsplash+ ignorée"); continue; }
-      L(cat, id, "reste", r.headers.get("x-ratelimit-remaining"));
-      if (!done.includes(id)) {
-        await fetch(`${p.links.download_location}`, { headers: { Authorization: `Client-ID ${key.trim()}` } });
-        const img = await fetch(`${p.urls.raw}&w=1200&q=70&fm=jpg&fit=max`, { signal: AbortSignal.timeout(60000) });
-        if (img.ok) fs.writeFileSync(`unsplash/${cat}--${id}.jpg`, Buffer.from(await img.arrayBuffer()));
+  if (fs.existsSync("unsplash-queries.json")) {
+    const out = [];
+    for (const q of JSON.parse(fs.readFileSync("unsplash-queries.json", "utf8"))) {
+      const j = await api(`/search/photos?query=${encodeURIComponent(q.q)}&per_page=30&orientation=${q.o ?? "landscape"}&content_filter=high`);
+      if (!j) continue;
+      let n = 0;
+      for (const p of j.results) {
+        if (p.premium || p.plus || n >= (q.n ?? 16)) continue;
+        const img = await fetch(`${p.urls.raw}&w=480&q=70&fm=jpg&fit=max`);
+        if (!img.ok) continue;
+        fs.writeFileSync(`unsplash/candidates/${q.slug}-${String(n).padStart(2, "0")}.jpg`, Buffer.from(await img.arrayBuffer()));
+        out.push(meta(p, { slug: q.slug, idx: n }));
+        n++;
       }
-      credits.push({ cat, file: `${cat}--${id}.jpg`, id, raw: p.urls.raw.split("?")[0] + "?" + new URLSearchParams([...new URL(p.urls.raw).searchParams].filter(([k]) => k === "ixid" || k === "ixlib")), w: p.width, h: p.height, color: p.color, blur: p.blur_hash, alt: p.alt_description, author: p.user?.name, authorUrl: `${p.user?.links?.html}?utm_source=lockintrip&utm_medium=referral`, page: `${p.links.html}?utm_source=lockintrip&utm_medium=referral` });
-    } catch (e) { L(cat, id, "ERR", e.message); }
+    }
+    fs.writeFileSync("unsplash/candidates/manifest.json", JSON.stringify(out, null, 1));
+  }
+  if (fs.existsSync("unsplash.json")) {
+    const sel = [];
+    for (const [name, id] of Object.entries(JSON.parse(fs.readFileSync("unsplash.json", "utf8")))) {
+      const p = await api(`/photos/${id}`);
+      if (!p || p.premium || p.plus) continue;
+      await fetch(p.links.download_location, { headers: H });
+      sel.push(meta(p, { name }));
+    }
+    fs.writeFileSync("unsplash/selection.json", JSON.stringify(sel, null, 1));
   }
 }
-fs.writeFileSync("unsplash/credits.json", JSON.stringify(credits, null, 1));
 fs.writeFileSync("unsplash/log.txt", log.join("\n"));
