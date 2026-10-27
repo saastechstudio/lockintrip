@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { SmoothScroll } from "@/components/experience/smooth-scroll";
+import { CustomCursor } from "@/components/experience/custom-cursor";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -84,6 +86,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
+        <SmoothScroll />
+        <CustomCursor />
       </body>
     </html>
   );

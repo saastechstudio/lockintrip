@@ -163,6 +163,15 @@
 
 html[data-intro="seen"] [data-book-intro] { display: none; }
 
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Curseur sur mesure : on masque le curseur natif, sauf dans les champs */
+html.has-custom-cursor, html.has-custom-cursor * { cursor: none; }
+html.has-custom-cursor :is(input, textarea, select, [contenteditable]) { cursor: text; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

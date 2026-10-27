@@ -67,7 +67,7 @@ export function StickyCta({ remaining }: { remaining: number }) {
             >
               <MessageCircle className="size-[18px]" strokeWidth={1.6} />
             </a>
-            <Button asChild size="sm" className="shrink-0">
+            <Button asChild size="sm" className="shrink-0" data-magnetic data-cursor="Réserver">
               <Link href="/reserver">
                 <span className="sm:hidden">Réserver</span>
                 <span className="hidden sm:inline">Je participe à Phuket 2027</span>

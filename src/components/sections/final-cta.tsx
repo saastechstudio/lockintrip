@@ -26,7 +26,7 @@ export function FinalCta() {
             <p className="eyebrow mt-6 text-pierre">{totalCapacity} places seulement</p>
           </Reveal>
           <Reveal delay={0.45}>
-            <Button asChild size="lg" variant="light" className="mt-10">
+            <Button asChild size="lg" variant="light" className="mt-10" data-magnetic data-cursor="Rejoindre">
               <Link href="/reserver">
                 Rejoindre l&apos;édition fondatrice
                 <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />

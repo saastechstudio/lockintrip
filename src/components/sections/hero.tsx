@@ -85,7 +85,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
           </motion.p>
 
           <motion.div {...enter(0.75)} className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" variant="light">
+            <Button asChild size="lg" variant="light" data-magnetic data-cursor="Réserver">
               <Link href="/reserver">
                 Je réserve ma place
                 <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />

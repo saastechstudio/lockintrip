@@ -17,12 +17,14 @@ function Moment({ m, index }: { m: DayMoment; index: number }) {
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-6%", "6%"]);
+  // l'image s'ouvre comme un cadre de cinéma en entrant dans l'écran
+  const clip = useTransform(scrollYProgress, [0.05, 0.4], reduce ? ["inset(0% 0% 0% 0% round 22px)", "inset(0% 0% 0% 0% round 22px)"] : ["inset(14% 12% 14% 12% round 22px)", "inset(0% 0% 0% 0% round 22px)"]);
   const flip = index % 2 === 1;
 
   return (
     <li ref={ref} className="grid items-center gap-8 md:grid-cols-12 md:gap-12">
       <Reveal className={cn("md:col-span-6", flip && "md:order-2")}>
-        <div className="group relative mx-auto aspect-[4/3] max-w-lg overflow-hidden rounded-[22px] shadow-[0_40px_80px_-46px_rgba(60,45,35,0.55)]">
+        <motion.div style={{ clipPath: clip }} className="group relative mx-auto aspect-[4/3] max-w-lg overflow-hidden rounded-[22px]">
           <motion.div style={{ y }} className="absolute -inset-y-[8%] inset-x-0">
             <Image
               src={m.src}
@@ -36,7 +38,7 @@ function Moment({ m, index }: { m: DayMoment; index: number }) {
           <span className="absolute bottom-4 left-4 rounded-full bg-ivory/85 px-3.5 py-1.5 text-xs font-medium text-ink backdrop-blur-md">
             {m.time}
           </span>
-        </div>
+        </motion.div>
       </Reveal>
       <Reveal delay={0.12} className={cn("md:col-span-6", flip && "md:order-1")}>
         <p className="eyebrow flex items-center gap-3 text-bordeaux">
