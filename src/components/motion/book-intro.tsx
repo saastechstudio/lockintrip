@@ -12,7 +12,7 @@ export const INTRO_KEY = "lockin-intro-seen";
 const TOTAL = 3.9;
 const inOut = [0.65, 0, 0.35, 1] as const;
 const out = [0.22, 1, 0.36, 1] as const;
-const GOLD = "#dcc49a";
+const BORDEAUX = "#6b1f2b";
 
 const portalImages = [
   { src: "/images/phuket/ya-nui.jpg", alt: "" },
@@ -77,7 +77,7 @@ export function BookIntro() {
         <motion.div
           key="intro"
           data-book-intro
-          className="fixed inset-0 z-[100] overflow-hidden bg-[#050505]"
+          className="fixed inset-0 z-[100] overflow-hidden bg-[#140709]"
           exit={{ opacity: 0, scale: 1.03, filter: "blur(6px)" }}
           transition={{ duration: 0.8, ease: out }}
         >
@@ -85,7 +85,7 @@ export function BookIntro() {
           <motion.div
             aria-hidden
             className="absolute inset-0"
-            style={{ background: "radial-gradient(45% 45% at 50% 46%, rgba(220,196,154,0.16), transparent 70%)" }}
+            style={{ background: "radial-gradient(50% 50% at 50% 46%, rgba(107,31,43,0.55), transparent 72%)" }}
             animate={{ opacity: [0.4, 1, 1, 0.2] }}
             transition={{ duration: TOTAL, times: [0, 0.3, 0.6, 1] }}
           />
@@ -110,13 +110,13 @@ export function BookIntro() {
               <div
                 aria-hidden
                 className="absolute -bottom-[34%] left-1/2 h-[24%] w-[46%] rounded-[50%] opacity-60 blur-2xl"
-                style={{ background: "radial-gradient(closest-side, rgba(220,196,154,0.35), transparent)" }}
+                style={{ background: "radial-gradient(closest-side, rgba(214,200,184,0.35), transparent)" }}
               />
 
               {/* Intérieur du livre (moitié droite) : le portail */}
               <div className="absolute inset-y-0 right-0 w-1/2 overflow-visible">
-                <div className="absolute inset-0 overflow-hidden rounded-r-[8px] bg-[#0b0b0b] shadow-[0_50px_100px_-30px_rgba(0,0,0,0.95)]">
-                  <div className="absolute inset-[5%] rounded-[4px] border border-[#dcc49a]/20" />
+                <div className="absolute inset-0 overflow-hidden rounded-r-[8px] bg-[#efe6da] shadow-[0_50px_100px_-30px_rgba(0,0,0,0.95)]">
+                  <div className="absolute inset-[5%] rounded-[4px] border border-[#6b1f2b]/25" />
                 </div>
                 {/* Rayons */}
                 <motion.div
@@ -124,7 +124,7 @@ export function BookIntro() {
                   className="pointer-events-none absolute left-1/2 top-1/2 size-[190%] -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
                   style={{
                     background:
-                      "repeating-conic-gradient(from 0deg, rgba(255,240,214,0.13) 0deg 1.2deg, transparent 1.2deg 11deg)",
+                      "repeating-conic-gradient(from 0deg, rgba(239,230,218,0.13) 0deg 1.2deg, transparent 1.2deg 11deg)",
                     maskImage: "radial-gradient(closest-side, black 18%, transparent 62%)",
                   }}
                   initial={{ opacity: 0, rotate: 0, scale: 0.4 }}
@@ -134,12 +134,12 @@ export function BookIntro() {
                 {/* Portail lumineux */}
                 <motion.div
                   className="absolute left-1/2 top-1/2 aspect-square w-[78%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full"
-                  style={{ boxShadow: "0 0 60px 18px rgba(255,236,204,0.55), 0 0 160px 60px rgba(220,196,154,0.35)" }}
+                  style={{ boxShadow: "0 0 60px 18px rgba(239,230,218,0.55), 0 0 160px 60px rgba(214,200,184,0.35)" }}
                   initial={{ opacity: 0, scale: 0.1 }}
                   animate={{ opacity: [0, 0, 1, 1], scale: [0.1, 0.1, 1, 1.06] }}
                   transition={{ duration: 2.9, times: [0, 0.4, 0.66, 1], ease: out }}
                 >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle,#fffaf0_0%,#f3e3c4_45%,#c9a86e_100%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle,#fbf8f3_0%,#efe6da_45%,#c9b9a6_100%)]" />
                   {portalImages.map((img, i) => (
                     <motion.div
                       key={img.src}
@@ -151,7 +151,7 @@ export function BookIntro() {
                       <Image src={img.src} alt={img.alt} fill sizes="320px" priority={i === 0} className="object-cover" />
                     </motion.div>
                   ))}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_35%,rgba(255,244,222,0.85)_75%,#fff6e6_100%)] mix-blend-screen" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_35%,rgba(247,244,239,0.85)_75%,#f7f4ef_100%)] mix-blend-screen" />
                 </motion.div>
               </div>
 
@@ -163,23 +163,23 @@ export function BookIntro() {
                 animate={{ rotateY: [0, 0, -168] }}
                 transition={{ duration: 2.0, times: [0, 0.45, 1], ease: inOut }}
               >
-                <div className="absolute inset-0 overflow-hidden rounded-r-[8px] bg-[#0d0d0d] shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] [backface-visibility:hidden]">
+                <div className="absolute inset-0 overflow-hidden rounded-r-[8px] bg-[#4a1520] shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] [backface-visibility:hidden]">
                   <div className="absolute inset-0 opacity-[0.16] mix-blend-overlay" style={{ backgroundImage: leather, backgroundSize: "240px" }} />
                   <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_30%_20%,rgba(255,255,255,0.09),transparent_60%)]" />
                   <div className="absolute inset-y-0 left-0 w-[8%] bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute inset-[6%] rounded-[3px] border border-[#dcc49a]/45" />
-                  <div className="absolute inset-[7.5%] rounded-[2px] border border-[#dcc49a]/15" />
+                  <div className="absolute inset-[6%] rounded-[3px] border border-[#d6c8b8]/45" />
+                  <div className="absolute inset-[7.5%] rounded-[2px] border border-[#d6c8b8]/15" />
                   {/* Coins dorés */}
                   {["right-[4%] top-[4%] border-r border-t", "bottom-[4%] right-[4%] border-b border-r"].map((c) => (
-                    <span key={c} className={`absolute size-[10%] border-[#dcc49a]/70 ${c}`} />
+                    <span key={c} className={`absolute size-[10%] border-[#d6c8b8]/70 ${c}`} />
                   ))}
                   {/* Logo embossé */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-[6%]">
-                    <LogoMark className="size-[18%] text-[#dcc49a] drop-shadow-[0_1px_0_rgba(0,0,0,0.9)]" />
+                    <LogoMark className="size-[18%] text-[#d6c8b8] drop-shadow-[0_1px_0_rgba(0,0,0,0.9)]" />
                     <p
                       className="font-display text-[clamp(1rem,3.2vw,2rem)] font-light tracking-[0.06em] text-transparent [background-clip:text] [-webkit-background-clip:text]"
                       style={{
-                        backgroundImage: "linear-gradient(115deg,#8f7448 0%,#f4e3c1 38%,#b8955f 52%,#f7ead0 70%,#9c7d4d 100%)",
+                        backgroundImage: "linear-gradient(115deg,#8f877c 0%,#efe6da 38%,#a9a39a 52%,#f7f4ef 70%,#8f877c 100%)",
                         filter: "drop-shadow(0 1px 0 rgba(0,0,0,0.9)) drop-shadow(0 -1px 0 rgba(255,255,255,0.08))",
                       }}
                     >
@@ -195,8 +195,8 @@ export function BookIntro() {
                     transition={{ duration: 1.1, delay: 0.25, ease: inOut }}
                   />
                 </div>
-                <div className="absolute inset-0 rounded-l-[8px] bg-[#111] [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                  <div className="absolute inset-[6%] rounded-[3px] border border-[#dcc49a]/25" />
+                <div className="absolute inset-0 rounded-l-[8px] bg-[#2b0a10] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="absolute inset-[6%] rounded-[3px] border border-[#d6c8b8]/25" />
                   <div className="absolute inset-0 bg-gradient-to-l from-black/70 to-transparent" />
                 </div>
               </motion.div>
@@ -209,7 +209,7 @@ export function BookIntro() {
           {/* Éclair au cœur de la plongée */}
           <motion.div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[#fff6e6]"
+            className="pointer-events-none absolute inset-0 bg-[#f7f4ef]"
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0, 0.55, 0] }}
             transition={{ duration: 3.2, times: [0, 0.76, 0.8, 0.9] }}
@@ -254,17 +254,17 @@ function IntroInterface() {
   return (
     <div className="pointer-events-none absolute inset-0 flex flex-col items-center px-5 pt-6 md:px-10">
       <Materialize delay={2.9} className={`flex h-12 w-full max-w-5xl items-center justify-between rounded-full px-5 ${glass}`}>
-        <LogoMark className="size-6 text-[#dcc49a]" />
+        <LogoMark className="size-6 text-[#d6c8b8]" />
         <span className="hidden items-center gap-6 md:flex">
           {["2.5rem", "3rem", "2.2rem", "2.8rem"].map((w) => line(w))}
         </span>
-        <span className="h-7 w-20 rounded-full" style={{ background: `linear-gradient(120deg,#b8955f,${GOLD},#f4e3c1)` }} />
+        <span className="h-7 w-20 rounded-full" style={{ background: BORDEAUX }} />
       </Materialize>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-8 pb-10">
         <motion.p
           className="font-display text-[clamp(2.6rem,8vw,6.5rem)] font-light leading-none tracking-[0.02em] text-transparent [background-clip:text] [-webkit-background-clip:text]"
-          style={{ backgroundImage: "linear-gradient(110deg,#a88a5a 0%,#fbf1dd 30%,#d9bf8f 48%,#fff8ea 62%,#b89764 100%)", backgroundSize: "220% 100%" }}
+          style={{ backgroundImage: "linear-gradient(110deg,#a9a39a 0%,#f7f4ef 30%,#d6c8b8 48%,#fbf8f3 62%,#a9a39a 100%)", backgroundSize: "220% 100%" }}
           initial={{ opacity: 0, scale: 0.94, letterSpacing: "0.2em", filter: "blur(16px)", backgroundPosition: "100% 0%" }}
           animate={{ opacity: 1, scale: 1, letterSpacing: "0.02em", filter: "blur(0px)", backgroundPosition: "0% 0%" }}
           transition={{ duration: 1, delay: 3.05, ease: out }}
@@ -275,12 +275,12 @@ function IntroInterface() {
         <Materialize delay={3.15} className={`flex h-14 w-full max-w-2xl items-center gap-3 rounded-full pl-6 pr-2 md:h-16 ${glass}`}>
           {[0, 1, 2].map((i) => (
             <span key={i} className={`flex flex-1 flex-col gap-2 ${i > 0 ? "border-l border-white/10 pl-4" : ""} ${i === 2 ? "hidden sm:flex" : ""}`}>
-              {line("40%", "bg-[#dcc49a]/60")}
+              {line("40%", "bg-[#d6c8b8]/60")}
               {line("70%")}
             </span>
           ))}
-          <span className="grid size-10 place-items-center rounded-full md:size-12" style={{ background: `linear-gradient(135deg,#f4e3c1,${GOLD},#b8955f)` }}>
-            <Search className="size-4 text-black/80" strokeWidth={1.8} />
+          <span className="grid size-10 place-items-center rounded-full md:size-12" style={{ background: `linear-gradient(135deg,#7e2b38,${BORDEAUX})` }}>
+            <Search className="size-4 text-[#f7f4ef]" strokeWidth={1.8} />
           </span>
         </Materialize>
 
@@ -292,7 +292,7 @@ function IntroInterface() {
               </div>
               <div className="flex flex-col gap-2 p-4">
                 {line("55%", "bg-white/40")}
-                {line("35%", "bg-[#dcc49a]/60")}
+                {line("35%", "bg-[#d6c8b8]/60")}
               </div>
             </Materialize>
           ))}
@@ -324,9 +324,9 @@ function runParticles(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) 
   sprite.width = sprite.height = 64;
   const s = sprite.getContext("2d")!;
   const g = s.createRadialGradient(32, 32, 0, 32, 32, 32);
-  g.addColorStop(0, "rgba(255,248,232,1)");
-  g.addColorStop(0.25, "rgba(236,214,172,0.6)");
-  g.addColorStop(1, "rgba(220,196,154,0)");
+  g.addColorStop(0, "rgba(251,248,243,1)");
+  g.addColorStop(0.25, "rgba(232,220,203,0.6)");
+  g.addColorStop(1, "rgba(214,200,184,0)");
   s.fillStyle = g;
   s.fillRect(0, 0, 64, 64);
 
@@ -410,7 +410,7 @@ function runParticles(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) 
         const y2 = cy + (st.y / st.z) * f;
         const k = 1 - st.z;
         ctx.globalAlpha = Math.min(1, k * 1.4) * warpIn * warpOut;
-        ctx.strokeStyle = k > 0.75 ? "rgba(255,250,240,1)" : "rgba(226,203,160,1)";
+        ctx.strokeStyle = k > 0.75 ? "rgba(251,248,243,1)" : "rgba(214,200,184,1)";
         ctx.lineWidth = 0.4 + k * 2.2;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
