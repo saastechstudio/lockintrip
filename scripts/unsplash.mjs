@@ -8,15 +8,21 @@ const L = (...a) => { console.log(...a); log.push(a.join(" ")); };
 const credits = [];
 fs.mkdirSync("unsplash", { recursive: true });
 if (!key) L("Clé UNSPLASH_ACCESS_KEY absente : rien à faire.");
-else for (const [cat, list] of Object.entries(ids)) {
+else {
+  const k = key.trim();
+  L("clé : longueur", k.length, "espaces en trop", k.length !== key.length, "guillemets", /["']/.test(k));
+  const t = await fetch("https://api.unsplash.com/photos/random", { headers: { Authorization: `Client-ID ${k}`, "Accept-Version": "v1" } });
+  L("test api", t.status, (await t.text()).slice(0, 200));
+}
+if (key) for (const [cat, list] of Object.entries(ids)) {
   for (const id of list) {
     try {
-      const r = await fetch(`https://api.unsplash.com/photos/${id}`, { headers: { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" }, signal: AbortSignal.timeout(20000) });
+      const r = await fetch(`https://api.unsplash.com/photos/${id}`, { headers: { Authorization: `Client-ID ${key.trim()}`, "Accept-Version": "v1" }, signal: AbortSignal.timeout(20000) });
       L(cat, id, "api", r.status);
       if (!r.ok) continue;
       const p = await r.json();
       if (p.premium || p.plus) { L(cat, id, "Unsplash+ ignorée"); continue; }
-      await fetch(`${p.links.download_location}`, { headers: { Authorization: `Client-ID ${key}` } });
+      await fetch(`${p.links.download_location}`, { headers: { Authorization: `Client-ID ${key.trim()}` } });
       const img = await fetch(`${p.urls.raw}&w=2400&q=85&fm=jpg&fit=max`, { signal: AbortSignal.timeout(60000) });
       L(cat, id, "image", img.status);
       if (!img.ok) continue;
