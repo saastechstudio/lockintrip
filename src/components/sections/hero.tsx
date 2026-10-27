@@ -22,7 +22,7 @@ const badgeIcons = { flame: Flame, star: Star, palm: Palmtree, check: BadgeCheck
 export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
   const reduce = useReducedMotion();
   // Si l'intro « livre » joue, l'entrée du hero attend la fin de l'ouverture.
-  const [base] = useState(() => (typeof document !== "undefined" && document.documentElement.dataset.intro !== "seen" ? 3.6 : 0));
+  const [base] = useState(() => (typeof document !== "undefined" && document.documentElement.dataset.intro !== "seen" ? 4.6 : 0));
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yBack = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "-12%"]);
