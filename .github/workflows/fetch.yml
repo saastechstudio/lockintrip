@@ -2,7 +2,6 @@ name: fetch-images
 on:
   push:
     branches: [images-fetch]
-    paths: [queries.json, final.json]
 permissions:
   contents: write
 jobs:
