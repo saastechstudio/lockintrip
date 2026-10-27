@@ -161,6 +161,8 @@
   }
 }
 
+html[data-intro="seen"] [data-book-intro] { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

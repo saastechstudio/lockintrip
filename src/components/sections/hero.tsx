@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
@@ -19,6 +19,8 @@ const badgeIcons = { flame: Flame, star: Star, palm: Palmtree, check: BadgeCheck
  */
 export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
   const reduce = useReducedMotion();
+  // Si l'intro « livre » joue, l'entrée du hero attend la fin de l'ouverture.
+  const [base] = useState(() => (typeof document !== "undefined" && document.documentElement.dataset.intro !== "seen" ? 3.6 : 0));
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yBack = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "-12%"]);
@@ -27,10 +29,10 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
   const pct = capacity ? Math.round((taken / capacity) * 100) : 0;
 
   const enter = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1.2, ease, delay } };
+    reduce ? {} : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1.2, ease, delay: base + delay } };
 
   const fade = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, scale: 0.96 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 1.4, ease, delay } };
+    reduce ? {} : { initial: { opacity: 0, scale: 0.96 }, animate: { opacity: 1, scale: 1 }, transition: { duration: 1.4, ease, delay: base + delay } };
 
   return (
     <section ref={ref} className="relative isolate overflow-hidden bg-[#1a0c0f] text-ivory">
@@ -69,7 +71,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
                 : {
                     initial: { opacity: 0, y: 36, filter: "blur(10px)" },
                     animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-                    transition: { duration: 1.5, ease, delay: 0.3 },
+                    transition: { duration: 1.5, ease, delay: base + 0.3 },
                   })}
             >
               {hero.title}
@@ -107,7 +109,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
                 className="h-full rounded-full bg-pierre"
                 initial={reduce ? false : { width: 0 }}
                 animate={{ width: `${Math.max(pct, 3)}%` }}
-                transition={{ duration: 1.6, ease, delay: 1.1 }}
+                transition={{ duration: 1.6, ease, delay: base + 1.1 }}
               />
             </div>
             <p className="mt-3 text-xs text-ivory/55">3 sessions de 20 personnes · mars – avril 2027 · paiement sécurisé</p>

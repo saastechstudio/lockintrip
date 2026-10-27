@@ -58,7 +58,7 @@ export function DayStory() {
         <SectionHeading
           align="center"
           eyebrow="Une journée à Phuket"
-          title="Imagine ta journée."
+          title="Projette ta journée."
           intro="Le réveil sous le soleil, une matinée de travail qui compte, un après-midi à te dépasser, un soir face à la mer. Puis on recommence, sept jours de suite."
         />
 
