@@ -53,7 +53,7 @@ export function ChapterRail() {
       className="fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 mix-blend-difference xl:block"
       animate={{ opacity: visible ? 1 : 0, x: visible ? 0 : 12 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      style={{ pointerEvents: visible ? "auto" : "none" }}
+      style={{ pointerEvents: "none" }}
     >
       <div className="absolute right-[5px] top-0 h-full w-px bg-ivory/20">
         <motion.div className="h-full w-full origin-top bg-ivory" style={{ scaleY: progress }} />
@@ -63,7 +63,7 @@ export function ChapterRail() {
           const on = active === c.id;
           return (
             <li key={c.id}>
-              <a href={`#${c.id}`} data-cursor={c.label} className="group flex items-center justify-end gap-3 text-ivory">
+              <a href={`#${c.id}`} aria-label={c.label} className="group pointer-events-none flex items-center justify-end gap-3 text-ivory">
                 <span
                   className={cn(
                     "whitespace-nowrap text-[0.68rem] uppercase tracking-[0.22em] transition-all duration-500",
@@ -73,7 +73,7 @@ export function ChapterRail() {
                   <span className="font-display mr-2 normal-case tracking-normal">{c.n}</span>
                   {c.label}
                 </span>
-                <span className={cn("block size-[11px] rounded-full border border-ivory transition-all duration-500", on ? "scale-100 bg-ivory" : "scale-[0.55] bg-transparent")} />
+                <span className={cn(visible ? "pointer-events-auto" : "pointer-events-none", "block size-[11px] cursor-pointer rounded-full outline outline-[7px] outline-transparent border border-ivory transition-all duration-500", on ? "scale-100 bg-ivory" : "scale-[0.55] bg-transparent")} />
               </a>
             </li>
           );
