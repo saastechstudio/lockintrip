@@ -100,7 +100,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
           </motion.div>
 
           <motion.p {...enter(0.85)} className="mt-5 text-sm text-ivory/70">
-            <span className="font-medium text-ivory">Dès {formatPrice(startingPrice)}</span> · hôtel, petits-déjeuners, déjeuners, activités et transports compris
+            <span className="font-medium text-ivory">Dès {formatPrice(startingPrice)}</span> · hôtel, petits-déjeuners, déjeuners, activités et transports compris · payable en 4 fois
           </motion.p>
 
           <motion.div {...enter(0.9)} className="mt-8 max-w-md">

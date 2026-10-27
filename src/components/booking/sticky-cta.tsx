@@ -55,7 +55,7 @@ export function StickyCta({ remaining }: { remaining: number }) {
                 <span className="size-1.5 shrink-0 rounded-full bg-bordeaux" />
                 {remaining} places restantes<span className="hidden sm:inline"> · Phuket 2027</span>
               </p>
-              <p className="truncate text-xs text-muted"><span className="hidden sm:inline">Prix fondateur </span>dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · paiement sécurisé</span></p>
+              <p className="truncate text-xs text-muted"><span className="hidden sm:inline">Prix fondateur </span>dès {formatPrice(startingPrice)}<span className="hidden sm:inline"> · en 4 fois</span><span className="hidden sm:inline"> · paiement sécurisé</span></p>
             </div>
             <div className="flex shrink-0 items-center gap-2">
             <a

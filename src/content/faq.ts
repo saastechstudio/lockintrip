@@ -64,7 +64,7 @@ export const faq: FaqGroup[] = [
     items: [
       {
         q: "Comment se passe le paiement ?",
-        a: "Directement en ligne au moment de la réservation, par carte bancaire, Apple Pay ou Google Pay, sur la page sécurisée de Stripe. Ta place est confirmée dès le paiement validé et ta facture t'est envoyée automatiquement par e-mail.",
+        a: "Directement en ligne au moment de la réservation, par carte bancaire, Apple Pay ou Google Pay, sur la page sécurisée de Stripe. Tu peux aussi régler en 3 ou 4 fois avec Klarna, directement sur cette page. Ta place est confirmée dès le paiement validé et ta facture t'est envoyée automatiquement par e-mail.",
       },
       {
         q: "Comment se passe la réservation ?",

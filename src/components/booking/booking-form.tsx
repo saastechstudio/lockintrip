@@ -237,7 +237,7 @@ export function BookingForm({
               {!isSubmitting && <ArrowRight className="transition-transform duration-500 group-hover/btn:translate-x-0.5" />}
             </Button>
             <p className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-ivory/55">
-              <Lock className="size-3" /> Paiement sécurisé par Stripe · carte, Apple Pay, Google Pay
+              <Lock className="size-3" /> Paiement sécurisé par Stripe · carte, Apple Pay, Google Pay · en 3 ou 4 fois avec Klarna
             </p>
             {error && (
               <p role="alert" className="mt-4 rounded-xl bg-ivory/10 p-3 text-center text-sm text-ivory">

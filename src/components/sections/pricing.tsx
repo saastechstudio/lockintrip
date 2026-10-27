@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { ArrowUpRight, Check, FileText, Lock, MessageCircle, Plane, X } from "lucide-react";
+import { ArrowUpRight, CalendarClock, Check, FileText, Lock, MessageCircle, Plane, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 import { offers } from "@/content/offers";
-import { founderPricing } from "@/content/story";
-import { cn, formatPrice } from "@/lib/utils";
+import { cn, formatInstallment, formatPrice } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
 
 export function Pricing({ remaining }: { remaining: number }) {
@@ -62,7 +61,7 @@ export function Pricing({ remaining }: { remaining: number }) {
                   <span className={cn("text-sm", o.featured ? "text-ivory/55" : "text-muted")}>TTC / personne</span>
                 </div>
                 <p className={cn("relative mt-2 text-xs", o.featured ? "text-ivory/55" : "text-muted")}>
-                  Soit {formatPrice(Math.round(o.price / 7))} par jour · {founderPricing.label.toLowerCase()}
+                  Soit {formatPrice(Math.round(o.price / 7))} par jour · ou 4 × {formatInstallment(o.price, 4)} avec Klarna
                 </p>
 
                 <div className={cn("relative my-9 h-px", o.featured ? "bg-ivory/15" : "bg-ink/10")} />
@@ -105,6 +104,7 @@ export function Pricing({ remaining }: { remaining: number }) {
         <Reveal delay={0.2}>
           <ul className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-muted">
             <li className="flex items-center gap-2.5"><Lock className="size-4 text-bordeaux" strokeWidth={1.5} />Paiement sécurisé par Stripe</li>
+            <li className="flex items-center gap-2.5"><CalendarClock className="size-4 text-bordeaux" strokeWidth={1.5} />En 3 ou 4 fois avec Klarna</li>
             <li className="flex items-center gap-2.5"><FileText className="size-4 text-bordeaux" strokeWidth={1.5} />Facture envoyée par e-mail</li>
             <li className="flex items-center gap-2.5"><MessageCircle className="size-4 text-bordeaux" strokeWidth={1.5} />Une question ? On répond sur WhatsApp</li>
           </ul>
