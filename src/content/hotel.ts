@@ -16,7 +16,7 @@ export const hotelPhotos: HotelPhoto[] = [
 ];
 
 export const hotelHighlights = [
-  "7 nuits en chambre partagée",
+  "6 nuits en chambre partagée",
   "Petit-déjeuner à l'hôtel, déjeuner au restaurant",
   "Salle de masterclass dédiée",
   "Espaces calmes pour travailler",

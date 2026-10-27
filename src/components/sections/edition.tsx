@@ -121,7 +121,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
                     <span className="mx-3 text-concrete">→</span>
                     {formatDay(s.end)}
                   </p>
-                  <p className="mt-1 text-sm text-muted">{editionYear} · 7 nuits · Phuket</p>
+                  <p className="mt-1 text-sm text-muted">{editionYear} · 7 jours · 6 nuits · Phuket</p>
 
                   <div className="mt-8">
                     <div className="flex justify-between text-sm">

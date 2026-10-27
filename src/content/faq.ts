@@ -59,7 +59,7 @@ export const faq: FaqGroup[] = [
       },
       {
         q: "Comment se déroule l'hébergement ?",
-        a: "Les participants d'une session logent dans le même hôtel, en chambre partagée, pendant 7 nuits. Le petit-déjeuner est servi à l'hôtel.",
+        a: "Les participants d'une session logent dans le même hôtel, en chambre partagée, pendant 6 nuits (7 jours sur place). Le petit-déjeuner est servi à l'hôtel.",
       },
       {
         q: "Que contient le plan d'action personnalisé ?",

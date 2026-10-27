@@ -19,7 +19,7 @@ export const offers: Offer[] = [
     price: 1990,
     pitch: "Le programme complet sur place. Tu organises ton vol.",
     includes: [
-      "Hôtel 7 nuits",
+      "Hôtel 6 nuits (séjour de 7 jours)",
       "Assurance voyage incluse",
       "Encadrement à chaque étape du séjour (hors temps libre)",
       "Suivi personnalisé en groupe de 20 personnes",
