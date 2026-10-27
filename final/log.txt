@@ -1,0 +1,26 @@
+meta rawai-plage 200
+final rawai-plage 200 https://upload.wikimedia.org/wikipedia/commons/c/ca/Phuket_-_Rawai_Beach_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta rawai-longtail 200
+final rawai-longtail 200 https://upload.wikimedia.org/wikipedia/commons/3/3f/Rawai_beach_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta rawai-bateaux 200
+final rawai-bateaux 429 https://upload.wikimedia.org/wikipedia/commons/4/4d/Rawai_beach_%2820%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta rawai-bateaux 200
+final rawai-bateaux 200 https://upload.wikimedia.org/wikipedia/commons/4/4d/Rawai_beach_%2820%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta nai-harn-coucher 200
+final nai-harn-coucher 200 https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Phuket_-_Nai_Harn_Beach_021.jpg/3840px-Phuket_-_Nai_Harn_Beach_021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
+meta nai-harn-soir 200
+final nai-harn-soir 200 https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Phuket_-_Nai_Harn_Beach_022.jpg/3840px-Phuket_-_Nai_Harn_Beach_022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
+meta nai-harn-silhouettes 200
+final nai-harn-silhouettes 200 https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Phuket_-_Nai_Harn_Beach_020.jpg/3840px-Phuket_-_Nai_Harn_Beach_020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
+meta promthep 200
+final promthep 200 https://upload.wikimedia.org/wikipedia/commons/9/9e/Laem_Phromthep_in_Phuket_%285733622568%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta ya-nui 200
+final ya-nui 200 https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Ya_Nui_beach.jpg/3840px-Ya_Nui_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
+meta phang-nga-longtail 200
+final phang-nga-longtail 200 https://upload.wikimedia.org/wikipedia/commons/1/1a/Karst_landscape_of_Phang_Nga_Bay%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta phang-nga-rocher 200
+final phang-nga-rocher 200 https://upload.wikimedia.org/wikipedia/commons/e/e1/Emerald_lagoon_in_Phang_Nga_Bay%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta phang-nga-james-bond 200
+final phang-nga-james-bond 429 https://upload.wikimedia.org/wikipedia/commons/4/46/Ko_Tapu_%28James_Bond%29_Island_in_Phang_Nga_Bay%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
+meta phang-nga-james-bond 200
+final phang-nga-james-bond 200 https://upload.wikimedia.org/wikipedia/commons/4/46/Ko_Tapu_%28James_Bond%29_Island_in_Phang_Nga_Bay%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled
