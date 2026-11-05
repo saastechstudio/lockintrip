@@ -5,19 +5,14 @@
 
 export const hero = {
   /** Titre affiché. Variantes testables : remplacer `title` par l'une des `alternatives`. */
-  title: "Une semaine qui peut changer les cinq prochaines années.",
+  title: "Une semaine qui peut changer les cinq prochaines années",
   alternatives: [
     "L'environnement dans lequel tu évolues détermine la vitesse à laquelle tu avances.",
     "7 jours à Phuket avec 20 personnes qui refusent de rester au même niveau.",
   ],
   intro:
     "Sept jours à Phuket avec vingt personnes ambitieuses, des experts qui pratiquent ce qu'ils enseignent et un cadre pensé pour décider, agir et repartir avec un plan.",
-  badges: [
-    { icon: "flame", label: "Édition fondatrice 2027" },
-    { icon: "star", label: "Places limitées" },
-    { icon: "palm", label: "Phuket, Thaïlande" },
-    { icon: "check", label: "Départ confirmé" },
-  ] as const,
+  meta: "Édition fondatrice 2027 · Phuket, Thaïlande",
 };
 
 export type Transformation = {
@@ -74,7 +69,7 @@ export const day: DayMoment[] = [
   {
     moment: "Le matin",
     time: "7 h – 12 h",
-    title: "Tu travailles sur ce qui compte vraiment.",
+    title: "Tu travailles sur ce qui compte vraiment",
     body: "Petit-déjeuner à l'hôtel, puis masterclass et travail en groupe. Deux heures d'attention totale, loin des notifications et des urgences.",
     src: "/images/hotel/salle-masterclass.jpg",
     alt: "Salle de masterclass lumineuse de l'hôtel",
@@ -82,7 +77,7 @@ export const day: DayMoment[] = [
   {
     moment: "Le midi",
     time: "12 h",
-    title: "Les meilleures idées arrivent à table.",
+    title: "Les meilleures idées arrivent à table",
     body: "Déjeuner au restaurant avec le groupe. Les conversations du matin continuent, les liens se créent.",
     src: "/images/phuket/rawai-plage.jpg",
     alt: "Plage de Rawai bordée de bateaux longtail",
@@ -90,7 +85,7 @@ export const day: DayMoment[] = [
   {
     moment: "L'après-midi",
     time: "15 h – 17 h",
-    title: "Tu bouges, tu te dépasses.",
+    title: "Tu bouges, tu te dépasses",
     body: "Muay thaï, padel, golf, fitness, yoga... Une activité au choix, tous niveaux. Le sport fait ce que les réunions ne font jamais : il rapproche.",
     src: "https://images.unsplash.com/photo-1729673517080-44353fa68fe0?ixid=M3wxMTE1NTMwfDB8MXxhbGx8fHx8fHx8fHwxNzkzMTQwMjg2fA",
     alt: "Deux combattants à l'entraînement de muay thaï dans un camp de Rawai",
@@ -98,7 +93,7 @@ export const day: DayMoment[] = [
   {
     moment: "Le soir",
     time: "À partir de 17 h",
-    title: "Le soleil se couche, les discussions continuent.",
+    title: "Le soleil se couche, les discussions continuent",
     body: "Temps libre pour tous. Un coucher de soleil sur la mer d'Andaman, un dîner improvisé, une idée qui prend forme.",
     src: "/images/phuket/nai-harn-soir.jpg",
     alt: "Coucher de soleil sur la plage de Nai Harn",

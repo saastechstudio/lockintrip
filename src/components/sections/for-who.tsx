@@ -11,8 +11,8 @@ export function ForWho() {
     <section id="pour-qui" className="relative bg-ivory py-28 md:py-40">
       <div className="container-lux">
         <SectionHeading
-          eyebrow="Pour qui ?"
-          title="Lockin Trip n'est pas fait pour tout le monde."
+          eyebrow="Pour qui"
+          title="Lockin Trip n'est pas fait pour tout le monde"
           intro="Vingt places par session, c'est peu. Nous préférons réunir les bonnes personnes plutôt que de remplir à tout prix."
         />
 
@@ -66,7 +66,7 @@ export function ForWho() {
           <Button asChild size="lg">
             <Link href="/reserver">
               Je me reconnais, je réserve
-              <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+              <ArrowUpRight />
             </Link>
           </Button>
           <p className="text-sm text-muted">Un doute ? Pose ta question sur WhatsApp avant de réserver.</p>

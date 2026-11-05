@@ -110,7 +110,7 @@ export function BookingForm({
               <ChoiceCard key={o.id} checked={offerId === o.id} onSelect={() => setValue("offer", o.id, { shouldValidate: true })}>
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-display text-xl text-ink">{o.name}</span>
-                  {o.badge && <span className="rounded-full bg-pierre/80 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wider text-ink">{o.badge}</span>}
+                  {o.badge && <span className="rounded-[4px] bg-pierre/80 px-1.5 py-0.5 text-xs font-medium text-ink">{o.badge}</span>}
                 </div>
                 <span className="font-display mt-2 block text-3xl font-light text-ink">{formatPrice(o.price)}</span>
                 <span className="mt-1 block text-xs text-muted">{o.excludes?.[0] ?? "Vol et transferts inclus"}</span>
@@ -234,7 +234,7 @@ export function BookingForm({
             <Button type="submit" size="lg" variant="light" disabled={isSubmitting} className="mt-10 w-full">
               {isSubmitting ? <Loader2 className="animate-spin" /> : null}
               {isSubmitting ? "Redirection vers le paiement" : `Payer ${formatPrice(offer.price)}`}
-              {!isSubmitting && <ArrowRight className="transition-transform duration-500 group-hover/btn:translate-x-0.5" />}
+              {!isSubmitting && <ArrowRight />}
             </Button>
             <p className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-ivory/55">
               <Lock className="size-3" /> Paiement sécurisé par Stripe · carte, Apple Pay, Google Pay · en 3 ou 4 fois avec Klarna
@@ -270,7 +270,7 @@ function ChoiceCard({
       disabled={disabled}
       onClick={onSelect}
       className={cn(
-        "relative rounded-2xl border p-5 text-left transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-40",
+        "relative rounded-2xl border p-5 text-left transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40",
         checked
           ? "border-bordeaux bg-white shadow-[0_20px_40px_-25px_rgba(107,31,43,0.35)] ring-4 ring-bordeaux/10"
           : "border-ink/10 bg-white/50 hover:border-ink/25",

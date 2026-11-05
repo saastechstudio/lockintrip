@@ -11,7 +11,7 @@ export const excursion = {
   width: 2400,
   height: 1600,
   eyebrow: "Pendant la semaine",
-  title: "Une excursion magique au cœur de la semaine.",
+  title: "Une excursion en groupe au cœur de la semaine",
   body: "Au cours du séjour, tout le groupe part en excursion pour découvrir la région et faire une vraie pause, ensemble.",
   points: ["Incluse dans les deux formules", "Avec tout le groupe", "Transport compris"],
 };
@@ -22,6 +22,6 @@ export const soiree = {
   width: 1088,
   height: 765,
   eyebrow: "Soirée de clôture",
-  title: "La soirée de clôture se déroule à bord d'un magnifique catamaran.",
+  title: "La soirée de clôture, à bord d'un catamaran",
   body: "Pour clore le séjour, tout le groupe se retrouve sur l'eau. Un cadre à part pour partager la semaine et se dire au revoir ensemble.",
 };

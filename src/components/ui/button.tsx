@@ -4,22 +4,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group/btn relative inline-flex shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-[14px] text-[0.8125rem] font-medium tracking-[0.05em] transition-all duration-500 ease-[var(--ease-lux)] disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
+  "group/btn relative inline-flex shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-[12px] text-[0.875rem] font-medium transition-[background-color,border-color,color,transform] duration-150 ease-[var(--ease-lux)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         primary:
-          "bg-bordeaux text-ivory shadow-[0_1px_2px_rgba(29,29,29,0.08)] hover:bg-bordeaux-light hover:shadow-[0_10px_24px_-14px_rgba(107,31,43,0.55)]",
+          "bg-bordeaux text-ivory hover:bg-bordeaux-light",
         light:
-          "bg-ivory text-ink shadow-[0_1px_2px_rgba(29,29,29,0.08)] hover:bg-white hover:shadow-[0_10px_24px_-14px_rgba(0,0,0,0.4)]",
+          "bg-ivory text-ink hover:bg-white",
         outline: "border border-concrete/60 bg-transparent text-ink hover:border-ink/40 hover:bg-ink/[0.025]",
-        glass: "border border-ivory/35 bg-ivory/[0.06] text-ivory backdrop-blur-md hover:border-ivory/60 hover:bg-ivory/15",
+        glass: "border border-ivory/25 bg-transparent text-ivory hover:border-ivory/50 hover:bg-ivory/[0.06]",
         link: "rounded-none px-0 text-ink underline-offset-8 hover:underline",
       },
       size: {
-        sm: "h-10 px-5",
-        md: "h-12 px-7",
-        lg: "h-14 px-9 text-[0.875rem]",
+        sm: "h-9 px-4",
+        md: "h-11 px-6",
+        lg: "h-12 px-6 text-[0.9375rem]",
       },
     },
     defaultVariants: { variant: "primary", size: "md" },

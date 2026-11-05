@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Eau d'un bassin en pierre au crépuscule : tons minéraux chauds et reflets
- * lumineux en mouvement (CSS + textures SVG statiques, boucle sans couture).
+ * lumineux (CSS + textures SVG statiques).
  */
 export function WaterSurface({ className, intensity = 1 }: { className?: string; intensity?: number }) {
   return (
@@ -15,7 +15,7 @@ export function WaterSurface({ className, intensity = 1 }: { className?: string;
         }}
       />
       <div
-        className="absolute left-0 top-0 h-[calc(100%+900px)] w-[calc(100%+900px)] animate-drift mix-blend-soft-light will-change-transform"
+        className="absolute left-0 top-0 h-[calc(100%+900px)] w-[calc(100%+900px)] mix-blend-soft-light"
         style={
           {
             "--tile": "900px",
@@ -26,7 +26,7 @@ export function WaterSurface({ className, intensity = 1 }: { className?: string;
         }
       />
       <div
-        className="absolute left-0 top-0 h-[calc(100%+700px)] w-[calc(100%+700px)] animate-drift-slow mix-blend-overlay will-change-transform"
+        className="absolute left-0 top-0 h-[calc(100%+700px)] w-[calc(100%+700px)] mix-blend-overlay"
         style={
           {
             "--tile": "700px",

@@ -54,7 +54,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LOCKIN TRIP sur Instagram"
-                className="grid size-11 place-items-center rounded-full border border-ivory/15 text-ivory/80 transition-all hover:border-ivory/50 hover:text-ivory"
+                className="grid size-11 place-items-center rounded-full border border-ivory/15 text-ivory/80 transition-colors hover:border-ivory/50 hover:text-ivory"
               >
                 <InstagramIcon className="size-[18px]" />
               </a>
@@ -63,7 +63,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LOCKIN TRIP sur LinkedIn"
-                className="grid size-11 place-items-center rounded-full border border-ivory/15 text-ivory/80 transition-all hover:border-ivory/50 hover:text-ivory"
+                className="grid size-11 place-items-center rounded-full border border-ivory/15 text-ivory/80 transition-colors hover:border-ivory/50 hover:text-ivory"
               >
                 <LinkedinIcon className="size-4" />
               </a>

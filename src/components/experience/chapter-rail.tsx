@@ -66,14 +66,14 @@ export function ChapterRail() {
               <a href={`#${c.id}`} aria-label={c.label} className="group pointer-events-none flex items-center justify-end gap-3 text-ivory">
                 <span
                   className={cn(
-                    "whitespace-nowrap text-[0.68rem] uppercase tracking-[0.22em] transition-all duration-500",
+                    "whitespace-nowrap text-[0.8125rem] transition-[opacity,transform] duration-200",
                     on ? "translate-x-0 opacity-100" : "translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-70",
                   )}
                 >
-                  <span className="font-display mr-2 normal-case tracking-normal">{c.n}</span>
+                  <span className="font-display mr-2">{c.n}</span>
                   {c.label}
                 </span>
-                <span className={cn(visible ? "pointer-events-auto" : "pointer-events-none", "block size-[11px] cursor-pointer rounded-full outline outline-[7px] outline-transparent border border-ivory transition-all duration-500", on ? "scale-100 bg-ivory" : "scale-[0.55] bg-transparent")} />
+                <span className={cn(visible ? "pointer-events-auto" : "pointer-events-none", "block size-[11px] cursor-pointer rounded-full outline outline-[7px] outline-transparent border border-ivory transition-[transform,background-color] duration-200", on ? "scale-100 bg-ivory" : "scale-[0.55] bg-transparent")} />
               </a>
             </li>
           );

@@ -29,7 +29,7 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-ink/15 transition-all duration-500 group-hover:border-bordeaux/50 group-data-[state=open]:rotate-45 group-data-[state=open]:border-bordeaux group-data-[state=open]:bg-bordeaux group-data-[state=open]:text-ivory">
+      <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-ink/15 transition-[transform,background-color,border-color,color] duration-200 group-hover:border-bordeaux/50 group-data-[state=open]:rotate-45 group-data-[state=open]:border-bordeaux group-data-[state=open]:bg-bordeaux group-data-[state=open]:text-ivory">
         <Plus className="size-3.5" strokeWidth={1.5} />
       </span>
     </AccordionPrimitive.Trigger>

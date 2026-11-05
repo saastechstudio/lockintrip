@@ -10,7 +10,7 @@ export function Faq() {
       <div className="container-lux grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
-            <SectionHeading eyebrow="FAQ" title="Questions fréquentes." />
+            <SectionHeading eyebrow="FAQ" title="Questions fréquentes" />
             <Reveal delay={0.15}>
               <p className="mt-8 max-w-sm text-[0.9375rem] leading-relaxed text-muted">
                 Une question qui n&apos;apparaît pas ici ? Écris-nous sur{" "}

@@ -3,15 +3,11 @@ import localFont from "next/font/local";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/experience/smooth-scroll";
-import { CustomCursor } from "@/components/experience/custom-cursor";
 import { site } from "@/content/site";
 import "./globals.css";
 
 const fraunces = localFont({
-  src: [
-    { path: "./fonts/fraunces-latin-wght-normal.woff2", style: "normal" },
-    { path: "./fonts/fraunces-latin-wght-italic.woff2", style: "italic" },
-  ],
+  src: "./fonts/fraunces-latin-wght-normal.woff2",
   weight: "100 900",
   variable: "--font-fraunces",
   display: "swap",
@@ -69,13 +65,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem("lockin-intro-seen")||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.intro="seen"}catch(e){}`,
-          }}
-        />
-      </head>
       <body>
         <a
           href="#contenu"
@@ -87,7 +76,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenu">{children}</main>
         <Footer />
         <SmoothScroll />
-        <CustomCursor />
       </body>
     </html>
   );

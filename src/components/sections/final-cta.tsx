@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Reveal, RevealText } from "@/components/motion/reveal";
+import { Reveal } from "@/components/motion/reveal";
 import { Scene } from "@/components/visuals/scene";
 import { media } from "@/content/media";
 import { totalCapacity } from "@/content/sessions";
@@ -16,20 +16,20 @@ export function FinalCta() {
             <p className="eyebrow text-ivory/75">Édition fondatrice · Phuket 2027</p>
           </Reveal>
           <h2 className="font-display mt-8 max-w-5xl text-[2.6rem] font-light leading-[1.02] tracking-[-0.025em] text-balance md:text-7xl lg:text-[5.5rem]">
-            <RevealText text="Dans un an, tu repenseras à cette semaine." />
+            Dans un an, tu repenseras à cette semaine
           </h2>
           <Reveal delay={0.3}>
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ivory/85 md:text-xl">
               Soit comme celle où tout a commencé, soit comme celle que tu as laissé passer. Rejoins les membres
               fondateurs et entoure-toi de personnes qui avancent dans la même direction que toi.
             </p>
-            <p className="eyebrow mt-6 text-pierre">{totalCapacity} places seulement</p>
+            <p className="mt-6 text-sm text-pierre">{totalCapacity} places</p>
           </Reveal>
           <Reveal delay={0.45}>
-            <Button asChild size="lg" variant="light" className="mt-10" data-magnetic data-cursor="Rejoindre">
+            <Button asChild size="lg" variant="light" className="mt-10">
               <Link href="/reserver">
                 Rejoindre l&apos;édition fondatrice
-                <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                <ArrowUpRight />
               </Link>
             </Button>
           </Reveal>

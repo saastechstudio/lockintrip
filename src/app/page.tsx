@@ -1,4 +1,3 @@
-import { BookIntro } from "@/components/motion/book-intro";
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
 import { Manifesto } from "@/components/sections/manifesto";
@@ -29,7 +28,6 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={[organizationJsonLd(), ...eventsJsonLd(sessions), faqJsonLd()]} />
-      <BookIntro />
       <Hero taken={capacity - remaining} capacity={capacity} />
       <Problem />
       <Manifesto />

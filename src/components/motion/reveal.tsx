@@ -1,13 +1,14 @@
 "use client";
 
-import { Fragment } from "react";
 import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const duration = 0.45;
 
+/** Apparition au défilement : un fondu court et une montée de quelques pixels. */
 export function Reveal({
   delay = 0,
-  y = 28,
+  y = 8,
   className,
   children,
   ...props
@@ -18,7 +19,7 @@ export function Reveal({
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1.1, ease, delay }}
+      transition={{ duration, ease, delay: Math.min(delay, 0.15) }}
       className={className}
       {...props}
     >
@@ -27,35 +28,14 @@ export function Reveal({
   );
 }
 
-export function RevealText({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) {
-  const reduce = useReducedMotion();
-  const words = text.split(" ");
-  return (
-    <span className={className}>
-      <span className="sr-only">{text}</span>
-      {words.map((w, i) => (
-        <Fragment key={i}>
-          <span aria-hidden className="inline-block overflow-hidden pb-[0.12em] align-bottom">
-            <motion.span
-              className="inline-block"
-              initial={reduce ? false : { y: "105%" }}
-              whileInView={{ y: "0%" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 1.1, ease, delay: delay + i * 0.05 }}
-            >
-              {w}
-            </motion.span>
-          </span>
-          {i < words.length - 1 ? " " : null}
-        </Fragment>
-      ))}
-    </span>
-  );
+/** Titre : apparaît avec sa section, d'un seul bloc. */
+export function RevealText({ text, className }: { text: string; className?: string; delay?: number }) {
+  return <span className={className}>{text}</span>;
 }
 
 export function RevealItem({
   delay = 0,
-  y = 28,
+  y = 8,
   className,
   children,
   ...props
@@ -66,7 +46,7 @@ export function RevealItem({
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1.1, ease, delay }}
+      transition={{ duration, ease, delay: Math.min(delay, 0.15) }}
       className={className}
       {...props}
     >
