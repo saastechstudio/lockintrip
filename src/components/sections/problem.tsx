@@ -18,7 +18,7 @@ export function Problem() {
     <section id="probleme" className="relative py-28 md:py-40">
       <div className="container-lux grid gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
-          <SectionHeading eyebrow="Le constat" title="Tu sais où tu veux aller. Ton environnement, lui, te retient." />
+          <SectionHeading eyebrow="Le constat" title="Tu sais où tu veux aller. Ton environnement, lui, te retient" />
           <Reveal delay={0.1}>
             <p className="mt-10 max-w-xl text-[1.0625rem] leading-relaxed text-muted md:text-lg">
               Les ambitions ne manquent pas. Ce qui manque, c&apos;est l&apos;entourage, le recul et le cadre pour passer à
@@ -31,12 +31,12 @@ export function Problem() {
               <li key={p} className="relative w-fit">
                 <motion.span
                   className="font-display block text-4xl font-light leading-tight text-ink md:text-5xl"
-                  initial={reduce ? false : { opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 0.32, x: 0 }}
+                  initial={reduce ? false : { opacity: 0 }}
+                  whileInView={{ opacity: 0.32 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.9, ease, delay: i * 0.12 }}
+                  transition={{ duration: 0.4, ease, delay: i * 0.05 }}
                 >
-                  {p}.
+                  {p}
                 </motion.span>
                 <motion.span
                   aria-hidden
@@ -44,7 +44,7 @@ export function Problem() {
                   initial={reduce ? false : { scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.8, ease, delay: 0.5 + i * 0.12 }}
+                  transition={{ duration: 0.4, ease, delay: 0.2 + i * 0.05 }}
                 />
               </li>
             ))}
@@ -57,7 +57,7 @@ export function Problem() {
             <Button asChild size="lg" className="mt-10">
               <Link href="#transformation">
                 Voir ce qui change
-                <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                <ArrowUpRight />
               </Link>
             </Button>
           </Reveal>
@@ -72,7 +72,7 @@ export function Problem() {
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="aspect-[4/5] w-full rounded-[20px] lg:aspect-square lg:sticky lg:top-28"
           >
-            <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-ivory/85 p-6 backdrop-blur-md">
+            <div className="absolute inset-x-5 bottom-5 rounded-[12px] bg-ivory p-6">
               <p className="eyebrow text-bordeaux">Avec Lockin Trip</p>
               <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-ink-soft">
                 {["Focus", "Entourage", "Réseau", "Clarté", "Méthode", "Énergie"].map((w) => (

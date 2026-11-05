@@ -81,7 +81,7 @@ export function PalmShadows({
   tone = "#2b1d18",
   opacity = 0.22,
   blur = 5,
-  animated = true,
+  animated = false,
 }: {
   className?: string;
   seed?: number;

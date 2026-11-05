@@ -23,7 +23,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", fontSize: 22, letterSpacing: 8, opacity: 0.8 }}>ÉDITION FONDATRICE · PHUKET 2027</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 132, letterSpacing: -4, lineHeight: 1 }}>LOCKIN TRIP</div>
-          <div style={{ fontSize: 44, marginTop: 24, fontStyle: "italic", opacity: 0.92 }}>{site.tagline}</div>
+          <div style={{ fontSize: 44, marginTop: 24, opacity: 0.92 }}>{site.tagline}</div>
         </div>
         <div style={{ display: "flex", gap: 36, fontSize: 24, opacity: 0.8 }}>
           <span>60 places</span>

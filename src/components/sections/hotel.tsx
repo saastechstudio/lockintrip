@@ -33,7 +33,7 @@ export function Hotel() {
             <SectionHeading
               tone="ivory"
               eyebrow="Ton lieu de vie"
-              title="Sept jours dans un cadre qui élève."
+              title="Sept jours dans un hôtel au calme"
               intro="Un hôtel contemporain au milieu de la végétation : une longue piscine bordée de palmiers, des chambres lumineuses aux murs de béton ciré, des salles de bain en pierre. Le calme nécessaire pour penser, l'espace pour se retrouver."
             />
           </div>
@@ -56,7 +56,7 @@ export function Hotel() {
                 type="button"
                 onClick={() => setIndex(i)}
                 aria-label={`Agrandir : ${p.caption}`}
-                className="group absolute inset-0 overflow-hidden rounded-[18px] text-left"
+                className="group absolute inset-0 overflow-hidden rounded-[16px] text-left"
               >
                 <Image
                   src={p.src}
@@ -64,13 +64,13 @@ export function Hotel() {
                   fill
                   sizes="(min-width: 768px) 340px, 50vw"
                   quality={88}
-                  className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.045]"
-                                  />
-                <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-80 transition-opacity duration-700 group-hover:opacity-100" />
+                  className="object-cover"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-3 right-3 flex items-center gap-3">
                   <span className="font-display text-base font-light leading-tight text-ivory md:text-lg">{p.caption}</span>
                 </span>
-                <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-[12px] bg-ivory/15 text-ivory opacity-0 backdrop-blur-md transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-[8px] bg-ink/60 text-ivory opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <Expand className="size-4" strokeWidth={1.5} />
                 </span>
               </button>

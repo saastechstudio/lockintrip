@@ -19,7 +19,7 @@ export function SouthPhuket() {
           <div className="lg:col-span-7">
             <SectionHeading
               eyebrow="Le cadre"
-              title="Rawai et le sud de Phuket."
+              title="Rawai et le sud de Phuket"
               intro="Des bateaux de pêcheurs sur une eau turquoise, des criques cachées, des couchers de soleil qui arrêtent les conversations. Le décor parfait pour prendre du recul et voir plus grand."
             />
           </div>
@@ -33,16 +33,16 @@ export function SouthPhuket() {
         <div className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2 md:gap-4">
           {photos.map((p, i) => (
             <Reveal key={p.src} delay={i * 0.06} className={p.className}>
-              <figure className="group relative h-full min-h-40 overflow-hidden rounded-[18px]">
+              <figure className="relative h-full min-h-40 overflow-hidden rounded-[16px]">
                 <Image
                   src={p.src}
                   alt={p.alt}
                   fill
                   sizes={i === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-                  className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.05]"
+                  className="object-cover"
                 />
-                <span className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent opacity-80 transition-opacity duration-700 group-hover:opacity-100" />
-                <figcaption className="absolute bottom-3 left-3 rounded-full bg-ink/25 px-3 py-1 text-[0.7rem] text-ivory/95 backdrop-blur-md md:bottom-4 md:left-4">
+                <span className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
+                <figcaption className="absolute bottom-3 left-3 rounded-[6px] bg-ink/60 px-2 py-1 text-xs text-ivory md:bottom-4 md:left-4">
                   {p.caption}
                 </figcaption>
               </figure>

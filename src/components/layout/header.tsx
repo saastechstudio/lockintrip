@@ -30,10 +30,10 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
       <div
         className={cn(
-          "mx-auto flex h-16 max-w-[84rem] items-center justify-between rounded-[18px] px-4 transition-all duration-700 ease-[var(--ease-lux)] md:h-[4.25rem] md:px-6",
+          "mx-auto flex h-16 max-w-[84rem] items-center justify-between rounded-[18px] px-4 transition-[background-color,border-color] duration-200 md:px-6",
           light
             ? "bg-transparent"
-            : "border border-concrete/30 bg-ivory/80 shadow-[0_12px_40px_-26px_rgba(60,45,35,0.35)] backdrop-blur-xl backdrop-saturate-150",
+            : "border border-ink/10 bg-ivory",
         )}
       >
         <Logo tone={light ? "ivory" : "ink"} />
@@ -45,7 +45,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "relative text-[0.8125rem] tracking-[0.06em] transition-colors duration-500 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-full",
+                    "text-[0.875rem] transition-colors duration-150",
                     light ? "text-ivory/85 hover:text-ivory" : "text-ink-soft hover:text-ink",
                   )}
                 >
@@ -60,7 +60,7 @@ export function Header() {
           <Button asChild size="sm" variant={light ? "light" : "primary"} className="hidden sm:inline-flex">
             <Link href="/reserver">
               Réserver
-              <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+              <ArrowUpRight />
             </Link>
           </Button>
 
@@ -81,7 +81,7 @@ export function Header() {
                 <Dialog.Portal forceMount>
                   <Dialog.Overlay asChild forceMount>
                     <motion.div
-                      className="fixed inset-0 z-50 bg-ink/30 backdrop-blur-sm"
+                      className="fixed inset-0 z-50 bg-ink/40"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -89,11 +89,11 @@ export function Header() {
                   </Dialog.Overlay>
                   <Dialog.Content asChild forceMount>
                     <motion.div
-                      className="fixed inset-x-3 top-3 z-50 rounded-[20px] bg-ivory p-6 shadow-2xl"
-                      initial={{ opacity: 0, y: -16, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="fixed inset-x-3 top-3 z-50 rounded-[16px] bg-ivory p-6 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <div className="flex items-center justify-between">
                         <Logo />
@@ -108,9 +108,9 @@ export function Header() {
                           {site.nav.map((item, i) => (
                             <motion.li
                               key={item.href}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.08 + i * 0.05, duration: 0.5 }}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: Math.min(i, 5) * 0.04, duration: 0.2 }}
                             >
                               <Link
                                 href={item.href}

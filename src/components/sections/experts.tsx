@@ -1,20 +1,8 @@
 import Image from "next/image";
-import { Bot, Brain, Megaphone, Rocket, Scale, ShoppingBag, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
-import { Scene, type SceneVariant } from "@/components/visuals/scene";
-import { experts, type Expert } from "@/content/experts";
+import { LogoMark } from "@/components/layout/logo";
+import { experts } from "@/content/experts";
 import { SectionHeading } from "./section-heading";
-
-const icons: Record<Expert["emoji"], LucideIcon> = {
-  ai: Bot,
-  marketing: Megaphone,
-  ecommerce: ShoppingBag,
-  legal: Scale,
-  mind: Brain,
-  business: Rocket,
-};
-
-const portraitTones: SceneVariant[] = ["architecture", "water", "plaster", "stone", "courtyard", "architecture"];
 
 export function Experts() {
   return (
@@ -24,17 +12,16 @@ export function Experts() {
           <SectionHeading
             tone="ivory"
             eyebrow="Les experts"
-            title="Apprendre de ceux qui sont déjà passés par là."
+            title="Apprendre de ceux qui sont déjà passés par là"
             intro="Chaque intervenant exerce dans son domaine et transmet ce qu'il pratique. Tu travailles avec eux en masterclass, en atelier et en entretien individuel."
           />
         </div>
 
         <div className="mt-20 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {experts.map((e, i) => {
-            const Icon = icons[e.emoji];
             return (
               <Reveal key={e.domain} delay={(i % 3) * 0.08}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-ivory text-ink shadow-[0_24px_50px_-30px_rgba(20,6,9,0.6)]">
+                <article className="flex h-full flex-col overflow-hidden rounded-[16px] bg-ivory text-ink">
                   <div className="relative aspect-[5/4] overflow-hidden">
                     {e.photo ? (
                       <Image
@@ -42,19 +29,20 @@ export function Experts() {
                         alt={e.name ? `${e.name}, ${e.domain}` : e.domain}
                         fill
                         sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.04]"
+                        className="object-cover"
                       />
                     ) : (
-                      <Scene variant={portraitTones[i % portraitTones.length]} seed={60 + i * 7} className="absolute inset-0 transition-transform duration-[1.6s] ease-[var(--ease-lux)] group-hover:scale-[1.04]" />
+                      <div className="absolute inset-0 grid place-items-center bg-pierre-soft text-concrete">
+                        <LogoMark className="size-12" />
+                      </div>
                     )}
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/55 to-transparent" />
-                    <span className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-ivory/85 px-3.5 py-2 text-xs font-medium text-ink backdrop-blur-md">
-                      <Icon className="size-3.5 text-bordeaux" strokeWidth={1.6} />
+                    {e.photo && <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/55 to-transparent" />}
+                    <span className="absolute left-5 top-5 rounded-[6px] bg-ivory px-2 py-1 text-xs font-medium text-ink">
                       {e.domain}
                     </span>
-                    <div className="absolute bottom-5 left-5 right-5 text-ivory">
+                    <div className={e.photo ? "absolute bottom-5 left-5 right-5 text-ivory" : "absolute bottom-5 left-5 right-5 text-ink"}>
                       <p className="text-sm font-medium">{e.name ?? "Intervenant confirmé"}</p>
-                      <p className="text-xs text-ivory/75">{e.role ?? "Annonce prochainement"}</p>
+                      <p className={e.photo ? "text-xs text-ivory/75" : "text-xs text-muted"}>{e.role ?? "Annonce prochainement"}</p>
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col p-7 md:p-8">

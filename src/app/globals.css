@@ -22,35 +22,6 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --animate-drift: drift 48s linear infinite;
-  --animate-drift-slow: drift-reverse 34s linear infinite;
-  --animate-sway: sway 11s ease-in-out infinite alternate;
-  --animate-kenburns: kenburns 32s ease-in-out infinite alternate;
-  --animate-shimmer: shimmer 2.8s linear infinite;
-
-  /* Translation d'exactement une période de texture (--tile) : boucle sans couture. */
-  @keyframes drift {
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(calc(var(--tile) * -1), calc(var(--tile) * -1), 0); }
-  }
-  @keyframes drift-reverse {
-    from { transform: translate3d(calc(var(--tile) * -1), 0, 0); }
-    to { transform: translate3d(0, calc(var(--tile) * -1), 0); }
-  }
-  @keyframes kenburns {
-    from { transform: scale(1.02) translate3d(0, 0, 0); }
-    to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
-  }
-  @keyframes shimmer {
-    from { background-position: 0 0; opacity: 0.85; }
-    50% { opacity: 1; }
-    to { background-position: 0 26px; opacity: 0.85; }
-  }
-  @keyframes sway {
-    from { transform: rotate(-2.2deg) translateX(-1%); }
-    to { transform: rotate(2.4deg) translateX(1.5%); }
-  }
 }
 
 @layer base {
@@ -93,11 +64,12 @@
     font-variation-settings: "SOFT" 0, "WONK" 0;
   }
 
+  /* Petit libellé de section : casse normale, pas d'espacement forcé. */
   .eyebrow {
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
     font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
+    letter-spacing: 0;
   }
 
   .container-lux {
@@ -126,7 +98,7 @@
     background: var(--color-ivory);
     border: 1px solid color-mix(in oklab, var(--color-concrete) 38%, transparent);
     border-radius: 20px;
-    box-shadow: 0 1px 2px rgba(29, 29, 29, 0.03), 0 18px 40px -28px rgba(60, 45, 35, 0.28);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 
   /* Textures minérales : volontairement à peine perceptibles. */
@@ -161,16 +133,10 @@
   }
 }
 
-html[data-intro="seen"] [data-book-intro] { display: none; }
-
 /* Lenis */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
-
-/* Curseur sur mesure : on masque le curseur natif, sauf dans les champs */
-html.has-custom-cursor, html.has-custom-cursor * { cursor: none; }
-html.has-custom-cursor :is(input, textarea, select, [contenteditable]) { cursor: text; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

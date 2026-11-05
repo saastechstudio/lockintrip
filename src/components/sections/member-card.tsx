@@ -16,7 +16,7 @@ const foil = { backgroundImage: "linear-gradient(115deg,#a9a39a 0%,#f7f4ef 35%,#
 
 /**
  * « Le cercle » : la carte de membre fondateur, personnalisée avec le prénom du visiteur
- * et le numéro de la prochaine place (compteur réel). Inclinaison 3D et reflet qui suivent la souris.
+ * et le numéro de la prochaine place (compteur réel). Légère inclinaison et reflet qui suivent la souris.
  */
 export function MemberCard({ taken, capacity }: { taken: number; capacity: number }) {
   const reduce = useReducedMotion();
@@ -26,8 +26,8 @@ export function MemberCard({ taken, capacity }: { taken: number; capacity: numbe
 
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
-  const rotateY = useSpring(useTransform(px, [0, 1], [-14, 14]), { stiffness: 180, damping: 18 });
-  const rotateX = useSpring(useTransform(py, [0, 1], [10, -10]), { stiffness: 180, damping: 18 });
+  const rotateY = useSpring(useTransform(px, [0, 1], [-6, 6]), { stiffness: 200, damping: 30 });
+  const rotateX = useSpring(useTransform(py, [0, 1], [4, -4]), { stiffness: 200, damping: 30 });
   const sheenX = useTransform(px, [0, 1], ["0%", "100%"]);
   const sheenY = useTransform(py, [0, 1], ["0%", "100%"]);
   const sheen = useMotionTemplate`radial-gradient(60% 70% at ${sheenX} ${sheenY}, rgba(255,247,235,0.28), transparent 60%)`;
@@ -45,17 +45,12 @@ export function MemberCard({ taken, capacity }: { taken: number; capacity: numbe
 
   return (
     <section id="cercle" className="relative overflow-hidden bg-bordeaux-deep py-28 text-ivory md:py-40">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/3 size-[46rem] -translate-x-1/2 rounded-full opacity-25 blur-3xl"
-        style={{ background: "radial-gradient(circle, #8b3a3a, transparent 65%)" }}
-      />
       <div className="container-lux relative grid items-center gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <SectionHeading
             tone="ivory"
             eyebrow="Le cercle"
-            title="Ta place porte un numéro."
+            title="Ta place porte un numéro"
             intro="Les soixante premiers membres forment le cercle fondateur de Lockin Trip. Écris ton prénom : voici la carte qui t'attend."
           />
           <Reveal delay={0.2} className="mt-10 max-w-sm">
@@ -70,10 +65,10 @@ export function MemberCard({ taken, capacity }: { taken: number; capacity: numbe
               autoComplete="given-name"
               className="font-display mt-3 w-full border-b border-ivory/25 bg-transparent pb-3 text-3xl font-light text-ivory outline-none transition-colors placeholder:text-ivory/25 focus:border-pierre"
             />
-            <Button asChild size="lg" variant="light" className="mt-10" data-magnetic data-cursor="Rejoindre">
+            <Button asChild size="lg" variant="light" className="mt-10">
               <Link href="/reserver">
                 Réserver la place n° {number}
-                <ArrowUpRight className="transition-transform duration-500 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                <ArrowUpRight />
               </Link>
             </Button>
           </Reveal>
@@ -82,10 +77,8 @@ export function MemberCard({ taken, capacity }: { taken: number; capacity: numbe
         <Reveal delay={0.1} className="lg:col-span-7">
           <div className="mx-auto max-w-[34rem] [perspective:1400px]" onPointerMove={onMove} onPointerLeave={onLeave}>
             <motion.div
-              className="relative aspect-[1.586] w-full overflow-hidden rounded-[22px] shadow-[0_60px_120px_-40px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.12)] [transform-style:preserve-3d]"
+              className="relative aspect-[1.586] w-full overflow-hidden rounded-[22px] shadow-[0_24px_48px_-24px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.12)] [transform-style:preserve-3d]"
               style={{ rotateX, rotateY, background: "linear-gradient(135deg,#5c1723 0%,#3f0c15 55%,#2b0a10 100%)" }}
-              animate={reduce ? undefined : { y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
               <div className="absolute inset-0 opacity-[0.18] mix-blend-overlay" style={{ backgroundImage: leather, backgroundSize: "220px" }} />
               <motion.div className="absolute inset-0" style={{ background: sheen }} />

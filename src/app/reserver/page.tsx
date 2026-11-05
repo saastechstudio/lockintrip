@@ -33,7 +33,7 @@ export default async function ReserverPage({
         <SectionHeading
           as="h1"
           eyebrow={site.edition}
-          title="Réserver ma place."
+          title="Réserver ma place"
           intro="Choisis ta formule et ta session, renseigne tes informations, puis règle ta place en ligne en toute sécurité. Ta place est confirmée dès le paiement validé, facture à l'appui."
         />
         <div className="mt-16 md:mt-20">
