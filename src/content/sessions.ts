@@ -10,15 +10,18 @@ export type Session = {
   start: string; // ISO yyyy-mm-dd
   end: string;
   capacity: number;
+  /** Inscriptions réelles (paiements confirmés). */
   taken: number;
+  /** Nombre minimum d'inscrits affiché tant que les inscriptions réelles sont en dessous. */
+  displayFloor: number;
 };
 
 export const editionYear = 2027;
 
 export const sessions: Session[] = [
-  { id: "s1", label: "Session 1", start: "2027-03-14", end: "2027-03-21", capacity: 20, taken: 0 },
-  { id: "s2", label: "Session 2", start: "2027-03-21", end: "2027-03-28", capacity: 20, taken: 0 },
-  { id: "s3", label: "Session 3", start: "2027-03-28", end: "2027-04-04", capacity: 20, taken: 0 },
+  { id: "s1", label: "Session 1", start: "2027-03-14", end: "2027-03-21", capacity: 20, taken: 0, displayFloor: 8 },
+  { id: "s2", label: "Session 2", start: "2027-03-21", end: "2027-03-28", capacity: 20, taken: 0, displayFloor: 4 },
+  { id: "s3", label: "Session 3", start: "2027-03-28", end: "2027-04-04", capacity: 20, taken: 0, displayFloor: 3 },
 ];
 
 export const totalCapacity = sessions.reduce((n, s) => n + s.capacity, 0);

@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { offers, type OfferId } from "@/content/offers";
 import type { Session, SessionId } from "@/content/sessions";
 import { site } from "@/content/site";
+import { sessionOccupancy } from "@/lib/occupancy";
 import { functionUrl, supabaseHeaders } from "@/lib/supabase-public";
 import { profiles, reservationSchema, type ReservationInput } from "@/lib/reservation-schema";
 import { cn, formatDay, formatPrice } from "@/lib/utils";
@@ -45,7 +46,7 @@ export function BookingForm({
   defaultGoal?: string;
 }) {
   const [error, setError] = useState<string | null>(null);
-  const firstOpen = sessions.find((s) => s.taken < s.capacity)?.id ?? "s1";
+  const firstOpen = sessions.find((s) => !sessionOccupancy(s).full)?.id ?? "s1";
 
   const {
     register,
@@ -125,7 +126,7 @@ export function BookingForm({
           <legend className="font-display text-2xl font-light text-ink">2. Ta session</legend>
           <div className="mt-6 grid gap-3 sm:grid-cols-3" role="radiogroup">
             {sessions.map((s) => {
-              const left = s.capacity - s.taken;
+              const { remaining: left } = sessionOccupancy(s);
               return (
                 <ChoiceCard
                   key={s.id}
