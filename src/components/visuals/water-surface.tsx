@@ -38,7 +38,7 @@ export function WaterSurface({ className, intensity = 1 }: { className?: string;
       />
       <div
         className="absolute inset-0"
-        style={{ background: "linear-gradient(180deg, rgba(107,31,43,0.10) 0%, rgba(29,29,29,0) 45%, rgba(29,29,29,0.4) 100%)" }}
+        style={{ background: "linear-gradient(180deg, rgba(192,23,43,0.10) 0%, rgba(29,29,29,0) 45%, rgba(29,29,29,0.4) 100%)" }}
       />
     </div>
   );

@@ -6,14 +6,15 @@
  */
 @theme {
   --color-ivory: #f7f4ef;
-  --color-pierre: #d6c8b8;
-  --color-pierre-soft: #e8e0d6;
+  --color-pierre: #34d399;
+  --color-pierre-soft: #d1fae5;
   --color-concrete: #a9a39a;
   --color-concrete-deep: #7c766d;
-  --color-bordeaux: #6b1f2b;
-  --color-bordeaux-light: #7e2b38;
-  --color-bordeaux-deep: #521620;
-  --color-terracotta: #8b3a3a;
+  --color-bordeaux: #c0172b;
+  --color-bordeaux-light: #d62839;
+  --color-bordeaux-deep: #8a0f1e;
+  --color-terracotta: #b8322a;
+  --color-emerald-deep: #052e22;
   --color-ink: #1d1d1d;
   --color-ink-soft: #3a3633;
   --color-muted: #66605a;

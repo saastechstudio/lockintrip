@@ -23,7 +23,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
     reduce ? {} : { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.4, ease, delay } };
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#1a0c0f] text-ivory">
+    <section className="relative isolate overflow-hidden bg-emerald-deep text-ivory">
 
       <div className="container-lux grid min-h-[100svh] items-center gap-14 pb-20 pt-32 lg:grid-cols-12 lg:gap-10 lg:pb-24">
         <div className="lg:col-span-6">

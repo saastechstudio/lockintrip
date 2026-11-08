@@ -26,7 +26,7 @@ export function Hotel() {
   }, [open, go]);
 
   return (
-    <section id="hotel" className="relative bg-ink py-28 text-ivory md:py-40">
+    <section id="hotel" className="relative bg-emerald-deep py-28 text-ivory md:py-40">
       <div className="container-lux">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -85,7 +85,7 @@ export function Hotel() {
           {open && index !== null && (
             <Dialog.Portal forceMount>
               <Dialog.Overlay asChild forceMount>
-                <motion.div className="fixed inset-0 z-[60] bg-[#120d0c]/95" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
+                <motion.div className="fixed inset-0 z-[60] bg-[#021a13]/95" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
               </Dialog.Overlay>
               <Dialog.Content asChild forceMount>
                 <motion.div
