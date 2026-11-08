@@ -273,7 +273,7 @@ function ChoiceCard({
       className={cn(
         "relative rounded-2xl border p-5 text-left transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40",
         checked
-          ? "border-bordeaux bg-white shadow-[0_20px_40px_-25px_rgba(107,31,43,0.35)] ring-4 ring-bordeaux/10"
+          ? "border-bordeaux bg-white shadow-[0_20px_40px_-25px_rgba(192,23,43,0.35)] ring-4 ring-bordeaux/10"
           : "border-ink/10 bg-white/50 hover:border-ink/25",
       )}
     >

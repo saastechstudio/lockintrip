@@ -6,7 +6,7 @@ import { InstagramIcon, LinkedinIcon } from "./social-icons";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-ink text-ivory">
+    <footer className="bg-emerald-deep text-ivory">
       <div className="container-lux py-20 md:py-24">
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">

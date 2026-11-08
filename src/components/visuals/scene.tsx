@@ -104,7 +104,7 @@ function Ambient({ variant, seed = 7 }: { variant: SceneVariant; seed?: number }
             <Travertine />
             <PalmShadows seed={seed} opacity={0.22} />
           </div>
-          <div className="absolute inset-x-0 bottom-0 h-[42%] border-t-[10px] border-[#d6c8b8]">
+          <div className="absolute inset-x-0 bottom-0 h-[42%] border-t-[10px] border-[#34d399]">
             <WaterSurface />
           </div>
         </>
@@ -116,7 +116,7 @@ function Ambient({ variant, seed = 7 }: { variant: SceneVariant; seed?: number }
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, #bfae9e 0%, #d9b493 26%, #c98f6c 42%, #8b3a3a 50%, #5a3a35 56%, #3a2c29 70%, #1f1a19 100%)",
+                "linear-gradient(180deg, #bfae9e 0%, #d9b493 26%, #c98f6c 42%, #b8322a 50%, #5a3a35 56%, #3a2c29 70%, #1f1a19 100%)",
             }}
           />
           <div

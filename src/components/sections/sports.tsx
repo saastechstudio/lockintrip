@@ -6,7 +6,7 @@ import { SectionHeading } from "./section-heading";
 /** Le sport comme expérience : chaque activité porte ce qu'elle t'apporte. */
 export function Sports() {
   return (
-    <section id="sport" className="relative overflow-hidden bg-[#1a0c0f] py-28 text-ivory md:py-40">
+    <section id="sport" className="relative overflow-hidden bg-emerald-deep py-28 text-ivory md:py-40">
       <div className="container-lux relative">
         <SectionHeading
           tone="ivory"
@@ -18,7 +18,7 @@ export function Sports() {
         <div className="mt-20 grid gap-4 md:grid-cols-2">
           {sports.map((s, i) => (
             <Reveal key={s.name} delay={(i % 2) * 0.1}>
-              <article className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-[20px] border border-ivory/10 bg-[#221014] p-8 md:min-h-[26rem] md:p-10">
+              <article className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-[20px] border border-ivory/10 bg-[#064e3b] p-8 md:min-h-[26rem] md:p-10">
                 {s.src ? (
                   <>
                     <Photo
@@ -28,7 +28,7 @@ export function Sports() {
                       sizes="(min-width: 768px) 45vw, 100vw"
                       className="object-cover opacity-55"
                     />
-                    <span className="absolute inset-0 bg-gradient-to-t from-[#160a0c] via-[#160a0c]/50 to-transparent" />
+                    <span className="absolute inset-0 bg-gradient-to-t from-[#03221a] via-[#03221a]/50 to-transparent" />
                   </>
                 ) : (
                   <span
