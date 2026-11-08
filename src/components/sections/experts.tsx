@@ -22,12 +22,13 @@ export function Experts() {
             return (
               <Reveal key={e.domain} delay={(i % 3) * 0.08}>
                 <article className="flex h-full flex-col overflow-hidden rounded-[16px] bg-ivory text-ink">
-                  <div className="relative aspect-[5/4] overflow-hidden">
+                  <div className="relative aspect-[5/4] overflow-hidden glass-frame">
                     {e.photo ? (
                       <Image
                         src={e.photo}
                         alt={e.name ? `${e.name}, ${e.domain}` : e.domain}
                         fill
+                        quality={90}
                         sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
                         className="object-cover"
                       />

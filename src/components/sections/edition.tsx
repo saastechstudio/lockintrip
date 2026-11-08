@@ -43,7 +43,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
           </div>
 
           <Reveal delay={0.15} className="lg:col-span-6">
-            <div className="rounded-[22px] border border-ivory/12 bg-ivory/[0.05] p-7 md:p-9">
+            <div className="glass rounded-[22px] p-7 md:p-9">
               <div className="flex items-end justify-between gap-6">
                 <div>
                   <p className="eyebrow text-ivory/55">Places restantes</p>
@@ -62,7 +62,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
               </div>
 
               <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-ivory/12">
-                <div className="h-full rounded-full bg-pierre" style={{ width: `${Math.max(pct, 2)}%` }} />
+                <div className="gauge-fill h-full rounded-full" style={{ width: `${Math.max(pct, 2)}%` }} />
               </div>
 
               <p className="eyebrow mt-8 text-ivory/45">Le mur de l&apos;édition fondatrice</p>
@@ -75,7 +75,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
                           key={k}
                           className={cn(
                             "aspect-square rounded-full border transition-colors",
-                            k < sessionOccupancy(s).displayed ? "border-pierre bg-pierre" : "border-ivory/20 bg-transparent",
+                            k < sessionOccupancy(s).displayed ? "gauge-dot" : "border-ivory/25 bg-ivory/[0.07]",
                           )}
                         />
                       ))}
@@ -94,7 +94,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
             const { displayed, remaining: left, percent: p, full } = sessionOccupancy(s);
             return (
               <Reveal key={s.id} delay={i * 0.1}>
-                <article className="card-lux flex h-full flex-col p-8 text-ink">
+                <article className="glass-light flex h-full flex-col rounded-[20px] p-8 text-ink">
                   <div className="flex items-center justify-between">
                     <p className="eyebrow text-bordeaux">{s.label}</p>
                     <span
@@ -120,7 +120,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
                       <span className="font-medium">{full ? "0 restante" : `${left} restantes`}</span>
                     </div>
                     <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-ink/[0.07]">
-                      <div className="h-full rounded-full bg-bordeaux" style={{ width: `${Math.max(p, 2)}%` }} />
+                      <div className="gauge-fill h-full rounded-full" style={{ width: `${Math.max(p, 2)}%` }} />
                     </div>
                   </div>
 

@@ -49,7 +49,7 @@ export function StickyCta({ remaining }: { remaining: number }) {
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-x-3 bottom-3 z-40 md:inset-x-auto md:left-1/2 md:bottom-6 md:-translate-x-1/2"
         >
-          <div className="flex items-center justify-between gap-4 rounded-[16px] border border-ink/10 bg-ivory py-2 pl-5 pr-2 shadow-[0_8px_24px_rgba(0,0,0,0.08)] md:gap-8 md:pl-7">
+          <div className="flex items-center justify-between gap-4 glass-light rounded-[16px] py-2 pl-5 pr-2 shadow-[0_8px_24px_rgba(0,0,0,0.08)] md:gap-8 md:pl-7">
             <div className="min-w-0 leading-tight">
               <p className="flex items-center gap-2 truncate text-[0.8125rem] font-medium text-ink">
                 <span className="size-1.5 shrink-0 rounded-full bg-bordeaux" />
