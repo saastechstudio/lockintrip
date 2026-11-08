@@ -6,15 +6,15 @@
  */
 @theme {
   --color-ivory: #f7f4ef;
-  --color-pierre: #ff9fb2;
-  --color-pierre-soft: #ffe4e9;
+  --color-pierre: #f0a0b0;
+  --color-pierre-soft: #fbe6ea;
   --color-concrete: #a9a39a;
   --color-concrete-deep: #7c766d;
-  --color-bordeaux: #b3122a;
-  --color-bordeaux-light: #d01f3c;
-  --color-bordeaux-deep: #7a0c1c;
+  --color-bordeaux: #8e1230;
+  --color-bordeaux-light: #a8183a;
+  --color-bordeaux-deep: #5a0a1c;
   --color-terracotta: #b8322a;
-  --color-ruby-deep: #2a050c;
+  --color-ruby-deep: #2a0610;
   --color-ink: #1d1d1d;
   --color-ink-soft: #3a3633;
   --color-muted: #66605a;
@@ -193,17 +193,17 @@
 
   /* Jauges : rubis glacé. */
   .gauge-fill {
-    background: linear-gradient(180deg, #ff9fb2 0%, #d01f3c 75%);
+    background: linear-gradient(180deg, #f0a0b0 0%, #a8183a 75%);
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.6),
-      0 0 12px rgb(255 100 130 / 0.45);
+      0 0 12px rgb(240 120 150 / 0.4);
   }
   .gauge-dot {
     border-color: rgb(255 255 255 / 0.55);
-    background: radial-gradient(circle at 30% 28%, #ffd0d9, #ff9fb2 45%, #d01f3c);
+    background: radial-gradient(circle at 30% 28%, #fbcdd6, #f0a0b0 45%, #a8183a);
     box-shadow:
       inset 0 1px 1px rgb(255 255 255 / 0.7),
-      0 0 8px rgb(255 100 130 / 0.4);
+      0 0 8px rgb(240 120 150 / 0.35);
   }
 
   @media (prefers-reduced-transparency: reduce) {
@@ -213,7 +213,7 @@
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }
-    .glass { background: #7a0c1c; }
+    .glass { background: #5a0a1c; }
     .glass-light { background: #ffffff; }
     .glass-chip { background: rgb(0 0 0 / 0.55); }
   }

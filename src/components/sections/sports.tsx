@@ -18,7 +18,7 @@ export function Sports() {
         <div className="mt-20 grid gap-4 md:grid-cols-2">
           {sports.map((s, i) => (
             <Reveal key={s.name} delay={(i % 2) * 0.1}>
-              <article className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-[20px] border border-ivory/10 bg-[#4d0b1b] p-8 md:min-h-[26rem] md:p-10">
+              <article className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-[20px] border border-ivory/10 bg-[#3d0813] p-8 md:min-h-[26rem] md:p-10">
                 {s.src ? (
                   <>
                     <Photo
@@ -28,7 +28,7 @@ export function Sports() {
                       sizes="(min-width: 768px) 45vw, 100vw"
                       className="object-cover opacity-55"
                     />
-                    <span className="absolute inset-0 bg-gradient-to-t from-[#1c0408] via-[#1c0408]/50 to-transparent" />
+                    <span className="absolute inset-0 bg-gradient-to-t from-[#160307] via-[#160307]/50 to-transparent" />
                   </>
                 ) : (
                   <span
