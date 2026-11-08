@@ -50,12 +50,12 @@ export function ChapterRail() {
   return (
     <motion.nav
       aria-label="Chapitres"
-      className="fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 mix-blend-difference xl:block"
+      className="fixed right-4 top-1/2 z-30 hidden -translate-y-1/2 rounded-full border border-white/25 bg-bordeaux-deep/70 px-4 py-4 shadow-[0_12px_30px_-12px_rgba(40,0,10,0.7)] backdrop-blur-md xl:block"
       animate={{ opacity: visible ? 1 : 0, x: visible ? 0 : 12 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       style={{ pointerEvents: "none" }}
     >
-      <div className="absolute right-[5px] top-0 h-full w-px bg-ivory/20">
+      <div className="absolute right-[calc(1rem+5px)] top-4 h-[calc(100%-2rem)] w-px bg-ivory/20">
         <motion.div className="h-full w-full origin-top bg-ivory" style={{ scaleY: progress }} />
       </div>
       <ul className="relative flex flex-col gap-2.5">
@@ -63,10 +63,10 @@ export function ChapterRail() {
           const on = active === c.id;
           return (
             <li key={c.id}>
-              <a href={`#${c.id}`} aria-label={c.label} className="group pointer-events-none flex items-center justify-end gap-3 text-ivory">
+              <a href={`#${c.id}`} aria-label={c.label} className="group pointer-events-none relative flex items-center justify-end text-ivory">
                 <span
                   className={cn(
-                    "whitespace-nowrap text-[0.8125rem] transition-[opacity,transform] duration-200",
+                    "glass-chip bg-bordeaux-deep/75 absolute right-full mr-4 whitespace-nowrap rounded-full px-3 py-1 text-[0.8125rem] text-ivory transition-[opacity,transform] duration-200",
                     on ? "translate-x-0 opacity-100" : "translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-70",
                   )}
                 >

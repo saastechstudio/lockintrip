@@ -26,7 +26,7 @@ export function Hotel() {
   }, [open, go]);
 
   return (
-    <section id="hotel" className="relative bg-emerald-deep py-28 text-ivory md:py-40">
+    <section id="hotel" className="relative bg-ruby-deep py-28 text-ivory md:py-40">
       <div className="container-lux">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -56,14 +56,14 @@ export function Hotel() {
                 type="button"
                 onClick={() => setIndex(i)}
                 aria-label={`Agrandir : ${p.caption}`}
-                className="group absolute inset-0 overflow-hidden rounded-[16px] text-left"
+                className="group absolute inset-0 overflow-hidden rounded-[16px] glass-frame text-left"
               >
                 <Image
                   src={p.src}
                   alt={p.alt}
                   fill
                   sizes="(min-width: 768px) 340px, 50vw"
-                  quality={88}
+                  quality={92}
                   className="object-cover"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
@@ -85,7 +85,7 @@ export function Hotel() {
           {open && index !== null && (
             <Dialog.Portal forceMount>
               <Dialog.Overlay asChild forceMount>
-                <motion.div className="fixed inset-0 z-[60] bg-[#021a13]/95" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
+                <motion.div className="fixed inset-0 z-[60] bg-[#14030a]/95" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
               </Dialog.Overlay>
               <Dialog.Content asChild forceMount>
                 <motion.div

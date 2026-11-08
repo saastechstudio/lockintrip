@@ -31,8 +31,8 @@ export function Pricing({ remaining }: { remaining: number }) {
                 className={cn(
                   "relative flex h-full flex-col overflow-hidden rounded-[20px] p-8 md:p-11",
                   o.featured
-                    ? "bg-bordeaux text-ivory"
-                    : "card-lux text-ink",
+                    ? "glass-frame bg-bordeaux text-ivory"
+                    : "glass-light text-ink",
                 )}
               >
                 <div className="relative flex items-start justify-between gap-4">

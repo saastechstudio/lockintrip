@@ -47,7 +47,7 @@ export function ForWho() {
 
         <Reveal className="mt-20">
           <div className="overflow-hidden rounded-[22px] border border-concrete/35">
-            <div className="grid grid-cols-[1fr_1fr] bg-emerald-deep text-ivory md:grid-cols-[0.8fr_1fr_1fr]">
+            <div className="grid grid-cols-[1fr_1fr] bg-ruby-deep text-ivory md:grid-cols-[0.8fr_1fr_1fr]">
               <span className="hidden p-5 md:block" />
               <p className="eyebrow p-5 text-ivory/55">Seul</p>
               <p className="eyebrow bg-bordeaux p-5 text-pierre">Avec Lockin Trip</p>

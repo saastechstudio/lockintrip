@@ -65,7 +65,7 @@ export function DayStory() {
         <div className="mt-24 space-y-4 md:mt-32 md:space-y-6">
           <Reveal>
             <article className="grid overflow-hidden rounded-[20px] bg-bordeaux text-ivory md:grid-cols-2">
-              <div className="relative aspect-[3/2] overflow-hidden md:aspect-auto md:min-h-[26rem]">
+              <div className="relative aspect-[3/2] overflow-hidden glass-frame md:aspect-auto md:min-h-[26rem]">
                 <Image src={excursion.src} alt={excursion.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={90} className="object-cover" />
               </div>
               <div className="flex flex-col justify-center p-8 md:p-12">
@@ -82,7 +82,7 @@ export function DayStory() {
                 <h3 className="font-display mt-5 text-3xl font-light leading-tight text-ink md:text-[2.6rem]">{soiree.title}</h3>
                 <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted">{soiree.body}</p>
               </div>
-              <div className="relative aspect-[3/2] overflow-hidden md:order-2 md:aspect-auto md:min-h-[24rem]">
+              <div className="relative aspect-[3/2] overflow-hidden glass-frame md:order-2 md:aspect-auto md:min-h-[24rem]">
                 <Image src={soiree.src} alt={soiree.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={88} className="object-cover" />
               </div>
             </article>

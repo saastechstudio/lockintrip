@@ -23,7 +23,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
     reduce ? {} : { initial: { opacity: 0, y: 8 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.4, ease, delay } };
 
   return (
-    <section className="relative isolate overflow-hidden bg-emerald-deep text-ivory">
+    <section className="relative isolate overflow-hidden bg-ruby-deep text-ivory">
 
       <div className="container-lux grid min-h-[100svh] items-center gap-14 pb-20 pt-32 lg:grid-cols-12 lg:gap-10 lg:pb-24">
         <div className="lg:col-span-6">
@@ -69,7 +69,7 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
             </div>
             <div className="mt-3 h-1 overflow-hidden rounded-full bg-ivory/12">
               <motion.div
-                className="h-full rounded-full bg-pierre"
+                className="gauge-fill h-full rounded-full"
                 initial={reduce ? false : { width: 0 }}
                 animate={{ width: `${Math.max(pct, 3)}%` }}
                 transition={{ duration: 0.6, ease, delay: 0.2 }}
@@ -97,28 +97,28 @@ export function Hero({ taken, capacity }: { taken: number; capacity: number }) {
               <motion.figure
                
                 {...enter(0.1)}
-                className="absolute left-0 top-0 h-[72%] w-[74%] overflow-hidden rounded-[20px] border border-ivory/10 "
+                className="absolute left-0 top-0 h-[72%] w-[74%] overflow-hidden rounded-[20px] glass-frame"
               >
-                <Image src={media.hero.poster.src!} alt={media.hero.poster.alt} fill priority sizes="(min-width: 1024px) 30vw, 70vw" className="object-cover" />
-                <figcaption className="absolute bottom-3 left-3 rounded-[6px] bg-ink/60 px-2 py-1 text-xs text-ivory/90">
+                <Image src={media.hero.poster.src!} alt={media.hero.poster.alt} fill priority quality={92} sizes="(min-width: 1024px) 30vw, 70vw" className="object-cover" />
+                <figcaption className="absolute bottom-3 left-3 rounded-[6px] glass-chip px-2 py-1 text-xs text-ivory">
                   Ya Nui · sud de Phuket
                 </figcaption>
               </motion.figure>
               <motion.figure
                
                 {...enter(0.1)}
-                className="absolute bottom-0 right-0 h-[52%] w-[56%] overflow-hidden rounded-[20px] border border-ivory/15 "
+                className="absolute bottom-0 right-0 h-[52%] w-[56%] overflow-hidden rounded-[20px] glass-frame"
               >
-                <Image src="/images/activites/catamaran.jpg" alt="Catamaran sur la mer d'Andaman" fill sizes="(min-width: 1024px) 22vw, 55vw" className="object-cover" />
-                <figcaption className="absolute bottom-3 left-3 rounded-[6px] bg-ink/60 px-2 py-1 text-xs text-ivory/90">
+                <Image src="/images/activites/catamaran.jpg" alt="Catamaran sur la mer d'Andaman" fill quality={92} sizes="(min-width: 1024px) 22vw, 55vw" className="object-cover" />
+                <figcaption className="absolute bottom-3 left-3 rounded-[6px] glass-chip px-2 py-1 text-xs text-ivory">
                   La soirée de clôture
                 </figcaption>
               </motion.figure>
               <motion.figure
                 {...enter(0.1)}
-                className="absolute right-[6%] top-[6%] hidden h-[30%] w-[26%] overflow-hidden rounded-[16px] border border-ivory/15  sm:block"
+                className="absolute right-[6%] top-[6%] hidden h-[30%] w-[26%] overflow-hidden rounded-[16px] glass-frame sm:block"
               >
-                <Image src="/images/phuket/nai-harn-coucher.jpg" alt="Coucher de soleil sur Nai Harn" fill sizes="15vw" className="object-cover" />
+                <Image src="/images/phuket/nai-harn-coucher.jpg" alt="Coucher de soleil sur Nai Harn" fill quality={92} sizes="15vw" className="object-cover" />
               </motion.figure>
             </div>
           )}
