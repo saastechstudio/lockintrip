@@ -12,7 +12,7 @@ import { SectionHeading } from "./section-heading";
 const leather =
   "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")";
 
-const foil = { backgroundImage: "linear-gradient(115deg,#a9a39a 0%,#f7f4ef 35%,#ffd0d9 52%,#fbf8f3 68%,#a9a39a 100%)" };
+const foil = { backgroundImage: "linear-gradient(115deg,#a9a39a 0%,#f7f4ef 35%,#fbcdd6 52%,#fbf8f3 68%,#a9a39a 100%)" };
 
 /**
  * « Le cercle » : la carte de membre fondateur, personnalisée avec le prénom du visiteur
@@ -78,7 +78,7 @@ export function MemberCard({ taken, capacity }: { taken: number; capacity: numbe
           <div className="mx-auto max-w-[34rem] [perspective:1400px]" onPointerMove={onMove} onPointerLeave={onLeave}>
             <motion.div
               className="relative aspect-[1.586] w-full overflow-hidden rounded-[22px] shadow-[0_24px_48px_-24px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.12)] [transform-style:preserve-3d]"
-              style={{ rotateX, rotateY, background: "linear-gradient(135deg,#7a0c1c 0%,#650a15 55%,#450710 100%)" }}
+              style={{ rotateX, rotateY, background: "linear-gradient(135deg,#5a0a1c 0%,#4d0714 55%,#33040d 100%)" }}
             >
               <div className="absolute inset-0 opacity-[0.18] mix-blend-overlay" style={{ backgroundImage: leather, backgroundSize: "220px" }} />
               <motion.div className="absolute inset-0" style={{ background: sheen }} />
