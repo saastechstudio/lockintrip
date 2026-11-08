@@ -17,14 +17,14 @@ import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { StickyCta } from "@/components/booking/sticky-cta";
 import { JsonLd, eventsJsonLd, faqJsonLd, organizationJsonLd } from "@/lib/seo";
+import { editionOccupancy } from "@/lib/occupancy";
 import { getSessions } from "@/lib/seats";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
   const sessions = await getSessions();
-  const remaining = sessions.reduce((n, s) => n + Math.max(s.capacity - s.taken, 0), 0);
-  const capacity = sessions.reduce((n, s) => n + s.capacity, 0);
+  const { remaining, capacity } = editionOccupancy(sessions);
   return (
     <>
       <JsonLd data={[organizationJsonLd(), ...eventsJsonLd(sessions), faqJsonLd()]} />

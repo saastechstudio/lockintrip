@@ -8,6 +8,7 @@ import { startingPrice } from "@/content/offers";
 import { editionYear, type Session } from "@/content/sessions";
 import { site } from "@/content/site";
 import { founderPricing, testimonials } from "@/content/story";
+import { editionOccupancy, sessionOccupancy } from "@/lib/occupancy";
 import { cn, formatDay, formatPrice } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
 
@@ -16,10 +17,7 @@ import { SectionHeading } from "./section-heading";
  * sessions avec jauge, prix fondateur. Les témoignages s'affichent dès qu'il y en a de réels.
  */
 export function Edition({ sessions }: { sessions: Session[] }) {
-  const totalCapacity = sessions.reduce((n, s) => n + s.capacity, 0);
-  const totalTaken = sessions.reduce((n, s) => n + Math.min(s.taken, s.capacity), 0);
-  const remaining = totalCapacity - totalTaken;
-  const pct = totalCapacity ? Math.round((totalTaken / totalCapacity) * 100) : 0;
+  const { capacity: totalCapacity, displayed: totalTaken, remaining, percent: pct } = editionOccupancy(sessions);
 
   return (
     <section id="edition" className="relative overflow-hidden bg-bordeaux-deep py-28 text-ivory md:py-40">
@@ -77,7 +75,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
                           key={k}
                           className={cn(
                             "aspect-square rounded-full border transition-colors",
-                            k < s.taken ? "border-pierre bg-pierre" : "border-ivory/20 bg-transparent",
+                            k < sessionOccupancy(s).displayed ? "border-pierre bg-pierre" : "border-ivory/20 bg-transparent",
                           )}
                         />
                       ))}
@@ -93,9 +91,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
 
         <div className="mt-16 grid gap-4 md:grid-cols-3">
           {sessions.map((s, i) => {
-            const left = s.capacity - s.taken;
-            const full = left <= 0;
-            const p = Math.round((s.taken / s.capacity) * 100);
+            const { displayed, remaining: left, percent: p, full } = sessionOccupancy(s);
             return (
               <Reveal key={s.id} delay={i * 0.1}>
                 <article className="card-lux flex h-full flex-col p-8 text-ink">
@@ -120,7 +116,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
 
                   <div className="mt-8">
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted">{s.taken > 0 ? `${s.taken} réservées` : `${s.capacity} places`}</span>
+                      <span className="text-muted">{displayed > 0 ? `${displayed} réservées` : `${s.capacity} places`}</span>
                       <span className="font-medium">{full ? "0 restante" : `${left} restantes`}</span>
                     </div>
                     <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-ink/[0.07]">
