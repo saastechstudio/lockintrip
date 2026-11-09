@@ -63,7 +63,7 @@ export function StickyCta({ remaining }: { remaining: number }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Poser une question sur WhatsApp"
-              className="grid size-10 place-items-center rounded-[12px] border border-concrete/45 text-bordeaux transition-colors hover:border-bordeaux hover:bg-bordeaux hover:text-ivory"
+              className="grid size-10 place-items-center rounded-[12px] border border-concrete/45 text-accent transition-colors hover:border-bordeaux hover:bg-bordeaux hover:text-ivory"
             >
               <MessageCircle className="size-[18px]" strokeWidth={1.6} />
             </a>

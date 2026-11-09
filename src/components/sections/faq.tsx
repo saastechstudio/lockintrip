@@ -6,7 +6,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Faq() {
   return (
-    <section id="faq" className="tex-travertine relative bg-pierre/55 py-28 md:py-40">
+    <section id="faq" className="tex-travertine relative bg-bordeaux py-28 md:py-40">
       <div className="container-lux grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
@@ -30,7 +30,7 @@ export function Faq() {
         <div className="space-y-14 lg:col-span-8">
           {faq.map((group) => (
             <Reveal key={group.title}>
-              <h3 className="eyebrow text-bordeaux">{group.title}</h3>
+              <h3 className="eyebrow text-accent">{group.title}</h3>
               <Accordion type="single" collapsible className="mt-4 border-t border-ink/10">
                 {group.items.map((item) => (
                   <AccordionItem key={item.q} value={item.q}>

@@ -66,11 +66,11 @@ export function Hotel() {
                   quality={92}
                   className="object-cover"
                 />
-                <span className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+                <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-3 right-3 flex items-center gap-3">
                   <span className="font-display text-base font-light leading-tight text-ivory md:text-lg">{p.caption}</span>
                 </span>
-                <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-[8px] bg-ink/60 text-ivory opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-[8px] bg-black/60 text-ivory opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <Expand className="size-4" strokeWidth={1.5} />
                 </span>
               </button>

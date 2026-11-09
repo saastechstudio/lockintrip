@@ -14,7 +14,11 @@
   --color-bordeaux-light: #a8183a;
   --color-bordeaux-deep: #5a0a1c;
   --color-terracotta: #b8322a;
-  --color-ruby-deep: #2a0610;
+  --color-ruby-deep: #4a0716;
+  --color-accent: #8e1230;
+  --color-btn: #8e1230;
+  --color-btn-hover: #a8183a;
+  --color-on-btn: #f7f4ef;
   --color-ink: #1d1d1d;
   --color-ink-soft: #3a3633;
   --color-muted: #66605a;
@@ -36,8 +40,18 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Fond rouge : le texte et les accents sont clairs ; les surfaces claires (cartes, champs) rétablissent les teintes sombres. */
   body {
-    background: var(--color-ivory);
+    --color-ink: #fff5f6;
+    --color-ink-soft: #f6d9de;
+    --color-muted: #ecc0c9;
+    --color-concrete: #d99aa8;
+    --color-concrete-deep: #e5aab6;
+    --color-accent: #f0a0b0;
+    --color-btn: #f7f4ef;
+    --color-btn-hover: #ffffff;
+    --color-on-btn: #5a0a1c;
+    background: var(--color-bordeaux);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
@@ -46,13 +60,28 @@
     text-rendering: optimizeLegibility;
   }
 
+  .bg-ivory,
+  [class*="bg-white"],
+  .card-lux,
+  .glass-light {
+    --color-ink: #1d1d1d;
+    --color-ink-soft: #3a3633;
+    --color-muted: #66605a;
+    --color-concrete: #a9a39a;
+    --color-concrete-deep: #7c766d;
+    --color-accent: #8e1230;
+    --color-btn: #8e1230;
+    --color-btn-hover: #a8183a;
+    --color-on-btn: #f7f4ef;
+  }
+
   ::selection {
-    background: var(--color-bordeaux);
-    color: var(--color-ivory);
+    background: #f0a0b0;
+    color: #2a0610;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-bordeaux);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 2px;
   }

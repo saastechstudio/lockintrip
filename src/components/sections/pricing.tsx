@@ -8,7 +8,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Pricing({ remaining }: { remaining: number }) {
   return (
-    <section id="tarifs" className="tex-concrete relative bg-[#ece8e2] py-28 md:py-40">
+    <section id="tarifs" className="tex-concrete relative bg-bordeaux py-28 md:py-40">
       <div className="container-lux">
         <SectionHeading
           align="center"
@@ -20,7 +20,7 @@ export function Pricing({ remaining }: { remaining: number }) {
         <Reveal delay={0.1} className="mt-10 flex justify-center">
           <p className="flex items-center gap-2.5 rounded-[10px] border border-ink/10 bg-ivory px-4 py-2 text-sm text-ink">
             <span className="size-1.5 rounded-full bg-bordeaux" />
-            <strong className="font-medium tabular-nums text-bordeaux">{remaining} places</strong> disponibles au prix fondateur
+            <strong className="font-medium tabular-nums text-accent">{remaining} places</strong> disponibles au prix fondateur
           </p>
         </Reveal>
 
@@ -31,13 +31,13 @@ export function Pricing({ remaining }: { remaining: number }) {
                 className={cn(
                   "relative flex h-full flex-col overflow-hidden rounded-[20px] p-8 md:p-11",
                   o.featured
-                    ? "glass-frame bg-bordeaux text-ivory"
+                    ? "glass-frame bg-bordeaux-deep text-ivory"
                     : "glass-light text-ink",
                 )}
               >
                 <div className="relative flex items-start justify-between gap-4">
                   <div>
-                    <p className={cn("eyebrow", o.featured ? "text-pierre" : "text-bordeaux")}>Offre</p>
+                    <p className={cn("eyebrow", o.featured ? "text-pierre" : "text-accent")}>Offre</p>
                     <h3 className="font-display mt-3 text-4xl font-light">{o.name}</h3>
                   </div>
                   {o.badge && (
@@ -63,9 +63,9 @@ export function Pricing({ remaining }: { remaining: number }) {
                   {o.includes.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[0.9375rem]">
                       {item.startsWith("Vol") ? (
-                        <Plane className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-pierre" : "text-bordeaux")} strokeWidth={1.5} />
+                        <Plane className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-pierre" : "text-accent")} strokeWidth={1.5} />
                       ) : (
-                        <Check className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-pierre" : "text-bordeaux")} strokeWidth={1.8} />
+                        <Check className={cn("mt-0.5 size-4 shrink-0", o.featured ? "text-pierre" : "text-accent")} strokeWidth={1.8} />
                       )}
                       <span className={o.featured ? "text-ivory/90" : "text-ink-soft"}>{item}</span>
                     </li>
