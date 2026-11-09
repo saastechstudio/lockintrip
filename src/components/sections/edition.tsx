@@ -142,7 +142,7 @@ export function Edition({ sessions }: { sessions: Session[] }) {
             <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {testimonials.map((t) => (
                 <Reveal key={t.name}>
-                  <figure className="flex h-full flex-col rounded-[20px] bg-ivory p-8 text-ink">
+                  <figure className="flex h-full flex-col rounded-[20px] glass-red p-8 text-ink">
                     <Quote className="size-6 text-accent" strokeWidth={1.3} />
                     <p className="font-display mt-5 text-xl font-light leading-snug text-accent">{t.result}</p>
                     <blockquote className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-muted">{t.quote}</blockquote>

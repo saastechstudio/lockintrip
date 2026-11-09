@@ -29,7 +29,7 @@ export function Goals() {
               <RevealItem key={g.id} delay={(i % 3) * 0.08}>
                 <Link
                   href={`/reserver?objectif=${g.id}`}
-                  className="group flex h-full flex-col gap-16 rounded-[16px] border border-ink/10 bg-ivory p-8 transition-colors duration-150 hover:border-ink/25"
+                  className="group flex h-full flex-col gap-16 rounded-[16px] glass-red p-8 transition-colors duration-150 hover:!border-white/45"
                 >
                   <div className="flex items-center justify-between text-muted">
                     <Icon className="size-[18px]" strokeWidth={1.5} />

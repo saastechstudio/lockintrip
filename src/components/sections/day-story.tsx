@@ -27,7 +27,7 @@ function Moment({ m, index }: { m: DayMoment; index: number }) {
               className="object-cover"
             />
           </div>
-          <span className="absolute bottom-4 left-4 rounded-[6px] bg-ivory px-2 py-1 text-xs font-medium tabular-nums text-ink">
+          <span className="absolute bottom-4 left-4 rounded-[6px] glass-chip px-2 py-1 text-xs font-medium tabular-nums text-ivory">
             {m.time}
           </span>
         </div>

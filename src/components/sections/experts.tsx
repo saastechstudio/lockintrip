@@ -21,7 +21,7 @@ export function Experts() {
           {experts.map((e, i) => {
             return (
               <Reveal key={e.domain} delay={(i % 3) * 0.08}>
-                <article className="flex h-full flex-col overflow-hidden rounded-[16px] bg-ivory text-ink">
+                <article className="flex h-full flex-col overflow-hidden rounded-[16px] glass-red text-ink">
                   <div className="relative aspect-[5/4] overflow-hidden glass-frame">
                     {e.photo ? (
                       <Image
@@ -33,12 +33,12 @@ export function Experts() {
                         className="object-cover"
                       />
                     ) : (
-                      <div className="absolute inset-0 grid place-items-center bg-pierre-soft text-concrete">
+                      <div className="absolute inset-0 grid place-items-center bg-black/25 text-ivory/70">
                         <LogoMark className="size-12" />
                       </div>
                     )}
                     {e.photo && <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 to-transparent" />}
-                    <span className="absolute left-5 top-5 rounded-[6px] bg-ivory px-2 py-1 text-xs font-medium text-ink">
+                    <span className="absolute left-5 top-5 rounded-[6px] glass-chip px-2 py-1 text-xs font-medium text-ivory">
                       {e.domain}
                     </span>
                     <div className={e.photo ? "absolute bottom-5 left-5 right-5 text-ivory" : "absolute bottom-5 left-5 right-5 text-ink"}>
