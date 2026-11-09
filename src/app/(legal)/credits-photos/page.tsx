@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Crédits photos", alternates: { cano
 export default function CreditsPhotos() {
   return (
     <>
-      <p className="eyebrow text-bordeaux">Informations légales</p>
+      <p className="eyebrow text-accent">Informations légales</p>
       <h1 className="mt-6">Crédits photos</h1>
       <p>
         Certaines photos de Phuket proviennent de Wikimedia Commons et d&apos;Unsplash, et sont utilisées selon leur licence. Les

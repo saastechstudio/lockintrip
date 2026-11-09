@@ -40,7 +40,7 @@ export default async function ConfirmationPage({ searchParams }: { searchParams:
   const session = sessions.find((s) => s.id === sessionId);
 
   return (
-    <section className="tex-travertine relative min-h-[80svh] bg-pierre/45 pb-28 pt-40">
+    <section className="tex-travertine relative min-h-[80svh] bg-bordeaux pb-28 pt-40">
       <div className="container-lux">
         <div className="card-lux mx-auto max-w-2xl p-10 text-center md:p-16">
           <span className="mx-auto grid size-16 place-items-center rounded-full bg-bordeaux text-ivory">

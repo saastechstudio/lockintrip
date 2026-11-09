@@ -8,7 +8,7 @@ import { SectionHeading } from "./section-heading";
 /** Ce que le participant devient : six bénéfices, chacun relié à un moment réel du programme. */
 export function Transformation() {
   return (
-    <section id="transformation" className="tex-travertine relative bg-pierre/55 py-28 md:py-40">
+    <section id="transformation" className="tex-travertine relative bg-bordeaux py-28 md:py-40">
       <div className="container-lux">
         <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
           <SectionHeading
@@ -37,7 +37,7 @@ export function Transformation() {
               delay={(i % 3) * 0.08}
               className="group relative flex flex-col bg-ivory p-8 transition-colors duration-150 hover:bg-[#fbf9f5] md:p-10"
             >
-              <span className="font-display text-sm text-bordeaux/70">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-display text-sm text-accent/70">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="font-display mt-8 text-[1.9rem] font-light leading-[1.08] text-ink">
                 {t.title}
               </h3>

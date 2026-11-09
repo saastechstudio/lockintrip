@@ -81,7 +81,7 @@ export function Header() {
                 <Dialog.Portal forceMount>
                   <Dialog.Overlay asChild forceMount>
                     <motion.div
-                      className="fixed inset-0 z-50 bg-ink/40"
+                      className="fixed inset-0 z-50 bg-black/40"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}

@@ -96,11 +96,11 @@ export function Edition({ sessions }: { sessions: Session[] }) {
               <Reveal key={s.id} delay={i * 0.1}>
                 <article className="glass-light flex h-full flex-col rounded-[20px] p-8 text-ink">
                   <div className="flex items-center justify-between">
-                    <p className="eyebrow text-bordeaux">{s.label}</p>
+                    <p className="eyebrow text-accent">{s.label}</p>
                     <span
                       className={cn(
                         "flex items-center gap-1.5 rounded-[6px] px-2 py-1 text-xs font-medium",
-                        full ? "bg-terracotta/15 text-terracotta" : "bg-bordeaux/10 text-bordeaux",
+                        full ? "bg-terracotta/15 text-terracotta" : "bg-bordeaux/10 text-accent",
                       )}
                     >
                       {!full && <span className="size-1.5 rounded-full bg-bordeaux" />}
@@ -143,8 +143,8 @@ export function Edition({ sessions }: { sessions: Session[] }) {
               {testimonials.map((t) => (
                 <Reveal key={t.name}>
                   <figure className="flex h-full flex-col rounded-[20px] bg-ivory p-8 text-ink">
-                    <Quote className="size-6 text-bordeaux" strokeWidth={1.3} />
-                    <p className="font-display mt-5 text-xl font-light leading-snug text-bordeaux">{t.result}</p>
+                    <Quote className="size-6 text-accent" strokeWidth={1.3} />
+                    <p className="font-display mt-5 text-xl font-light leading-snug text-accent">{t.result}</p>
                     <blockquote className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-muted">{t.quote}</blockquote>
                     <figcaption className="mt-7 flex items-center gap-3 border-t border-ink/10 pt-5">
                       {t.photo && <Image src={t.photo} alt="" width={44} height={44} className="size-11 rounded-full object-cover" />}

@@ -37,7 +37,7 @@ export function Experts() {
                         <LogoMark className="size-12" />
                       </div>
                     )}
-                    {e.photo && <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/55 to-transparent" />}
+                    {e.photo && <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 to-transparent" />}
                     <span className="absolute left-5 top-5 rounded-[6px] bg-ivory px-2 py-1 text-xs font-medium text-ink">
                       {e.domain}
                     </span>

@@ -8,7 +8,7 @@ import { SectionHeading } from "./section-heading";
 /** Qualification et comparatif « seul / avec Lockin Trip ». */
 export function ForWho() {
   return (
-    <section id="pour-qui" className="relative bg-ivory py-28 md:py-40">
+    <section id="pour-qui" className="relative bg-bordeaux py-28 md:py-40">
       <div className="container-lux">
         <SectionHeading
           eyebrow="Pour qui"

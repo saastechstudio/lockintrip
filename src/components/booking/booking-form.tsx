@@ -134,7 +134,7 @@ export function BookingForm({
                   disabled={left <= 0}
                   onSelect={() => setValue("session", s.id, { shouldValidate: true })}
                 >
-                  <span className="eyebrow text-bordeaux">{s.label}</span>
+                  <span className="eyebrow text-accent">{s.label}</span>
                   <span className="font-display mt-2 block text-lg leading-tight text-ink">
                     {formatDay(s.start)} → {formatDay(s.end)}
                   </span>

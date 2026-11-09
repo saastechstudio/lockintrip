@@ -10,7 +10,7 @@ export function FinalCta() {
   return (
     <section id="final" className="relative px-3 pb-3 md:px-5 md:pb-5">
       <Scene variant="dusk" seed={17} src={media.final.src} alt={media.final.alt} className="min-h-[88svh] rounded-[20px] md:rounded-[24px]">
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-ink/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
         <div className="relative z-10 flex min-h-[88svh] flex-col items-center justify-end px-6 pb-16 text-center text-ivory md:pb-24">
           <Reveal>
             <p className="eyebrow text-ivory/75">Édition fondatrice · Phuket 2027</p>

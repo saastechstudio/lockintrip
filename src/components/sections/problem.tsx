@@ -51,7 +51,7 @@ export function Problem() {
           </ul>
 
           <Reveal delay={0.4}>
-            <p className="font-display mt-12 max-w-xl text-3xl font-light leading-snug text-bordeaux md:text-[2.4rem]">
+            <p className="font-display mt-12 max-w-xl text-3xl font-light leading-snug text-accent md:text-[2.4rem]">
               Lockin Trip a été créé pour changer cela.
             </p>
             <Button asChild size="lg" className="mt-10">
@@ -73,7 +73,7 @@ export function Problem() {
             className="aspect-[4/5] w-full rounded-[20px] lg:aspect-square lg:sticky lg:top-28"
           >
             <div className="absolute inset-x-5 bottom-5 rounded-[12px] bg-ivory p-6">
-              <p className="eyebrow text-bordeaux">Avec Lockin Trip</p>
+              <p className="eyebrow text-accent">Avec Lockin Trip</p>
               <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-ink-soft">
                 {["Focus", "Entourage", "Réseau", "Clarté", "Méthode", "Énergie"].map((w) => (
                   <li key={w} className="flex items-center gap-2">

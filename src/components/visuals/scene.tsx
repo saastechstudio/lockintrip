@@ -133,7 +133,7 @@ function Ambient({ variant, seed = 7 }: { variant: SceneVariant; seed?: number }
       return (
         <>
           <Concrete />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/25" />
           <PalmShadows seed={seed} opacity={0.26} />
         </>
       );

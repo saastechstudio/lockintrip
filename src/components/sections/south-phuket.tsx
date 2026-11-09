@@ -13,7 +13,7 @@ const photos = [
 /** Le cadre : Rawai et le sud de Phuket, en images. */
 export function SouthPhuket() {
   return (
-    <section id="phuket" className="relative bg-ivory pb-28 md:pb-40">
+    <section id="phuket" className="relative bg-bordeaux pb-28 md:pb-40">
       <div className="container-lux">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -42,7 +42,7 @@ export function SouthPhuket() {
                   sizes={i === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
                   className="object-cover"
                 />
-                <span className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
+                <span className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <figcaption className="absolute bottom-3 left-3 rounded-[6px] glass-chip px-2 py-1 text-xs text-ivory md:bottom-4 md:left-4">
                   {p.caption}
                 </figcaption>

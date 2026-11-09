@@ -33,8 +33,8 @@ function Moment({ m, index }: { m: DayMoment; index: number }) {
         </div>
       </Reveal>
       <Reveal delay={0.12} className={cn("md:col-span-6", flip && "md:order-1")}>
-        <p className="eyebrow flex items-center gap-3 text-bordeaux">
-          <span className="font-display text-base tabular-nums text-bordeaux/70">{String(index + 1).padStart(2, "0")}</span>
+        <p className="eyebrow flex items-center gap-3 text-accent">
+          <span className="font-display text-base tabular-nums text-accent/70">{String(index + 1).padStart(2, "0")}</span>
           {m.moment}
         </p>
         <h3 className="font-display mt-5 text-[2.1rem] font-light leading-[1.08] text-ink md:text-[2.8rem]">{m.title}</h3>
@@ -47,7 +47,7 @@ function Moment({ m, index }: { m: DayMoment; index: number }) {
 /** Une journée racontée, du matin au soir, puis les moments forts de la semaine. */
 export function DayStory() {
   return (
-    <section id="journee" className="relative bg-ivory py-28 md:py-40">
+    <section id="journee" className="relative bg-bordeaux py-28 md:py-40">
       <div className="container-lux">
         <SectionHeading
           align="center"
@@ -64,7 +64,7 @@ export function DayStory() {
 
         <div className="mt-24 space-y-4 md:mt-32 md:space-y-6">
           <Reveal>
-            <article className="grid overflow-hidden rounded-[20px] bg-bordeaux text-ivory md:grid-cols-2">
+            <article className="grid overflow-hidden rounded-[20px] bg-bordeaux-deep text-ivory md:grid-cols-2">
               <div className="relative aspect-[3/2] overflow-hidden glass-frame md:aspect-auto md:min-h-[26rem]">
                 <Image src={excursion.src} alt={excursion.alt} fill sizes="(min-width: 768px) 50vw, 100vw" quality={90} className="object-cover" />
               </div>
@@ -78,7 +78,7 @@ export function DayStory() {
           <Reveal>
             <article className="card-lux grid overflow-hidden md:grid-cols-2">
               <div className="flex flex-col justify-center p-8 md:order-1 md:p-12">
-                <p className="eyebrow text-bordeaux">{soiree.eyebrow}</p>
+                <p className="eyebrow text-accent">{soiree.eyebrow}</p>
                 <h3 className="font-display mt-5 text-3xl font-light leading-tight text-ink md:text-[2.6rem]">{soiree.title}</h3>
                 <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted">{soiree.body}</p>
               </div>
