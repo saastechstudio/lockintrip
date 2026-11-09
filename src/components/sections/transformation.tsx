@@ -35,7 +35,7 @@ export function Transformation() {
             <RevealItem
               key={t.title}
               delay={(i % 3) * 0.08}
-              className="group relative flex flex-col bg-ivory p-8 transition-colors duration-150 hover:bg-[#fbf9f5] md:p-10"
+              className="group relative flex flex-col glass-red !rounded-none p-8 transition-colors duration-150 hover:bg-white/10 md:p-10"
             >
               <span className="font-display text-sm text-accent/70">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="font-display mt-8 text-[1.9rem] font-light leading-[1.08] text-ink">

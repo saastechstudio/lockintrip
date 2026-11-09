@@ -271,16 +271,16 @@ function ChoiceCard({
       disabled={disabled}
       onClick={onSelect}
       className={cn(
-        "relative rounded-2xl border p-5 text-left transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40",
+        "glass-red relative rounded-2xl p-5 text-left transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40",
         checked
-          ? "border-bordeaux bg-white shadow-[0_20px_40px_-25px_rgba(142,18,48,0.35)] ring-4 ring-bordeaux/10"
-          : "border-ink/10 bg-white/50 hover:border-ink/25",
+          ? "!border-white/70 ring-4 ring-white/15"
+          : "hover:!border-white/45",
       )}
     >
       <span
         className={cn(
           "absolute right-4 top-4 grid size-5 place-items-center rounded-full border transition-colors",
-          checked ? "border-bordeaux bg-bordeaux text-ivory" : "border-ink/20",
+          checked ? "border-btn bg-btn text-on-btn" : "border-white/30",
         )}
       >
         {checked && <Check className="size-3" strokeWidth={2.5} />}

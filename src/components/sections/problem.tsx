@@ -72,7 +72,7 @@ export function Problem() {
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="aspect-[4/5] w-full rounded-[20px] lg:aspect-square lg:sticky lg:top-28"
           >
-            <div className="absolute inset-x-5 bottom-5 rounded-[12px] bg-ivory p-6">
+            <div className="absolute inset-x-5 bottom-5 rounded-[12px] glass-red p-6 [background:linear-gradient(135deg,rgb(255_255_255/0.12),rgb(255_255_255/0.03)),rgb(90_6_28/0.72)]">
               <p className="eyebrow text-accent">Avec Lockin Trip</p>
               <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-ink-soft">
                 {["Focus", "Entourage", "Réseau", "Clarté", "Méthode", "Énergie"].map((w) => (

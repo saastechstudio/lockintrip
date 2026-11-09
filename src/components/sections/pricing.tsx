@@ -18,7 +18,7 @@ export function Pricing({ remaining }: { remaining: number }) {
         />
 
         <Reveal delay={0.1} className="mt-10 flex justify-center">
-          <p className="flex items-center gap-2.5 rounded-[10px] border border-ink/10 bg-ivory px-4 py-2 text-sm text-ink">
+          <p className="flex items-center gap-2.5 rounded-[10px] glass-red px-4 py-2 text-sm text-ink">
             <span className="size-1.5 rounded-full bg-bordeaux" />
             <strong className="font-medium tabular-nums text-accent">{remaining} places</strong> disponibles au prix fondateur
           </p>

@@ -33,7 +33,7 @@ export function Header() {
           "mx-auto flex h-16 max-w-[84rem] items-center justify-between rounded-[18px] px-4 transition-[background-color,border-color] duration-200 md:px-6",
           light
             ? "bg-transparent"
-            : "border border-ink/10 bg-ivory",
+            : "glass-red",
         )}
       >
         <Logo tone={light ? "ivory" : "ink"} />
@@ -89,7 +89,7 @@ export function Header() {
                   </Dialog.Overlay>
                   <Dialog.Content asChild forceMount>
                     <motion.div
-                      className="fixed inset-x-3 top-3 z-50 rounded-[16px] bg-ivory p-6 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+                      className="fixed inset-x-3 top-3 z-50 rounded-[16px] glass-red p-6"
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
